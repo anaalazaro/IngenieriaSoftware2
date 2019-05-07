@@ -13,21 +13,15 @@
     <!--COMIENZO box de login con codigo-->
     <div class="">
       <div class="uk-position-center my-form-box">
-          <form class="uk-form uk-padding-small"> <!--comienzo de formulario-->
+          <form action="validarCodigo.php" method="get" class="uk-form uk-padding-small"> <!--comienzo de formulario-->
             <div class="">
               <p class="uk-text-lead">Ingrese su codigo de acceso</p>
             </div>
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="text" class="uk-input uk-form-large"> <!-- campo del formulario-->
+              <input type="text" name="codigo" class="uk-input uk-form-large"> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
-              <button class="uk-width-1-1 uk-button uk-button-default" onclick="validarCodigo()">ingresar</button> <!--boton de ingresar-->
-              <?php
-                private function validarCodigo()
-                {
-                  echo "hola mundo";
-                }
-              ?>
+              <input type="submit" class="uk-width-1-1 uk-button uk-button-default"></button>
             </div>
           </form> <!--fin de formulario-->
       </div>
