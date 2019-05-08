@@ -11,7 +11,7 @@
   <body class="uk-height-viewport my-background-color">
 
     <div class="uk-position-center my-form-box">
-        <form class="uk-form uk-padding-small">
+        <form action="utils/agregarResidencia.php" class="uk-form uk-padding-small">
           <div class="">
             <p class="uk-text-lead">Agregando nueva residencia</p>
           </div>
@@ -26,7 +26,7 @@
             <input type="text" class="uk-input" placeholder="Breve Descripcion" required>
           </div>
           <div class="uk-width-1-1 uk-padding-small">
-            <button class="uk-width-1-1 uk-button uk-button-primary">agregar residencia</button>
+            <input type="submit" value="agregar residencia" class="uk-width-1-1 uk-button uk-button-primary"></input>
           </div>
         </form>
     </div>

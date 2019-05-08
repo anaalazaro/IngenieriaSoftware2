@@ -21,7 +21,7 @@
               <input type="text" name="codigo" class="uk-input uk-form-large"> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="submit" value="ingresar" class="uk-width-1-1 uk-button uk-button-default"></button>
+              <input type="submit" value="ingresar" class="uk-width-1-1 uk-button uk-button-default"></input>
             </div>
           </form> <!--fin de formulario-->
       </div>
