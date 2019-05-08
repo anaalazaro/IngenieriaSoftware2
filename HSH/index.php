@@ -18,7 +18,7 @@
               <p class="uk-text-lead">Ingrese su codigo de acceso</p>
             </div>
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="text" name="codigo" class="uk-input uk-form-large"> <!-- campo del formulario-->
+              <input type="text" name="codigo" class="uk-input uk-form-large" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
               <input type="submit" value="ingresar" class="uk-width-1-1 uk-button uk-button-default"></input>
