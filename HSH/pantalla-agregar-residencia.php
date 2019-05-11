@@ -20,13 +20,19 @@
             <button class="uk-width-1-1 uk-button uk-button-default" type="button" tabindex="-1">Seleccionar Fotos</button>
           </div>
           <div class="uk-width-1-1 uk-padding-small">
-            <input name="nombre" type="text" class="uk-input" placeholder="Nombre de la Residencia" required>
+            <input id="nombre" name="nombre" type="text" class="uk-input" placeholder="Nombre de la Residencia" required>
+          </div>
+          <div class="uk-width-1-1 uk-padding-small">
+            <input type="text" name="ubicacion" class="uk-input" placeholder="Ubicacion" required>
           </div>
           <div class="uk-width-1-1 uk-padding-small">
             <input name="descripcion" type="text" class="uk-input" placeholder="Breve Descripcion" required>
           </div>
           <div class="uk-width-1-1 uk-padding-small">
             <input type="submit" value="agregar residencia" class="uk-width-1-1 uk-button uk-button-primary"></input>
+          </div>
+          <div class="uk-width-1-1 uk-padding-small">
+            <input type="submit" value="cancelar" class="uk-width-1-1 uk-button uk-button-primary" > 
           </div>
         </form>
     </div>
