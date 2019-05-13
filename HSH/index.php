@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="css/personal.css" />
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
+    <h1 align="center"> Bienvenidos </h1>
+    <center>
+
+    <img src="hsh-logo.png"width="250" height="250" >
+  </center>
   </head>
   <body class="uk-height-viewport my-background-color">
 
