@@ -9,9 +9,12 @@
     <title>Modificar Residencia</title>
   </head>
   <body class="uk-height-viewport my-background-color">
-
     <div class="uk-position-center my-form-box">
+
+      <h3 class="uk-padding">Modificar residencia</h3>
+
       <form action="utils/buscarPorId.php" method="post">
+
         <div class="uk-width-1-1 uk-padding-small">
           <input id="id-residencia"  name="id-residencia" type="text" class="uk-input" placeholder="ID de la Residencia" required>
         </div>
