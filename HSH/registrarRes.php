@@ -20,11 +20,11 @@ if((isset($nombre)) && !empty($nombre) &&  (isset($descripcion)) && !empty($desc
 		$contenido=addcslashes($contenido);
 		fclose($archivo);
 
-		$insertar= "INSERT INTO residencia(Nombre,Ubicacion,Descripcion,imagen, tipoimagen) VALUES ($nombre','$descripcion', '$ubicacion','$contenido','$tipo')";
-	
+		$insertar= "INSERT INTO residencia(Nombre,Ubicacion,Descripcion,imagen, tipoimagen) VALUES ('$nombre','$descripcion', '$ubicacion','$contenido','$tipo')";
+
 		//Ejecutar consulta
 		$resultado= mysqli_query($conexion,$insertar);
-	
+
 	} else {
 		echo "Elarchivo no es imagen";
 		}
@@ -40,8 +40,8 @@ if((isset($nombre)) && !empty($nombre) &&  (isset($descripcion)) && !empty($desc
 }*/
 if(!$resultado){
 		echo 'Error ';
-	}else{			
-		echo 'bien echo';}
+	}else{
+		echo 'bien hecho';}
 
 
 mysqli_close($conexion);
