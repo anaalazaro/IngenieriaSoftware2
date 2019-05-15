@@ -32,8 +32,16 @@
           </div>
 
           <!--agregar ubicacion-->
-          <div class="uk-width-1-1 uk-padding-small">
-            <input id="ubicacion"type="text" name="ubicacion" class="uk-input" placeholder="Ubicacion" >
+          <div class="uk-child-width-expand@s uk-padding-small" uk-grid>
+            <div class="uk-width-1-3">
+              <input id="direccion" type="text" name="direccion" class="uk-input" placeholder="Direccion" >
+            </div>
+            <div class="uk-width-1-3">
+              <input id="provincia" type="text" name="provincia" class="uk-input" placeholder="Provincia" >
+            </div>
+            <div class="uk-width-1-3">
+              <input id="pais" type="text" name="pais" class="uk-input" placeholder="Pais" >
+            </div>
           </div>
 
           <!--agregar descripcion-->
@@ -49,9 +57,9 @@
           <!--boton de CANCELAR-->
           <div class="uk-width-1-1 uk-padding-small">
               <a class="uk-width-1-1 uk-button uk-button-primary" href="home.php">Cancelar</a>
-            
+
           </div>
-         
+
         </form>
     </div>
 
