@@ -32,7 +32,7 @@
         ?>
 
         <div class="uk-width-1-1 uk-padding-small">
-          <input  type="submit" value="buscar" class="uk-width-1-1 uk-button uk-button-primary"></input>
+          <input  name="buscar-para-modificar" type="submit" value="buscar" class="uk-width-1-1 uk-button uk-button-primary"></input>
         </div>
       </form>
     </div>

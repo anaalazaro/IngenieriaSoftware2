@@ -1,13 +1,8 @@
 <?php
-if (htmlspecialchars($_POST['id-residencia'])=="1234"){  //validar con la BD
-
-  //codigo si se encontro la residencia
-
-  header('Location: ../pantalla-eliminar-residencia.php?found=true');
-}else {
-
-  //codigo si no se encontro la residencia
-
-  header('Location: ../pantalla-eliminar-residencia.php?found=false');
+if (isset($_POST['eliminar-definitivamente'])) {
+  // codigo para eliminar definitivamente de la BD
+}elseif (isset($_POST['cancelar-eliminacion'])) {
+  // codigo para volver atras
+  header('Location: ../pantalla-eliminar-residencia.php');
 }
 ?>
