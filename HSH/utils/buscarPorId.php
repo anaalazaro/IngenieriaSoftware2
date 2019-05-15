@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['buscar-para-modificar'])) {
-  // codigo si se presiono buscar
+  // codigo si se presiono buscar desde modificar-residencia
   if (htmlspecialchars($_POST['id-residencia'])=="1234"){  //validar con la BD
     //codigo si se encontro la residencia
     header('Location: ../pantalla-modificar-residencia.php?found=true');
