@@ -44,8 +44,7 @@
         } elseif (isset($_GET["modificacion-confirmada"])) {
           //html para campos de modificacion de residencia
           echo '<form action="utils/guardarModificacionResidencia.php" method="post">
-            <h3 class="uk-padding">Modificando residencia</h3>
-
+            <h3 class="uk-padding-small">Modificando residencia</h3>
             <div class="uk-width-1-1 uk-padding-small">
               <label for="foto">
                 Imagenes:
