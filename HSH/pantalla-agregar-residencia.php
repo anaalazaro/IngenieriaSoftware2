@@ -25,9 +25,19 @@
           <div class="uk-width-1-1 uk-padding-small">
             <input id="nombre"  name="nombre" type="text" class="uk-input" placeholder="Nombre de la Residencia" >
           </div>
-          <div class="uk-width-1-1 uk-padding-small">
-            <input id="ubicacion"type="text" name="ubicacion" class="uk-input" placeholder="Ubicacion" >
+
+          <div class="uk-child-width-expand@s uk-padding-small" uk-grid>
+            <div class="uk-width-1-3 uk-padding-small">
+              <input id="ubicacion"type="text" name="direccion" class="uk-input" placeholder="Direccion" >
+            </div>
+            <div class="uk-width-1-3 uk-padding-small">
+              <input id="ubicacion"type="text" name="provincia" class="uk-input" placeholder="Provincia" >
+            </div>
+            <div class="uk-width-1-3 uk-padding-small">
+              <input id="ubicacion"type="text" name="pais" class="uk-input" placeholder="Pais" >
+            </div>
           </div>
+
           <div class="uk-width-1-1 uk-padding-small">
             <input id="descripcion" name="descripcion" type="text" class="uk-input" placeholder="Breve Descripcion"  >
           </div>
