@@ -11,7 +11,7 @@
   <body class="uk-height-viewport my-background-color">
 
     <div class="uk-position-center my-form-box">
-        <form action="registarRes.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small" >
+        <form action="registarRes.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small uk-padding-remove-bottom" >
           <div class="">
             <p class="uk-text-lead">Agregando nueva residencia</p>
           </div>
@@ -34,10 +34,14 @@
           <div class="uk-width-1-1 uk-padding-small">
             <input  type="submit" value="agregar residencia" class="uk-width-1-1 uk-button uk-button-primary"></input>
           </div>
+        </form>
+
+        <form action="utils/volverAlHome.php" method="post" class="uk-form uk-padding-small uk-padding-remove-top">
           <div class="uk-width-1-1 uk-padding-small">
-            <input type="submit" value="cancelar" class="uk-width-1-1 uk-button uk-button-primary" > 
+            <input type="submit" value="cancelar" class="uk-width-1-1 uk-button uk-button-primary" >
           </div>
         </form>
+
     </div>
   <script type="text/javascript" src="validar_agregar.js"></script>
 
