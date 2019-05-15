@@ -27,13 +27,13 @@
           </div>
 
           <div class="uk-child-width-expand@s uk-padding-small" uk-grid>
-            <div class="uk-width-1-3 uk-padding-small">
+            <div class="uk-width-1-3">
               <input id="ubicacion"type="text" name="direccion" class="uk-input" placeholder="Direccion" >
             </div>
-            <div class="uk-width-1-3 uk-padding-small">
+            <div class="uk-width-1-3">
               <input id="ubicacion"type="text" name="provincia" class="uk-input" placeholder="Provincia" >
             </div>
-            <div class="uk-width-1-3 uk-padding-small">
+            <div class="uk-width-1-3">
               <input id="ubicacion"type="text" name="pais" class="uk-input" placeholder="Pais" >
             </div>
           </div>
