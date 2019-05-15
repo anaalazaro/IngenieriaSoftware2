@@ -21,32 +21,32 @@
           <div class="uk-width-1-1 uk-padding-small">
             <label for="foto">
               Imagenes:
-            <input id="foto" name="foto" type="file" size="20" accept="image/*" class="uk-input" >
+            <input id="foto" name="foto" type="file" size="20" accept="image/*" class="uk-input" required>
           <!--<button  class="uk-width-1-1 uk-button uk-button-default" type="button" tabindex="-1">Seleccionar Fotos</button>-->
             </label>
           </div>
 
           <!--agregar nombre-->
           <div class="uk-width-1-1 uk-padding-small">
-            <input id="nombre"  name="nombre" type="text" class="uk-input" placeholder="Nombre de la Residencia" >
+            <input id="nombre"  name="nombre" type="text" class="uk-input" placeholder="Nombre de la Residencia"  required>
           </div>
 
           <!--agregar ubicacion-->
           <div class="uk-child-width-expand@s uk-padding-small" uk-grid>
             <div class="uk-width-1-3">
-              <input id="direccion" type="text" name="direccion" class="uk-input" placeholder="Direccion" >
+              <input id="direccion" type="text" name="direccion" class="uk-input" placeholder="Direccion"  required>
             </div>
             <div class="uk-width-1-3">
-              <input id="provincia" type="text" name="provincia" class="uk-input" placeholder="Provincia" >
+              <input id="provincia" type="text" name="provincia" class="uk-input" placeholder="Provincia"  required>
             </div>
             <div class="uk-width-1-3">
-              <input id="pais" type="text" name="pais" class="uk-input" placeholder="Pais" >
+              <input id="pais" type="text" name="pais" class="uk-input" placeholder="Pais"  required>
             </div>
           </div>
 
           <!--agregar descripcion-->
           <div class="uk-width-1-1 uk-padding-small">
-            <input id="descripcion" name="descripcion" type="text" class="uk-input" placeholder="Breve Descripcion"  >
+            <input id="descripcion" name="descripcion" type="text" class="uk-input" placeholder="Breve Descripcion"   required>
           </div>
 
           <!--boton de AGREGAR-->
