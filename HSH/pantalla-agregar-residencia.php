@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <title>Agregar Residencia</title>
@@ -7,14 +7,17 @@
   <link rel="stylesheet" type="text/css" href="css/personal.css" />
   <script src="js/uikit.min.js"></script>
   <script src="js/uikit-icons.min.js"></script>
+  <script type="text/javascript" src="js/validar_agregar.js"></script>
 </head>
   <body class="uk-height-viewport my-background-color">
 
     <div class="uk-position-center my-form-box">
-        <form action="registarRes.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small uk-padding-remove-bottom" >
+        <form action="registrarRes.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small" >
           <div class="">
             <p class="uk-text-lead">Agregando nueva residencia</p>
           </div>
+
+          <!--Agregar una foto -->
           <div class="uk-width-1-1 uk-padding-small">
             <label for="foto">
               Imagenes:
@@ -22,38 +25,36 @@
           <!--<button  class="uk-width-1-1 uk-button uk-button-default" type="button" tabindex="-1">Seleccionar Fotos</button>-->
             </label>
           </div>
+
+          <!--agregar nombre-->
           <div class="uk-width-1-1 uk-padding-small">
             <input id="nombre"  name="nombre" type="text" class="uk-input" placeholder="Nombre de la Residencia" >
           </div>
 
-          <div class="uk-child-width-expand@s uk-padding-small" uk-grid>
-            <div class="uk-width-1-3">
-              <input id="ubicacion"type="text" name="direccion" class="uk-input" placeholder="Direccion" >
-            </div>
-            <div class="uk-width-1-3">
-              <input id="ubicacion"type="text" name="provincia" class="uk-input" placeholder="Provincia" >
-            </div>
-            <div class="uk-width-1-3">
-              <input id="ubicacion"type="text" name="pais" class="uk-input" placeholder="Pais" >
-            </div>
+          <!--agregar ubicacion-->
+          <div class="uk-width-1-1 uk-padding-small">
+            <input id="ubicacion"type="text" name="ubicacion" class="uk-input" placeholder="Ubicacion" >
           </div>
 
+          <!--agregar descripcion-->
           <div class="uk-width-1-1 uk-padding-small">
             <input id="descripcion" name="descripcion" type="text" class="uk-input" placeholder="Breve Descripcion"  >
           </div>
-          <div class="uk-width-1-1 uk-padding-small">
-            <input  type="submit" value="agregar residencia" class="uk-width-1-1 uk-button uk-button-primary"></input>
-          </div>
-        </form>
 
-        <form action="utils/volverAlHome.php" method="post" class="uk-form uk-padding-small uk-padding-remove-top">
+          <!--boton de AGREGAR-->
           <div class="uk-width-1-1 uk-padding-small">
-            <input type="submit" value="cancelar" class="uk-width-1-1 uk-button uk-button-primary" >
+            <input  type="submit" value="agregar residencia" class="uk-width-1-1 uk-button uk-button-primary" onclick="ValidarConfiguracion();"></input>
           </div>
-        </form>
 
+          <!--boton de CANCELAR-->
+          <div class="uk-width-1-1 uk-padding-small">
+              <a class="uk-width-1-1 uk-button uk-button-primary" href="home.php">Cancelar</a>
+            
+          </div>
+         
+        </form>
     </div>
-  <script type="text/javascript" src="validar_agregar.js"></script>
+
 
   </body>
 </html>

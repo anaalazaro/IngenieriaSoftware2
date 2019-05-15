@@ -7,6 +7,16 @@
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
     <title>Listar Residenciaa</title>
+    <?php
+    include('conexion.php');
+    $conexion=conectar();
+    $consulta= "SELECT * FROM residencia WHERE Nombre='$nombre'";
+    $resul=mysqli_query($conexion,$consulta);
+    $row = mysqli_fetch_array($result)
+
+
+
+    ?>
   </head>
   <body class="uk-height-viewport my-background-color">
     
