@@ -28,7 +28,7 @@
             <?php
               if(isset($_GET["fallo"]) && $_GET["fallo"] == "true")
               {
-                echo "<div style='color:red'>Usuario o contraseña invalido </div>";
+                echo "<div style='color:red'>Codigo invalido </div>";
               }
             ?>
             <div class="uk-width-1-1 uk-padding-small">

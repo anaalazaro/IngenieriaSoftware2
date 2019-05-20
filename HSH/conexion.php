@@ -7,7 +7,7 @@ function conectar(){
 	return $conexion;
 
 }
-/*print_r($resultado->fetch_assoc());die;*/
+/*print_r($resultado->fetch_assoc());die; me imprime la consulta sql*/
 
 /*$con=conectar();
 if(!$con){
