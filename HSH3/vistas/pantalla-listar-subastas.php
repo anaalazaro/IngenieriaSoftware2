@@ -4,18 +4,18 @@
     <meta charset="utf-8">
     <title>Listar Subastas</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/uikit.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/personal.css" />
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/personal.css" />
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
 
   </head>
   <body class="uk-height-viewport my-background-color">
     <?php
-    include('conexion.php');
+    include('../modelos/conexion.php');
 
     $conexion=conectar();
-    $consulta= "SELECT * FROM residencia ";
+    $consulta= "SELECT * FROM subasta ";
     $result=mysqli_query($conexion,$consulta);
 
     mysqli_close($conexion);?>
@@ -23,23 +23,21 @@
     <table class="table table-striped uk-table uk-table-divider uk-align-center">
       <thead>
         <tr>
-         <th>Imagen</th>
-          <th>Nombre</th>
-          <th>Pais</th>
-          <th>Provincia</th>
-          <th>Direccion</th>
-          <th>Descripcion</th>
+          <th>ID</th>
+          <th>Residencia</th>
+          <th>Desde</th>
+          <th>Hasta</th>
+          <th>Precio</th>
         </tr>
       </thead>
       <tbody>
         <?php while ($row = mysqli_fetch_array($result)){?>
         <tr>
-          <td></td>
-          <td><?php echo $row['nombre']; ?></td>
-          <td><?php echo $row['pais']; ?></td>
-          <td><?php echo $row['provincia']; ?></td>
-          <td><?php echo $row['ciudad']; ?></td>
-          <td><?php echo $row['descripcion']; ?></td>
+          <td><?php echo $row['id_subasta']; ?></td>
+          <td><?php echo $row['NombreR']; ?></td>
+          <td><?php echo $row['fecha_inicio']; ?></td>
+          <td><?php echo $row['fecha_fin']; ?></td>
+          <td><?php echo '$',$row['precio']; ?></td>
         <?php } ?>
         </tr>
       </tbody>
