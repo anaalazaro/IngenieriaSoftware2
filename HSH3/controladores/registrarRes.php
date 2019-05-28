@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../modelos/conexion.php');
 $conexion=conectar();
 $nombre= $_POST['nombre'];
 $descripcion=$_POST['descripcion'];
@@ -32,20 +32,20 @@ if((isset($nombre)) && !empty($nombre) &&  (isset($descripcion)) && !empty($desc
 		$archivo= fopen($imagen, "r");
 		$contenido=fread($archivo, $size_imagen);//archivo en bytes
 		$contenido=addslashes($contenido);
-		$destino="files/".$nombre_imagen;
+		$destino="../files/".$nombre_imagen;
 		$copiar= copy( $imagen, $destino);
 		//$mover=move_uploaded_file($imagen, $. $nombre_imagen);
 		fclose($archivo);
 	}
-	if (!preg_match($exp_String,$nombre)) { 
-		echo '<script>window.location="pantalla-agregar-residencia.php";</script>';
+	if (!preg_match($exp_String,$nombre)) {
+		echo '<script>window.location="../vistas/pantalla-agregar-residencia.php";</script>';
 	}
 	if (strlen($nombre) > "35") {
-		echo '<script>window.location="pantalla-agregar-residencia.php";</script>';
+		echo '<script>window.location="../vistas/pantalla-agregar-residencia.php";</script>';
 		}
 
 
-		
+
 		/*verifica que no exista el mismo nombre en la bd*/
 		$verificar=existe($nombre,$conexion);
 		if($verificar==0){
@@ -55,20 +55,20 @@ if((isset($nombre)) && !empty($nombre) &&  (isset($descripcion)) && !empty($desc
 			$resultado= mysqli_query($conexion,$insertar);
 			echo "<script language='javascript'>
 				alert('Se registro residencia correctamente!..');
-				location.href= 'pantalla-agregar-residencia.php' ;
+				location.href= '../vistas/pantalla-agregar-residencia.php' ;
 				</script>";
 		}else{/* $_SESSION['mensaje']="Usted ya esta registrado";
 			 header("Location:pantalla-agregar-residencia.php")*/
 			 echo "<script language='javascript'>
 				alert('La residencia ya existe!..');
-				location.href= 'pantalla-agregar-residencia.php' ;
+				location.href= '../vistas/pantalla-agregar-residencia.php' ;
 				</script>";}
 
 
 }
 else{
-	echo '<script>window.location="pantalla-agregar-residencia.php";</script>';}
-	
+	echo '<script>window.location="../vistas/pantalla-agregar-residencia.php";</script>';}
+
 
 
 /*if (mysqli_affected_rows($conexion)>0) {

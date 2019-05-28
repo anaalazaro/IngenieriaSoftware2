@@ -3,10 +3,10 @@
   <head>
     <title>Home</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/uikit.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/personal.css" />
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/personal.css" />
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
   </head>
   <body class="uk-height-viewport my-background-color">
     <nav class="uk-navbar-container" uk-navbar>
@@ -26,7 +26,7 @@
     </nav>
 
     <div class="uk-align-center uk-position-center">
-      <img src="files/hsh-logo.png"width="550" height="550" >
+      <img src="../files/hsh-logo.png"width="550" height="550" >
     </div>
 
   </body>

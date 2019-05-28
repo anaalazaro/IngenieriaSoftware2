@@ -3,10 +3,10 @@
   <head>
     <title>Inicio con codigo</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/uikit.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/personal.css" />
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/personal.css" />
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
 
   </head>
   <body class="uk-height-viewport my-background-color">
@@ -16,9 +16,9 @@
       <div class="uk-position-center my-form-box">
         <h1 align="center"> Bienvenidos </h1>
         <center>
-          <img src="files/hsh-logo.png"width="250" height="250" >
+          <img src="../files/hsh-logo.png"width="250" height="250" >
         </center>
-          <form action="utils/validarCodigo.php" method="get" class="uk-form uk-padding-small"> <!--comienzo de formulario-->
+          <form action="../controladores/validarCodigo.php" method="get" class="uk-form uk-padding-small"> <!--comienzo de formulario-->
             <!--<div class="">
               <p class="uk-text-lead">Ingrese su codigo de acceso</p>
             </div>-->
