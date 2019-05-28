@@ -14,8 +14,8 @@
 
         <ul class="uk-navbar-nav">
             <li><a href="pantalla-agregar-residencia.php">alta de residencia</a></li>
-            <li><a href="modificarResidencia.php">modificacion de residencia</a></li>
-            <li><a href="eliminarResidencia.php">baja de residencia</a></li>
+            <li><a href="pantalla-modificar-residencia.php">modificacion de residencia</a></li>
+            <li><a href="pantalla-eliminar-residencia.php">baja de residencia</a></li>
             <li><a href="pantalla-crear-subasta.php">crear subasta</a></li>
             <li><a href="pantalla-cerrar-subasta.php">cerrar subasta</a></li>
             <li><a href="listarResidencia.php">listar residencias</a></li>

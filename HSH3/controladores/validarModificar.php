@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../modelos/conexion.php');
 $conexion= conectar();
 $nombre= $_POST['nombre'];
 $descripcion=$_POST['descripcion'];
@@ -28,9 +28,9 @@ $imagen=$_FILES['foto']['tmp_name'];
 		$consulta="UPDATE residencia SET imagen='$contenido',tipoimagen='$tipo' WHERE nombre='$nombre'";
 		$resultado=mysqli_query($conexion,$consulta);
 		}
-		$consulta="UPDATE residencia SET pais='$pais',provincia='$provincia',ciudad='$ciudad',descripcion='$descripcion' 
+		$consulta="UPDATE residencia SET pais='$pais',provincia='$provincia',ciudad='$ciudad',descripcion='$descripcion'
 		WHERE nombre='$nombre'";
-			
+
 		$resultado=mysqli_query($conexion,$consulta);
 
 		if($resultado){
@@ -44,7 +44,7 @@ $imagen=$_FILES['foto']['tmp_name'];
 				location.href= 'modificarResidencia.php' ;
 				</script>";
 		}
-		
+
 
 
 
