@@ -2,26 +2,25 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/uikit.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/personal.css" />
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
     <title>Listar Residenciaa</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/personal.css" />
+    <script src="../js/uikit.min.js"></script>
+    <script src="../js/uikit-icons.min.js"></script>
+
+  </head>
+  <body class="uk-height-viewport my-background-color">
     <?php
-    include('conexion.php');
+    include('../modelos/conexion.php');
 
     $conexion=conectar();
     $consulta= "SELECT * FROM residencia ";
     $result=mysqli_query($conexion,$consulta);
-    $row = mysqli_fetch_array($result);
-    mysqli_close($conexion);
 
-
-
-    ?>
-  </head>
-  <body >
-    <table class="table table-striped">
+    mysqli_close($conexion);?>
+    <div class="uk-position-center my-form-box">
+    <table class="table table-striped uk-table uk-table-divider uk-align-center">
       <thead>
         <tr>
          <th>Imagen</th>
@@ -30,15 +29,24 @@
           <th>Provincia</th>
           <th>Direccion</th>
           <th>Descripcion</th>
-         
         </tr>
       </thead>
       <tbody>
-
-        <td><img src="data:image/jpg;base64"/>?php echo $row['imagen']; ?></td>
-        <td><?php echo $row['nombre']; ?></td>
+        <?php while ($row = mysqli_fetch_array($result)){?>
+        <tr>
+          <td></td>
+          <td><?php echo $row['nombre']; ?></td>
+          <td><?php echo $row['pais']; ?></td>
+          <td><?php echo $row['provincia']; ?></td>
+          <td><?php echo $row['ciudad']; ?></td>
+          <td><?php echo $row['descripcion']; ?></td>
+        <?php } ?>
+        </tr>
       </tbody>
     </table>
-    
+      <div class="uk-padding-small">
+        <a href="home.php" class="uk-button uk-button-primary">Volver</a>
+      </div>
+    </div>
   </body>
 </html>

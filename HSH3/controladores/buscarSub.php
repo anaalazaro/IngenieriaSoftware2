@@ -5,7 +5,7 @@
 
 
 ?><?php
-include("conexion.php");
+include("../modelos/conexion.php");
 $conexion=conectar();
 $id= $_POST['id'];
 
@@ -29,25 +29,25 @@ else{
 	$enviar= mysqli_query($conexion,$buscar);
 	$rows=mysqli_num_rows($enviar);
 	if($rows==0){
-			header('location:pantalla-cerrar-subasta.php?fallo=true');
-			
+			header('location:../vistas/pantalla-cerrar-subasta.php?fallo=true');
+
 	}else{
-		
+
 		/*verifica que no este terminada la subasta con ese id*/
 		$verificar=existe($id,$conexion);
 		if($verificar==1){
-			$insertar= "update subasta SET fecha_fin=current_date where id_subasta='$id'"; 
+			$insertar= "update subasta SET fecha_fin=current_date where id_subasta='$id'";
 
 			//Ejecutar consulta
 			$resultado= mysqli_query($conexion,$insertar);
 			echo "<script language='javascript'>
 				alert('Se cerro la subasta correctamente!..');
-				location.href= 'home.php' ;
+				location.href= '../vistas/home.php' ;
 				</script>";
 		}else{
 			 echo "<script language='javascript'>
 				alert('Ya esta cerrada la subasta, consulte subastas disponibles..');
-				location.href= 'pantalla-cerrar-subasta.php' ;
+				location.href= '../vistas/pantalla-cerrar-subasta.php' ;
 				</script>";}
 
 
@@ -64,6 +64,6 @@ else{
 mysqli_close($conexion);
 
 
-		
+
 }
 ?>

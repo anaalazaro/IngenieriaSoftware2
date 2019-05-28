@@ -18,7 +18,7 @@
             <li><a href="pantalla-eliminar-residencia.php">baja de residencia</a></li>
             <li><a href="pantalla-crear-subasta.php">crear subasta</a></li>
             <li><a href="pantalla-cerrar-subasta.php">cerrar subasta</a></li>
-            <li><a href="listarResidencia.php">listar residencias</a></li>
+            <li><a href="pantalla-listar-residencias.php">listar residencias</a></li>
             <li><a href="pantalla-listar-subastas.php">Listar subastas</a></li>
         </ul>
 
