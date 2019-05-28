@@ -3,16 +3,16 @@
 <head>
   <title>Agregar Residencia</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/uikit.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/personal.css" />
-  <script src="js/uikit.min.js"></script>
-  <script src="js/uikit-icons.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/personal.css" />
+  <script src="../js/uikit.min.js"></script>
+  <script src="../js/uikit-icons.min.js"></script>
   <script type="text/javascript" src="validar_agregar.js"></script>
 </head>
   <body class="uk-height-viewport my-background-color">
 
     <div class="uk-position-center my-form-box">
-        <form action="registrarRes.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small" >
+        <form action="../controladores/registrarRes.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small" >
           <div class="">
             <p class="uk-text-lead">Agregando nueva residencia</p>
           </div>
@@ -22,7 +22,7 @@
             <label for="foto">
               Imagen:</label>
             <input id="foto" name="foto" type="file" size="20" accept="image/*" class="uk-input" >
-            
+
           </div>
           <!--agregar nombre-->
           <div class="uk-width-1-1 uk-padding-small">
@@ -59,8 +59,8 @@
               <label>Direccion:</label>
               <input id="direccion" type="text" name="direccion" class="uk-input" placeholder="Direccion"  >
             </div>
- 
- 
+
+
           </div>
 
           <!--agregar descripcion-->
