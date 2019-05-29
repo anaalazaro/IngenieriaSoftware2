@@ -1,6 +1,7 @@
   <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  
   <title>Agregar Residencia</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
