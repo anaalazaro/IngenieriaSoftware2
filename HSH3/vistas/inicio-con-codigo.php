@@ -13,8 +13,10 @@
 
     <!--COMIENZO box de login con codigo-->
     <div class="">
-      <div class="uk-position-center my-form-box">
-        <h1 align="center"> Bienvenidos </h1>
+      <div class="uk-position-center my-form-box uk-padding">
+        <div class="uk-width-1-1">
+          <h1 align="center">Inicio de sesion Administradores</h1>
+        </div>
         <center>
           <img src="../files/hsh-logo.png"width="250" height="250" >
         </center>

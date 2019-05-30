@@ -1,7 +1,7 @@
   <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  
+
   <title>Agregar Residencia</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
@@ -77,7 +77,7 @@
 
           <!--boton de CANCELAR-->
           <div class="uk-width-1-1 uk-padding-small">
-              <a class="uk-width-1-1 uk-button uk-button-primary" href="home.php">Cancelar</a>
+              <a class="uk-width-1-1 uk-button uk-button-primary" href="home-admin.php">Cancelar</a>
 
           </div>
 

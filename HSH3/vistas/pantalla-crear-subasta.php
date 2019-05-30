@@ -41,7 +41,7 @@
               </div>
 
 			  <div class="uk-width-1-1 uk-padding-small">
-              <a class="uk-width-1-1 uk-button uk-button-primary" href="home.php">Cancelar</a>
+              <a class="uk-width-1-1 uk-button uk-button-primary" href="home-admin.php">Cancelar</a>
 
           </div>
             </form>

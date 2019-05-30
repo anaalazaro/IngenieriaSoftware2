@@ -43,7 +43,7 @@
       </tbody>
     </table>
       <div class="uk-padding-small">
-        <a href="home.php" class="uk-button uk-button-primary">Volver</a>
+        <a href="home-admin.php" class="uk-button uk-button-primary">Volver</a>
       </div>
     </div>
   </body>
