@@ -9,7 +9,7 @@
     <script src="../js/uikit-icons.min.js"></script>
   </head>
   <body class="uk-height-viewport my-background-color">
-    <nav class="uk-navbar-container" uk-navbar>
+    <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
       <div class="uk-navbar-center">
 
         <ul class="uk-navbar-nav">
