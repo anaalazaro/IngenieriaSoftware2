@@ -1,5 +1,5 @@
 <?php
-include("../modelos/funciones")
+include("../modelos/funciones.php");
 include('../modelos/conexion.php');
 $conexion=conectar();
 $nombre= $_POST['nombre'];
@@ -12,6 +12,7 @@ $tip_imagen=$_FILES['foto']['type'];
 $size_imagen=$_FILES['foto']['size'];
 $imagen=$_FILES['foto']['tmp_name'];
 
+/*
 function existe($nombre,$conexion){
 	$existe= "SELECT * FROM residencia WHERE nombre='$nombre'";
 	$resultado1= mysqli_query($conexion,$existe);
@@ -21,7 +22,7 @@ function existe($nombre,$conexion){
 		return 1;
 	}
 }
-
+*/
 
 
 if((isset($nombre)) && !empty($nombre) &&  (isset($descripcion)) && !empty($descripcion) && (isset($provincia)) && !empty($provincia) && (isset($ciudad)) && !empty($ciudad) && (isset($nombre_imagen)) && ($size_imagen>0) ){
@@ -54,6 +55,9 @@ if((isset($nombre)) && !empty($nombre) &&  (isset($descripcion)) && !empty($desc
 
 			//Ejecutar consulta
 			$resultado= mysqli_query($conexion,$insertar);
+
+			//guardarFoto($conexion, 1, $contenido, $tipo);
+
 			echo "<script language='javascript'>
 				alert('Se registro residencia correctamente!..');
 				location.href= '../vistas/pantalla-agregar-residencia.php' ;
@@ -71,13 +75,6 @@ else{
 	echo '<script>window.location="../vistas/pantalla-agregar-residencia.php";</script>';}
 
 
-
-/*if (mysqli_affected_rows($conexion)>0) {
-	echo "se realizo registro";
-
-}else{
-	echo "no se realizo registro";
-}*/
 mysqli_close($conexion);
 
 
