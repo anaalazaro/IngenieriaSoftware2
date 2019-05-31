@@ -50,7 +50,7 @@ if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_im
 
 
 		/*verifica que no exista el mismo nombre en la bd*/
-		if(existe($nombre,$conexion)==0){
+		if(existe($conexion, $nombre)==0){
 			$insertar= "INSERT INTO residencia(nombre,pais,provincia,ciudad,descripcion,imagen, tipoimagen) VALUES ('$nombre','$pais','$provincia','$ciudad','$descripcion','$contenido','$tipo')";
 
 			//Ejecutar consulta

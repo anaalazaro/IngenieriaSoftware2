@@ -4,6 +4,12 @@ function guardarResidencia($conexion, $consulta){
 	return mysqli_query($conexion, $consulta);
 }
 
+function getResidencia($conexion, $nombre){
+	$consulta = "SELECT * FROM residencia WHERE nombre='$nombre'";
+	$ret = mysqli_fetch_array(mysqli_query($conexion, $nombre));
+	return $ret;
+}
+
 function existe($nombre,$conexion){
 	$existe= "SELECT * FROM residencia WHERE nombre='$nombre'";
 	$resultado1= mysqli_query($conexion,$existe);

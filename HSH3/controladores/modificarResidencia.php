@@ -1,23 +1,14 @@
 <?php
+include("../modelos/funciones-residencias.php");
 include('../modelos/conexion.php');
 $conexion=conectar();
 
-$elem= $_POST['nom_residencia'];
+$nombre= $_POST['nom_residencia'];
 /*if(empty($elem)){
 	echo "mal";
 	/*echo '<script>window.location="../eliminarResidencia.php";</script>';*/
-  function existe($elem,$conexion,$existe){
-  $enviar= mysqli_query($conexion,$existe);
-  if($row=mysqli_num_rows($enviar)==0){
-    return 0;
-  }else {
-    return 1;
-  }
-}
-		//print_r($enviar->fetch_assoc());die;
-		//$row=mysqli_fetch_assoc($enviar);
-	$existe= "SELECT * FROM residencia WHERE nombre='$elem'";
-	$verificar=existe($elem,$conexion,$existe);
+
+	$verificar=existe($nombre,$conexion);
     if($verificar==0){
 
        echo "<script language='javascript'>
@@ -25,7 +16,7 @@ $elem= $_POST['nom_residencia'];
         location.href= '../vistas/pantalla-modificar-residencia.php' ;
         </script>";}
     else{
-   $mostrar= mysqli_fetch_array(mysqli_query($conexion,$existe));}
+   $mostrar= getResidencia($conexion,$nombre);}
 
 
 
@@ -108,7 +99,7 @@ $elem= $_POST['nom_residencia'];
 
           <!--boton de CANCELAR-->
           <div class="uk-width-1-1 uk-padding-small">
-              <a class="uk-width-1-1 uk-button uk-button-primary" href="../vistas/home.php">Cancelar</a>
+              <a class="uk-width-1-1 uk-button uk-button-primary" href="../vistas/home-admin.php">Cancelar</a>
 
           </div>
 
