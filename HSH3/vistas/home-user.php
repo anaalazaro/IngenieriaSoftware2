@@ -22,5 +22,16 @@
       </div>
     </nav>
 
+    <?php
+    include("../modelos/conexion.php");
+    $conexion=conectar();
+    $consulta= "SELECT * FROM residencia";
+    ?>
+    <div class="uk-position-center my-form-box uk-padding">
+      <ul class="uk-thumbnav uk-thumbnav-vertical" uk-margin>
+        <li class="uk-active"><a href="#"><img src="" alt="img" width="100" alt=""></a></li>
+      </ul>
+    </div>
+
   </body>
 </html>
