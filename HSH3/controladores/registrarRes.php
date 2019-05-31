@@ -1,4 +1,5 @@
 <?php
+include("../modelos/funciones")
 include('../modelos/conexion.php');
 $conexion=conectar();
 $nombre= $_POST['nombre'];
