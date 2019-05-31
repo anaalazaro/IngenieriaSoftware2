@@ -32,9 +32,10 @@
         </tr>
       </thead>
       <tbody>
-        <?php while ($row = mysqli_fetch_array($result)){?>
+        <?php while ($row = mysqli_fetch_array($result)){
+        $contenido=$row["imagen"]?>
         <tr>
-          <td></td>
+          <td><img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="25%"/></td>
           <td><?php echo $row['nombre']; ?></td>
           <td><?php echo $row['pais']; ?></td>
           <td><?php echo $row['provincia']; ?></td>
