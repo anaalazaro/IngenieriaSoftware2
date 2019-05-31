@@ -1,5 +1,5 @@
 <?php
-include("../modelos/funciones.php");
+include("../modelos/funciones-residencias.php");
 include('../modelos/conexion.php');
 $conexion=conectar();
 $nombre= $_POST['nombre'];
@@ -25,7 +25,7 @@ function existe($nombre,$conexion){
 */
 
 
-if((isset($nombre)) && !empty($nombre) &&  (isset($descripcion)) && !empty($descripcion) && (isset($provincia)) && !empty($provincia) && (isset($ciudad)) && !empty($ciudad) && (isset($nombre_imagen)) && ($size_imagen>0) ){
+if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_imagen)){
 
 	$tipo= addslashes($tip_imagen);
 	$exp_String="/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/";
