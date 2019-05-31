@@ -2,15 +2,16 @@
 
 //EL SIGUIENTE CODIGO NO ANDA
 
-function guardarFoto($conexion, $id_residencia, $imagen, $tipo){
-  $insertar = "INSERT into foto (id_residencia, imagen, tipoimagen) VALUES ('$id_residencia, $imagen, $tipo')";
+function guardarFoto($conexion, $res_id, $files){
+  if (is_uploaded_file($files["foto"]["tmp_name"])) {
+    $info=getimagesize($_FILES["foto"]["tmp_name"]);
 
-  $resultado = mysqli_query($conexion, $insertar);
+    $tipo = $files["foto"]["type"];
+    $imagen = file_get_contents($files["foto"]["tmp_name"]);
 
-  if($resultado){
-    echo "Archivo Subido Correctamente.";
-  }else{
-    echo "Ha fallado la subida, reintente nuevamente.";
+    $consulta = "INSERT INTO foto(id_residencia, imagen, tipoimagen) VALUES ($res_id, $imagen, $tipo)";
+    $res = mysqli_query($conexion, $consulta);
+    return $res;
   }
 }
 ?>

@@ -1,4 +1,5 @@
 <?php
+include("../modelos/funciones-fotos.php");
 include("../modelos/funciones-residencias.php");
 include('../modelos/conexion.php');
 $conexion=conectar();
@@ -55,7 +56,11 @@ if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_im
 			//Ejecutar consulta
 			$resultado= mysqli_query($conexion,$insertar);
 
-			//guardarFoto($conexion, 1, $contenido, $tipo);
+			$resultado2 = guardarFoto($conexion, 1, $_FILES);
+
+			echo "$resultado";
+			echo "-------------";
+			echo "$resultado2";
 
 			echo "<script language='javascript'>
 				alert('Se registro residencia correctamente!..');
