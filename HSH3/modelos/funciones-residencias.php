@@ -1,5 +1,9 @@
 <?php
 
+function guardarResidencia($conexion, $consulta){
+	return mysqli_query($conexion, $consulta);
+}
+
 function existe($nombre,$conexion){
 	$existe= "SELECT * FROM residencia WHERE nombre='$nombre'";
 	$resultado1= mysqli_query($conexion,$existe);

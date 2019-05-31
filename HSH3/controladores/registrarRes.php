@@ -45,7 +45,7 @@ if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_im
 	}
 	if (strlen($nombre) > "35") {
 		echo '<script>window.location="../vistas/pantalla-agregar-residencia.php";</script>';
-		}
+	}
 
 
 
@@ -54,7 +54,7 @@ if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_im
 			$insertar= "INSERT INTO residencia(nombre,pais,provincia,ciudad,descripcion,imagen, tipoimagen) VALUES ('$nombre','$pais','$provincia','$ciudad','$descripcion','$contenido','$tipo')";
 
 			//Ejecutar consulta
-			$resultado= mysqli_query($conexion,$insertar);
+			$resultado = guardarResidencia($conexion,$insertar);
 
 			$resultado2 = guardarFoto($conexion, 1, $_FILES);
 
@@ -72,11 +72,9 @@ if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_im
 				alert('La residencia ya existe!..');
 				location.href= '../vistas/pantalla-agregar-residencia.php' ;
 				</script>";}
-
-
-}
-else{
-	echo '<script>window.location="../vistas/pantalla-agregar-residencia.php";</script>';}
+	}else{
+		echo '<script>window.location="../vistas/pantalla-agregar-residencia.php";</script>';
+	}
 
 
 mysqli_close($conexion);
