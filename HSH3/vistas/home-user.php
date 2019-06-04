@@ -25,8 +25,8 @@
     <!--CUERPO-->
     <div class="uk-text-center" uk-grid>
       <div class="uk-width-1-5@m">
-        <ul class="uk-nav uk-nav-default">
-          <li class="uk-active"><a href="#">Active</a></li>
+        <ul class="uk-nav uk-nav-default uk-padding">
+          <li class="uk-active uk-padding"><a href="#">Active</a></li>
           <li><a href="#">Item</a></li>
           <li><a href="#">Item</a></li>
         </ul>
