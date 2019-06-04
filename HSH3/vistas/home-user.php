@@ -26,7 +26,7 @@
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
           <h3 class="uk-card-title">Mirar Residencias</h3>
-          <p><a href="#">click aquí</a></p>
+          <p><a href="../vistas/listar-residencias-user.php">click aquí</a></p>
         </div>
       </div>
       <div>

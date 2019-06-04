@@ -10,6 +10,19 @@
   </head>
   <body class="uk-height-viewport my-background-color">
 
+    <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
+      <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li><a href="../vistas/home-user.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
+        </ul>
+      </div>
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li><a href="#">cerrar sesion</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <?php
     include('../modelos/conexion.php');
 
