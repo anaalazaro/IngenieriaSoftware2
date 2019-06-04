@@ -21,8 +21,8 @@
         </ul>
       </div>
     </nav>
-
-    <!--CUERPO-->
+<!--
+    CUERPO
     <div class="uk-text-center" uk-grid>
       <div class="uk-width-1-5@m">
         <ul class="uk-nav uk-nav-default uk-padding">
@@ -32,7 +32,7 @@
         </ul>
       </div>
       <div class="uk-width-expand">
-        <!--BARRA DE BUSQUEDA-->
+        BARRA DE BUSQUEDA
         <div class=" uk-child-width-expand uk-text-center uk-padding-small" uk-grid>
           <form class="uk-search uk-search-large">
             <a href="" class="uk-search-icon-flip" uk-search-icon></a>
@@ -42,7 +42,7 @@
         <div class="uk-card uk-card-default uk-card-body">Item</div>
       </div>
     </div>
-
+-->
 
   </body>
 </html>
