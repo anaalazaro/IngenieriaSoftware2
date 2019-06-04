@@ -19,9 +19,28 @@
 
     mysqli_close($conexion);?>
 
-    <div class="">
+    <?php while ($row = mysqli_fetch_array($result)){
+      $contenido=$row["imagen"]?>
 
-    </div>
+      <div class="uk-padding-large uk-padding-remove-bottom">
+        <div class="uk-card uk-card-default uk-border-rounded" uk-grid>
+          <div class="uk-card-media-left uk-width-1-4">
+            <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" />
+          </div>
+          <div class="uk-width-expand">
+            <div class="uk-card-header">
+              <h3><?php echo $row['nombre']; ?></h3>
+            </div>
+            <div class="uk-card-body">
+              <?php echo $row['pais'],",",$row['provincia'];  ?>
+            </div>
+            <div class="uk-card-footer">
+              <a href="#">Conocé más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
 
   </body>
 </html>

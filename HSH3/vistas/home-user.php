@@ -24,19 +24,22 @@
 
     <div class="uk-child-width-expand@s uk-text-center uk-padding" uk-grid>
       <div>
-        <div class="uk-card uk-card-default uk-card-body">
+        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
           <h3 class="uk-card-title">Mirar Residencias</h3>
+          <p><a href="#">click aquí</a></p>
         </div>
       </div>
       <div>
-        <div class="uk-card uk-card-default uk-card-body">
+        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
           <h3 class="uk-card-title">Subastas de paquetes</h3>
+          <p><a href="#">click aquí</a></p>
         </div>
       </div>
       <div>
-        <div class="uk-card uk-card-default uk-card-body">
-          <div class="uk-card-badge uk-label">Badge</div>
+        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+          <div class="uk-card-badge uk-label">premium</div>
           <h3 class="uk-card-title">Reservar paquetes</h3>
+          <p><a href="#">click aquí</a></p>
         </div>
       </div>
     </div>
