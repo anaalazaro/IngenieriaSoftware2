@@ -36,14 +36,13 @@
             </div>
           </form> <!--fin de formulario-->
 
-          <!--formulario para boton de registrar usuario-->
+          
           <form action="pantalla-login.php" method="get" class="uk-form uk-padding-small uk-padding-remove-top">
               <div class="uk-padding-small">
                 <input type="submit" value="ya tengo cuenta" class="uk-width-1-1 uk-button uk-button-default"></input>
               </div>
           </form>
       </div>
-      <!--FIN box de login con codigo-->
     </div>
   </body>
 </html>
