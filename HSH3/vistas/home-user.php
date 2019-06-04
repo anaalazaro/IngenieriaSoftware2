@@ -21,6 +21,28 @@
         </ul>
       </div>
     </nav>
+
+    <div class="uk-child-width-expand@s uk-text-center uk-padding" uk-grid>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body">
+          <h3 class="uk-card-title">Mirar Residencias</h3>
+        </div>
+      </div>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body">
+          <h3 class="uk-card-title">Subastas de paquetes</h3>
+        </div>
+      </div>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body">
+          <div class="uk-card-badge uk-label">Badge</div>
+          <h3 class="uk-card-title">Reservar paquetes</h3>
+        </div>
+      </div>
+    </div>
+
+
+
 <!--
     CUERPO
     <div class="uk-text-center" uk-grid>
