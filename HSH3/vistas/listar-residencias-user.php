@@ -54,10 +54,12 @@
           </div>
           <div class="uk-width-expand">
             <div class="uk-card-header">
-              <h3><?php echo $row['nombre']; ?></h3>
+              <h3><?php echo ucwords($row['nombre']); ?></h3>
             </div>
             <div class="uk-card-body">
-              <?php echo $row['pais'],",",$row['provincia'];  ?>
+              <?php
+                echo ucwords($row['pais']),",",ucwords($row['provincia']);
+              ?>
             </div>
             <div class="uk-card-footer">
               <a href="#">Conocé más</a>
