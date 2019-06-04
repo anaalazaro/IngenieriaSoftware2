@@ -22,16 +22,27 @@
       </div>
     </nav>
 
-    <?php
-    include("../modelos/conexion.php");
-    $conexion=conectar();
-    $consulta= "SELECT * FROM residencia";
-    ?>
-    <div class="uk-position-center my-form-box uk-padding">
-      <ul class="uk-thumbnav uk-thumbnav-vertical" uk-margin>
-        <li class="uk-active"><a href="#"><img src="" alt="img" width="100" alt=""></a></li>
-      </ul>
+    <!--CUERPO-->
+    <div class="uk-text-center" uk-grid>
+      <div class="uk-width-1-5@m">
+        <ul class="uk-nav uk-nav-default">
+          <li class="uk-active"><a href="#">Active</a></li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </div>
+      <div class="uk-width-expand">
+        <!--BARRA DE BUSQUEDA-->
+        <div class=" uk-child-width-expand uk-text-center uk-padding-small" uk-grid>
+          <form class="uk-search uk-search-large">
+            <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+            <input class="uk-search-input uk-border-rounded" style="background-color:white;" type="search" placeholder="Buscar...">
+          </form>
+        </div>
+        <div class="uk-card uk-card-default uk-card-body">Item</div>
+      </div>
     </div>
+
 
   </body>
 </html>
