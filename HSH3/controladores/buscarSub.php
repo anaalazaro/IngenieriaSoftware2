@@ -42,7 +42,7 @@ else{
 			$resultado= mysqli_query($conexion,$insertar);
 			echo "<script language='javascript'>
 				alert('Se cerro la subasta correctamente!..');
-				location.href= '../vistas/home.php' ;
+				location.href= '../vistas/home-admin.php' ;
 				</script>";
 		}else{
 			 echo "<script language='javascript'>

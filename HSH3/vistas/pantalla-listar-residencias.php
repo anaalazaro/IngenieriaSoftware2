@@ -10,7 +10,7 @@
     <script src="../js/uikit-icons.min.js"></script>
 
   </head>
-  <body class="my-background-color" uk-height-viewport="expand: true">
+  <body class="uk-height-viewport my-background-color">
     <?php
     include('../modelos/conexion.php');
 
@@ -35,26 +35,7 @@
         <?php while ($row = mysqli_fetch_array($result)){
         $contenido=$row["imagen"]?>
         <tr>
-          <!--<td><img src='data:image/jpeg; base64, <?php //echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="25%"/></td>-->
-
-          <!--
-          OPCION 1
-          <td>
-            <ul class="uk-thumbnav uk-thumbnav-vertical" uk-margin>
-              <li class="uk-active">
-                <a href="#">
-                  <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="100"/>
-                </a>
-              </li>
-            </ul>
-          </td>
-          -->
-
-          <!--OPCION 2-->
-          <td><a href="#">
-            <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="100" uk-img>
-          </a></td>
-          
+          <td><img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="60px"/></td>
           <td><?php echo $row['nombre']; ?></td>
           <td><?php echo $row['pais']; ?></td>
           <td><?php echo $row['provincia']; ?></td>
@@ -66,6 +47,8 @@
     </table>
       <div class="uk-padding-small">
         <a href="home-admin.php" class="uk-button uk-button-primary">Volver</a>
+
+        <a href="pantalla-agregar-residencia.php" class="uk-button uk-button-primary">Agregar</a>
       </div>
     </div>
   </body>

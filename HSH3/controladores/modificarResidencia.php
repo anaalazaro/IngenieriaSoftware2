@@ -16,7 +16,8 @@ $nombre= $_POST['nom_residencia'];
         location.href= '../vistas/pantalla-modificar-residencia.php' ;
         </script>";}
     else{
-   $mostrar= getResidencia($conexion,$nombre);}
+   $mostrar= getResidencia($conexion,$nombre);
+  $contenido=$mostrar["imagen"];}
 
 
 
@@ -41,9 +42,10 @@ $nombre= $_POST['nom_residencia'];
 
           <!--Agregar una foto -->
           <div class="uk-width-1-1 uk-padding-small">
-            <img src="../modelos/verImagen.php?id=<?php echo $mostrar['id'];?>"/>
-            <label for="foto">
+             <label for="foto">
               Imagen:</label>
+              <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="25%"/>
+           
             <input id="foto" name="foto" type="file" size="20" accept="image/*" class="uk-input" >
           <!--<button  class="uk-width-1-1 uk-button uk-button-default" type="button" tabindex="-1">Seleccionar Fotos</button>-->
            </div>

@@ -38,7 +38,7 @@ else{
 			$resultado= mysqli_query($conexion,$insertar);
 			echo "<script language='javascript'>
 				alert('Se registro subasta correctamente!..');
-				location.href= '../vistas/home.php' ;
+				location.href= '../vistas/home-admin.php' ;
 				</script>";
 		}else{/* $_SESSION['mensaje']="Esa subasta ya existe";
 			 header("Location:pantalla-agregar-residencia.php")*/

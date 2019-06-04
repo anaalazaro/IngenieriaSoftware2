@@ -44,6 +44,7 @@
     </table>
       <div class="uk-padding-small">
         <a href="home-admin.php" class="uk-button uk-button-primary">Volver</a>
+         <a href="pantalla-crear-subasta.php" class="uk-button uk-button-primary">Crear</a>
       </div>
     </div>
   </body>
