@@ -23,7 +23,7 @@
               <p class="uk-text-lead">Ingrese su codigo de acceso</p>
             </div>-->
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="mail" name="mail" class="uk-input uk-form-large" placeholder="E-Mail" required> <!-- campo del formulario-->
+              <input type="email" name="mail" class="uk-input uk-form-large" placeholder="E-Mail" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
               <input type="password" name="contraseña" class="uk-input uk-form-large" placeholder="Contraseña" required> <!-- campo del formulario-->
@@ -36,7 +36,7 @@
             </div>
           </form> <!--fin de formulario-->
 
-          
+
           <form action="pantalla-login.php" method="get" class="uk-form uk-padding-small uk-padding-remove-top">
               <div class="uk-padding-small">
                 <input type="submit" value="ya tengo cuenta" class="uk-width-1-1 uk-button uk-button-default"></input>
