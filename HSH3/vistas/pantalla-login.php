@@ -26,7 +26,7 @@
               <input type="email" name="mail" class="uk-input uk-form-large" placeholder="E-Mail" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="password" name="contraseña" class="uk-input uk-form-large" placeholder="Contraseña" required> <!-- campo del formulario-->
+              <input type="password" name="contrasenia" class="uk-input uk-form-large" placeholder="Contraseña" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
               <input type="submit" value="ingresar" class="uk-width-1-1 uk-button uk-button-primary"></input>
