@@ -24,6 +24,6 @@ include('../modelos/autenticacion.php');
 		else{
 			echo'<script>window.location="../vistas/pantalla-login.php";</script>';
 		}
- mysqli_close($link);
+ mysqli_close($conexion);
 
  ?>
