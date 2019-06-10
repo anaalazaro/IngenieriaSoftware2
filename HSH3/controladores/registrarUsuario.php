@@ -7,7 +7,7 @@ $nombre=$_POST['nombre'];
 $apellido=$_POST['apellido'];
 $mail= $_POST['mail'];
 $contrasenia=$_POST['contrasenia'];
-$contrasenia_copia=$POST['contrasenia-copia'];
+$contrasenia_copia=$_POST['contrasenia-copia'];
 #$contraseniaC=$_POST['contraseña-copia'];
 
 if (!empty($nombre)&& !empty($contrasenia)){
@@ -22,7 +22,7 @@ if (!empty($nombre)&& !empty($contrasenia)){
 		}else {
 			echo "<script language='javascript'>
 			 alert('las contraseñas no coinciden..');
-			 location.href= '../vistas/pantalla-register?mail=hola.php' ;
+			 location.href= '../vistas/pantalla-register.php' ;
 			 </script>";
 		}
 	}
