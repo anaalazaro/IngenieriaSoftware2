@@ -18,7 +18,7 @@
         <center>
           <img src="../files/hsh-logo.png"width="250" height="250" >
         </center>
-          <form action="../controladores/validarUsuario.php" method="get" class="uk-form uk-padding-small uk-padding-remove-bottom"> <!--comienzo de formulario-->
+          <form action="../controladores/validarUsuario.php" method="post" class="uk-form uk-padding-small uk-padding-remove-bottom"> <!--comienzo de formulario-->
             <!--<div class="">
               <p class="uk-text-lead">Ingrese su codigo de acceso</p>
             </div>-->

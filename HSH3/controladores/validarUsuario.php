@@ -1,5 +1,4 @@
 <?php
-
 include('../modelos/conexion.php');
 include("../modelos/funciones-usuarios.php");
 $conexion=conectar();
@@ -14,12 +13,12 @@ include('../modelos/autenticacion.php');
 		    	$verificar->autenticar($usuario,$clave,$conexion);
 		    	//header("Location:index.php");
 		    	echo'<script>window.location="../vistas/home-user.php";</script>';
-		    } catch(Exception $e) {
+		    } catch(Exception $ex) {
 		    	//echo "error";
-		    	echo  '<script>alert("No ingreso correctamente a su cuenta")</script>';
+		    	echo  "<script language='javascript'>alert('No ingreso correctamente a su cuenta')</script>";
 		    }
-		} 
-		else{
+	} 
+	else{
 			echo'<script>window.location="../vistas/pantalla-login.php";</script>';
 		}
  mysqli_close($conexion);
