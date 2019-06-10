@@ -129,7 +129,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre_usuario`, `apellido_usuario`, `mail`, `contrasenia`) VALUES
-(1, '', '', 'asd@hotmail.com', '123456'),
+(1, 'ana', 'vargas', 'asd@hotmail.com', '123456'),
 (2, 'ana', 'vargas', 'asd@hotmail.com', '12345'),
 (3, 'ana', 'vargas', 'asd1@hotmail.com', '12345');
 
