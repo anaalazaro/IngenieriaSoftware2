@@ -1,6 +1,6 @@
 <?php
 
-class Autenticacion {	
+class Autenticacion {
 	function logueado()
 	{
 		if(!isset($_SESSION['id'])){
@@ -11,7 +11,7 @@ class Autenticacion {
 		}
 	}
 	function Silogueado()
-	{	
+	{
 		if(isset($_SESSION['id'])){
 		return true;
 		echo"<script language='javascript'>
@@ -23,14 +23,15 @@ class Autenticacion {
 		}
 	}
 	function autenticar($usuario, $contrasenia, $conexion)
-	{		
-	
-		$consulta = "SELECT * FROM usuario WHERE mail='$usuario' AND contrasenia='$contrasenia'";		
+	{
+
+		$consulta = "SELECT * FROM usuario WHERE mail='$usuario' AND contrasenia='$contrasenia'";
 		$result = mysqli_query($conexion,$consulta);
 		$numrows=mysqli_num_rows($result);
 		if($numrows!=0){
 			$row=mysqli_fetch_array($result);
 			$_SESSION['id']=$row['id'];
+			$_SESSION["mail"] = $usuario;
 			echo"<script language='javascript'>
 				alert('Ingreso a su cuenta!..');
 				location.href= '../vistas/home-user.php' ;
@@ -40,6 +41,6 @@ class Autenticacion {
 		else{
 			throw new Exception('error');
 			//return false;
-		}			
+		}
 	}
 }

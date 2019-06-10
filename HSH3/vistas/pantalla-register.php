@@ -32,7 +32,7 @@
               <input type="password" name="contrasenia" class="uk-input uk-form-large" placeholder="Contraseña" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="password" name="contraseña-copia" class="uk-input uk-form-large" placeholder="Ingrese otra vez la contraseña" required> <!-- campo del formulario-->
+              <input type="password" name="contrasenia-copia" class="uk-input uk-form-large" placeholder="Ingrese otra vez la contraseña" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
               <input type="submit" value="registrarme" class="uk-width-1-1 uk-button uk-button-primary"></input>

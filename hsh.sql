@@ -22,6 +22,8 @@ SET time_zone = "+00:00";
 -- Database: `hsh`
 --
 
+USE hsh;
+
 -- --------------------------------------------------------
 
 --
@@ -118,7 +120,8 @@ CREATE TABLE `usuario` (
   `nombre_usuario` varchar(30) NOT NULL,
   `apellido_usuario` varchar(45) NOT NULL,
   `mail` varchar(50) NOT NULL,
-  `contrasenia` varchar(30) NOT NULL
+  `contrasenia` varchar(30) NOT NULL,
+  `premium` boolean NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

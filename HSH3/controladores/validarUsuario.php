@@ -15,9 +15,12 @@ include('../modelos/autenticacion.php');
 		    	echo'<script>window.location="../vistas/home-user.php";</script>';
 		    } catch(Exception $ex) {
 		    	//echo "error";
-		    	echo  "<script language='javascript'>alert('No ingreso correctamente a su cuenta')</script>";
+		    	echo  "<script language='javascript'>
+					alert('No ingreso correctamente a su cuenta');
+					location.href= '../vistas/pantalla-login.php' ;
+					</script>";
 		    }
-	} 
+	}
 	else{
 			echo'<script>window.location="../vistas/pantalla-login.php";</script>';
 		}
