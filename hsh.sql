@@ -134,31 +134,6 @@ INSERT INTO `usuario` (`id`, `nombre_usuario`, `apellido_usuario`, `mail`, `cont
 (3, 'ana', 'vargas', 'asd1@hotmail.com', '12345');
 
 
--- --------------------------------------------------------
-
---
--- Table structure for table `provincias`
---
-
-CREATE TABLE `paquete` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_residencia` varchar(150) NOT NULL,
-  `precio` int(10) NOT NULL,
-  `fecha_inicio` date NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `provincias`
---
-
-INSERT INTO `paquete` (`id_residencia`, `precio`, `fecha_inicio`) VALUES
-(4, 23000, '2019-07-24'),
-(7, 1700, '2019-08-24');
-
--- --------------------------------------------------------
-
-
-
 --
 -- Indexes for dumped tables
 --
