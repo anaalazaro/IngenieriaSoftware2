@@ -17,7 +17,7 @@ if (!empty($nombre)&& !empty($contrasenia)){
 			$resultado= mysqli_query($conexion,$consulta);
 			echo  "<script language='javascript'>
 					alert('Se registro usuario correctamente!..');
-					location.href= '../vistas/pantalla-register.php' ;
+					location.href= '../vistas/pantalla-login.php' ;
 					</script>";
 		}else {
 			echo "<script language='javascript'>
