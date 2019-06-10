@@ -29,6 +29,8 @@
           <th>Provincia</th>
           <th>Direccion</th>
           <th>Descripcion</th>
+	  <th></th>
+	  <th></th>
         </tr>
       </thead>
       <tbody>
@@ -41,8 +43,8 @@
           <td><?php echo $row['provincia']; ?></td>
           <td><?php echo $row['ciudad']; ?></td>
           <td><?php echo $row['descripcion']; ?></td>
-          <td><a href="pantalla-modificar-residencia.php?nombre=<?php echo $row["id"]; ?>"><span uk-icon="file-edit"></span></a></td>
-		  <td><a href="pantalla-eliminar-residencia.php?nombre=<?php echo $row["id"]; ?>"><span uk-icon="trash"></span></a></td>
+          <td><a href="pantalla-modificar-residencia.php?nombre=<?php echo $row["id"]; ?>"><span uk-icon="pencil"></span></a></td>
+	  <td><a href="pantalla-eliminar-residencia.php?nombre=<?php echo $row["id"]; ?>"><span uk-icon="trash"></span></a></td>
         <?php } ?>
         </tr>
       </tbody>
