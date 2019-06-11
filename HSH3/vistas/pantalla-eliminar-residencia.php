@@ -27,7 +27,7 @@
       </div>
   </div>
   </form>
-  <script type="text/javascript" src="validar_eli.js"></script>
+  <script type="text/javascript" src="../controladores/validar_eli.js"></script>
 
   </body>
 </html>

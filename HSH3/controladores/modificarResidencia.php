@@ -3,7 +3,7 @@ include("../modelos/funciones-residencias.php");
 include('../modelos/conexion.php');
 $conexion=conectar();
 
-$nombre= $_POST['nom_residencia'];
+$nombre= ($_GET['nom_residencia']);
 /*if(empty($elem)){
 	echo "mal";
 	/*echo '<script>window.location="../eliminarResidencia.php";</script>';*/
@@ -13,7 +13,7 @@ $nombre= $_POST['nom_residencia'];
 
        echo "<script language='javascript'>
         alert('La residencia a modificar no existe..');
-        location.href= '../vistas/pantalla-modificar-residencia.php' ;
+        location.href= '../vistas/modificarResidencia.php' ;
         </script>";}
     else{
    $mostrar= getResidencia($conexion,$nombre);
@@ -35,7 +35,7 @@ $nombre= $_POST['nom_residencia'];
   </head>  <body class="uk-height-viewport my-background-color">
 
     <div class="uk-position-center my-form-box">
-        <form action="validarModificar.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small" >
+        <form action="../controladores/validarModificar.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small" >
           <div class="">
             <p class="uk-text-lead">Modificar residencia</p>
           </div>
@@ -101,7 +101,7 @@ $nombre= $_POST['nom_residencia'];
 
           <!--boton de CANCELAR-->
           <div class="uk-width-1-1 uk-padding-small">
-              <a class="uk-width-1-1 uk-button uk-button-primary" href="../vistas/home-admin.php">Cancelar</a>
+              <a class="uk-width-1-1 uk-button uk-button-primary" href="../vistas/pantalla-listar-residencias.php">Cancelar</a>
 
           </div>
 

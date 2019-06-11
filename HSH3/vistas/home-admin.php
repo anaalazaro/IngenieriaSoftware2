@@ -21,6 +21,7 @@
             <li><a href="pantalla-listar-residencias.php">listar residencias</a></li>
             <li><a href="pantalla-listar-subastas.php">Listar subastas</a></li>
             <li><a href="pantalla-listar-usuarios.php">Listar usuarios</a></li>
+            <li><a href="../modelos/cerrar-sesion.php"> Cerrar Sesion</a></li>
         </ul>
 
       </div>

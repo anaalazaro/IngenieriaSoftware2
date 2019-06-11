@@ -36,12 +36,12 @@ $imagen=$_FILES['foto']['tmp_name'];
 		if($resultado){
 			echo "<script language='javascript'>
 				alert('Se modifico correctamente!..');
-				location.href= 'modificarResidencia.php' ;
+				location.href= '../vistas/pantalla-listar-residencias.php' ;
 				</script>";
 		}else{
 				echo "<script language='javascript'>
 				alert('No se modifico correctamente!..');
-				location.href= 'modificarResidencia.php' ;
+				location.href= '../vistas/pantalla-listar-residencias.php' ;
 				</script>";
 		}
 

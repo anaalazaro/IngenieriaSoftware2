@@ -19,20 +19,55 @@
           <img src="../files/hsh-logo.png"width="250" height="250" >
         </center>
           <form action="../controladores/registrarUsuario.php" method="post" class="uk-form uk-padding-small uk-padding-remove-bottom"> <!--comienzo de formulario-->
+            <!-- Datos nombre-->
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="nombre" name="nombre" class="uk-input uk-form-large" placeholder="Nombre" required>
+              <input type="nombre" name="nombre" class="uk-input " placeholder="Nombre" required>
+            </div>
+
+            <!-- Datos apellido-->
+            <div class="uk-width-1-1 uk-padding-small">
+              <input type="apellido" name="apellido" class="uk-input" placeholder="Apellido" required>
+            </div>
+
+            <!-- Datos telefno-->
+            <div class="uk-width-1-1 uk-padding-small">
+              <input type="telefono" name="telefono" class="uk-input " placeholder="Telefono" required>
+            </div>
+
+            <!-- Datoslocalidad -->
+             <div class="uk-child-width-expand@s uk-padding-small" uk-grid>
+            <div class="uk-width-1-3 ">
+              <input type="localidad" name="localidad" class="uk-input " placeholder="Localidad" required>
+            </div >
+            <div class="uk-width-1-3">
+              <input type="direccion" name="direccion" class="uk-input " placeholder="Direccion" required>
+            </div>
+           </div>
+
+           <!-- Datos tarjeta-->
+            <div class="uk-child-width-expand@s uk-padding-small" uk-grid>
+            <div class="uk-width-1-3 ">
+              <input type="tarjeta" name="tarjeta_numero" class="uk-input " placeholder="Numero" required>
+            </div>
+            <div class="uk-width-1-3" >
+              <input type="tarjeta" name="tarjeta_codigo" class="uk-input " placeholder="Codigo" required>
+            </div>
+            <div class="uk-width-1-3">
+              <input type="date" data-uk-datepicker="{format:'MM.YYYY'}" name="tarjeta_vencimiento" class="uk-input " placeholder="Vencimiento" required>
+            </div>
+          </div>
+
+          <!-- Datos email-->
+           <div class="uk-width-1-1 uk-padding-small">
+              <input type="email" name="mail" class="uk-input" placeholder="E-Mail" required> <!-- campo del formulario-->
+            </div>
+
+            <!-- Datos paass-->
+            <div class="uk-width-1-1 uk-padding-small">
+              <input type="password" name="contrasenia" class="uk-input " placeholder="Contraseña" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
-              <input type="apellido" name="apellido" class="uk-input uk-form-large" placeholder="Apellido" required>
-            </div>
-            <div class="uk-width-1-1 uk-padding-small">
-              <input type="email" name="mail" class="uk-input uk-form-large" placeholder="E-Mail" required> <!-- campo del formulario-->
-            </div>
-            <div class="uk-width-1-1 uk-padding-small">
-              <input type="password" name="contrasenia" class="uk-input uk-form-large" placeholder="Contraseña" required> <!-- campo del formulario-->
-            </div>
-            <div class="uk-width-1-1 uk-padding-small">
-              <input type="password" name="contrasenia-copia" class="uk-input uk-form-large" placeholder="Ingrese otra vez la contraseña" required> <!-- campo del formulario-->
+              <input type="password" name="contrasenia-copia" class="uk-input " placeholder="Ingrese otra vez la contraseña" required> <!-- campo del formulario-->
             </div>
             <div class="uk-width-1-1 uk-padding-small">
               <input type="submit" value="registrarme" class="uk-width-1-1 uk-button uk-button-primary"></input>

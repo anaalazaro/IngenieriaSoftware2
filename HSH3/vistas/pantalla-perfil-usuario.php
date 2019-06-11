@@ -26,7 +26,6 @@
               <li><a href="..\vistas\pantalla-perfil-usuario.php">Mi Perfil</a></li>
               <li><a href="#">Mis Subastas</a></li>
               <li><a href="#">Mi Plan</a></li>
-              <li><a href="#">Mi Perfil</a></li>
               <li class="uk-nav-divider"></li>
               <li class="uk-nav-header">Sesión</li>
               <li><a href="../modelos/cerrar-sesion.php">Cerrar Sesión</a></li>
@@ -48,7 +47,7 @@
   if ($row['premium']) {
     $subscripcion = "Usuario Premium";
   } else {
-    $subscripcion = "Usuario Estándar";
+    $subscripcion = "Usuario Básico";
   }
   ?>
 
@@ -60,11 +59,16 @@
             <h3><?php echo $row['nombre_usuario'].", ".$row['apellido_usuario'] ?></h3>
           </div>
           <div class="uk-card-body">
-            <p><?php echo $row['mail']; ?></p>
+            <p><label>Localidad: </label><?php echo $row['localidad']. ", ".
+            $row['direccion']; ?></p>
+            <p><label>Teléfono: </label><?php echo $row['telefono']; ?></p>
+            <p><label>Tarjeta: </label><?php echo $row['tarjeta_numero']. "  Vencimiento: " .$row['tarjeta_vencimiento']; ?></p>
+            <p><label>Mail: </label><?php echo $row['mail']; ?></p>
             <p><?php echo $subscripcion ?></p>
           </div>
           <div class="uk-card-footer">
             <a href="#">modificar</a>
+            <a href="#">Solicitar Premium</a><!--json con listado de mails de los que solicitan. Cuando los aceptan se borra-->
           </div>
         </div>
       </div>

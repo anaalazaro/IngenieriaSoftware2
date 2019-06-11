@@ -8,12 +8,18 @@ $apellido=$_POST['apellido'];
 $mail= $_POST['mail'];
 $contrasenia=$_POST['contrasenia'];
 $contrasenia_copia=$_POST['contrasenia-copia'];
+$localidad=$_POST['localidad'];
+$direccion=$_POST['direccion'];
+$telefono=$_POST['telefono'];
+$tarjeta_numero=$_POST['tarjeta_numero'];
+$tarjeta_codigo=$_POST['tarjeta_codigo'];
+$tarjeta_vencimiento=$_POST['tarjeta_vencimiento'];
 #$contraseniaC=$_POST['contraseña-copia'];
 
 if (!empty($nombre)&& !empty($contrasenia)){
 	if (existe($mail,$conexion)==0){
 		if ($contrasenia==$contrasenia_copia) {
-			$consulta= "INSERT INTO usuario(nombre_usuario,apellido_usuario,mail,contrasenia) VALUES  ('$nombre','$apellido','$mail','$contrasenia')";
+			$consulta= "INSERT INTO usuario(nombre_usuario,apellido_usuario,mail,contrasenia,localidad,direccion,telefono,tarjeta_numero,tarjeta_codigo,tarjeta_vencimiento) VALUES  ('$nombre','$apellido','$mail','$contrasenia','$localidad','$direccion','$telefono','$tarjeta_numero','$tarjeta_codigo','$tarjeta_vencimiento')";
 			$resultado= mysqli_query($conexion,$consulta);
 			echo  "<script language='javascript'>
 					alert('Se registro usuario correctamente!..');
@@ -22,7 +28,7 @@ if (!empty($nombre)&& !empty($contrasenia)){
 		}else {
 			echo "<script language='javascript'>
 			 alert('las contraseñas no coinciden..');
-			 location.href= '../vistas/pantalla-register.php' ;
+			 location.href= '../vistas/pantalla-register?mail=hola.php' ;
 			 </script>";
 		}
 	}

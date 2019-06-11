@@ -22,7 +22,7 @@
         </div>
         <div class="uk-width-1-1" uk-margin>
           <a href="vistas/pantalla-login.php"><button class="uk-button uk-button-primary" type="button">soy usuario</button></a>
-          <a href="vistas/inicio-con-codigo.php"><button class="uk-button uk-button-primary" type="button">soy admin</button></a>
+          <a href="vistas/pantalla-register.php"><button class="uk-button uk-button-primary" type="button">soy nuevo</button></a>
         </div>
       </div>
     </div>

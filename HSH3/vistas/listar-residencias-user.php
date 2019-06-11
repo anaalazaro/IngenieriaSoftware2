@@ -28,7 +28,7 @@
                 <li><a href="#">Mi Perfil</a></li>
                 <li class="uk-nav-divider"></li>
                 <li class="uk-nav-header">Sesión</li>
-                <li><a href="#">Cerrar Sesión</a></li>
+                <li><a href="../modelos/cerrar-sesion.php">Cerrar Sesión</a></li>
               </ul>
             </div>
         </ul>

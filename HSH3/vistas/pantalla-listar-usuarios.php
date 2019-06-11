@@ -27,6 +27,7 @@
           <th>Apellido</th>
           <th>Mail</th>
           <th>Tipo</th>
+          <th></th>
         </tr>
       </thead>
 
@@ -43,6 +44,7 @@
           <td><?php echo $row['apellido_usuario']; ?></td>
           <td><?php echo $row['mail']; ?></td>
           <td><?php echo $tipo; ?></td>
+          <td><span uk-icon="info"></span></td>
         </tr>
       </tbody>
     <?php } ?>

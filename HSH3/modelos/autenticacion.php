@@ -32,12 +32,20 @@ class Autenticacion {
 			$row=mysqli_fetch_array($result);
 			$_SESSION['id']=$row['id'];
 			$_SESSION["mail"] = $usuario;
-			echo"<script language='javascript'>
+			if($usuario=='admin@hsh.com'){
+				echo"<script language='javascript'>
+				alert('Ingreso a su cuenta!..');
+				location.href= '../vistas/home-admin.php' ;
+				</script>";
+
+				}else{
+				echo"<script language='javascript'>
 				alert('Ingreso a su cuenta!..');
 				location.href= '../vistas/home-user.php' ;
 				</script>";
 			//return true;
 		}
+	}
 		else{
 			throw new Exception('error');
 			//return false;
