@@ -70,7 +70,9 @@
         <ul class="uk-switcher uk-margin">
           <li>
             <div class="uk-search uk-search-default uk-width-expand">
-              <input name="busqueda_nombre" class="uk-search-input" type="search" placeholder="Buscar por nombre de residencia...">
+              <form class="" action="../controladores/controlBusqueda.php" method="get">
+                <input name="busqueda_nombre" class="uk-search-input" type="search" placeholder="Buscar por nombre de residencia...">
+              </form>
             </div>
           </li>
           <li>
@@ -82,8 +84,8 @@
             <div class="uk-child-width-1-4" uk-grid>
               <div class="">
 
-                <select class="uk-button uk-button-default" name="opcion">
-                  <option class="" value="pais">--Seleccione un pais--</option>
+                <select class="uk-button uk-button-default" name="pais">
+                  <option class="" value="pais" selected disabled>--Seleccione un pais--</option>
                   <?php
                     $conexion=conectar();
                     $consulta="SELECT * FROM pais";
@@ -91,7 +93,7 @@
                     mysqli_close($conexion);
                     while ($row = mysqli_fetch_array($paises)){
                   ?>
-                    <option value="pais">
+                    <option value="pais_nombre">
                       <?php
                       echo $row['pais_nombre'];
                       $id_pais_seleccionado=$row['id'];
@@ -103,7 +105,7 @@
 
               <div class="">
                 <select class="uk-button uk-button-default" name="opcion">
-                  <option class="" value="pais">--Seleccione una provincia--</option>
+                  <option class="" value="pais" selected disabled>--Seleccione una provincia--</option>
                   <?php
                   $conexion=conectar();
                   $consulta="SELECT * FROM provincia WHERE pais_id=$id_pais_seleccionado";
@@ -119,7 +121,7 @@
               </div>
               <div class="">
                 <select class="uk-button uk-button-default" name="opcion">
-                  <option class="" value="pais">--Seleccione una localidad--</option>
+                  <option class="" value="pais" selected disabled>--Seleccione una localidad--</option>
                 </select>
               </div>
               <div class="">
@@ -133,6 +135,8 @@
         </ul>
       </div>
     </div>
+
+
 
     <?php
     $conexion=conectar();
