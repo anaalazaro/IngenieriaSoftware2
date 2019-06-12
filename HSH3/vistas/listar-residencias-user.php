@@ -152,7 +152,7 @@ include('../controladores/controlBusqueda.php');
               ?>
             </div>
             <div class="uk-card-footer">
-              <a href="#">Conocé más</a>
+              <a href="../vistas/detalle-residencia-user.php?id=<?php echo $row['id'] ?>">Conocé más</a>
             </div>
           </div>
         </div>

@@ -2,6 +2,16 @@
 include('../modelos/conexion.php');
 include('../modelos/funciones-residencias.php');
 
+//BUSQUEDA POR ID DE RESIDENCIA
+function buscarResidenciaPorId($id)
+{
+  $conexion = conectar();
+	$consulta= "SELECT * FROM residencia WHERE id='$id'";
+	$resultado = consultaResidencia($conexion, $consulta);
+  mysqli_close($conexion);
+	return $resultado;
+}
+
 //BUSQUEDA POR NOMBRE DE RESIDENCIA
 function busquedaPorNombre($nombre)
 {
@@ -41,9 +51,6 @@ function busquedaPorDescripcion($descripcion)
   }
   return $resultado;
 }
-
-
-
 
 //BUSQUEDA POR LOCALIDAD
 
