@@ -36,9 +36,21 @@
     </nav>
 
     <div class="uk-padding uk-background-default">
-      <form method="post" class="uk-width-expand uk-search uk-search-default">
-        <span uk-search-icon></span>
-        <input class="uk-search-input" type="search" placeholder="Search...">
+      <form method="post" class="uk-width-expand" uk-grid>
+
+        <div class="uk-width-1-5">
+            <select class="uk-button uk-button-default" name="opcion">
+              <option value="nombre">nombre</option>
+              <option value="localidad">localidad</option>
+              <option value="fecha">fecha</option>
+            </select>
+        </div>
+
+        <div class="uk-search uk-search-default uk-width-expand">
+          <input class="uk-search-input" type="search" placeholder="Buscar...">
+          <span uk-search-icon></span>
+        </div>
+
       </form>
     </div>
 
