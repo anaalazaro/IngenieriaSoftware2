@@ -91,7 +91,12 @@
                     mysqli_close($conexion);
                     while ($row = mysqli_fetch_array($paises)){
                   ?>
-                    <option value="pais"> <?php echo $row['pais_nombre']; ?></option>
+                    <option value="pais">
+                      <?php
+                      echo $row['pais_nombre'];
+                      $id_pais_seleccionado=$row['id'];
+                      ?>
+                    </option>
                   <?php } ?>
                 </select>
               </div>
@@ -99,6 +104,17 @@
               <div class="">
                 <select class="uk-button uk-button-default" name="opcion">
                   <option class="" value="pais">--Seleccione una provincia--</option>
+                  <?php
+                  $conexion=conectar();
+                  $consulta="SELECT * FROM provincia WHERE pais_id=$id_pais_seleccionado";
+                  $paises=mysqli_query($conexion,$consulta);
+                  mysqli_close($conexion);
+                  while ($row = mysqli_fetch_array($paises)){
+                  ?>
+                  <option class="" value="pais">
+                    <?php echo $row['provincia_nombre']; ?>
+                  </option>
+                <?php } ?>
                 </select>
               </div>
               <div class="">
