@@ -11,30 +11,39 @@ function busquedaPorNombre($nombre)
   mysqli_close($conexion);
   if (mysqli_num_rows($resultado)>0) {
     echo "hay ".mysqli_num_rows($resultado)." resultado/s";
-    
-
   }else {
     echo "no hay resultados";
   }
+  return $resultado;
+}
+
+function todasLasResidencias()
+{
+  $conexion = conectar();
+  $consulta = "SELECT * FROM residencia";
+  $resultado = consultaResidencia($conexion, $consulta);
+  mysqli_close($conexion);
+  return $resultado;
 }
 
 
 //BUSQUEDA POR DESCRIPCION
-if (isset($_GET['busqueda_descripcion'])){
-
-  $descripcion = $_GET['busqueda_descripcion'];
+function busquedaPorDescripcion($descripcion)
+{
   $conexion = conectar();
   $consulta = "SELECT * FROM residencia WHERE descripcion='$descripcion'";
   $resultado = consultaResidencia($conexion, $consulta);
   mysqli_close($conexion);
-
   if (mysqli_num_rows($resultado)>0) {
     echo "hay ".mysqli_num_rows($resultado)." resultado/s";
   }else {
     echo "no hay resultados";
   }
-
+  return $resultado;
 }
+
+
+
 
 //BUSQUEDA POR LOCALIDAD
 

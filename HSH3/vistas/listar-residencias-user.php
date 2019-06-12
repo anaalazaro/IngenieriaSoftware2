@@ -38,25 +38,7 @@ include('../controladores/controlBusqueda.php');
         </ul>
       </div>
     </nav>
-    <!--
-    <div class="uk-padding uk-background-default">
-      <form method="post" class="uk-width-expand" uk-grid>
 
-        <div class="uk-width-1-5">
-            <select class="uk-button uk-button-default" name="opcion">
-              <option value="nombre">nombre</option>
-              <option value="localidad">localidad</option>
-              <option value="fecha">fecha</option>
-            </select>
-        </div>
-
-        <div class="uk-search uk-search-default uk-width-expand">
-          <input name="busqueda" class="uk-search-input" type="search" placeholder="Buscar...">
-        </div>
-
-      </form>
-    </div>
-    -->
     <div class="uk-padding uk-background-default" uk-grid>
       <div class="">
         <span uk-search-icon></span>
@@ -79,7 +61,7 @@ include('../controladores/controlBusqueda.php');
           </li>
           <li>
             <div class="uk-search uk-search-default uk-width-expand">
-              <form class="" action="../controladores/controlBusqueda.php" method="get">
+              <form class="" action="../vistas/listar-residencias-user.php" method="get">
                 <input name="busqueda_descripcion" class="uk-search-input" type="search" placeholder="Buscar por descripcion de residencia...">
               </form>
             </div>
@@ -140,48 +122,43 @@ include('../controladores/controlBusqueda.php');
       </div>
     </div>
 
-
-
     <?php
 
-    if (isset($_GET['busqueda_nombre'])) {
-      //SI LA BUSQUEDA FUE POR NOMBRE
-      busquedaPorNombre($_GET['busqueda_nombre']);
-
-
+    if (isset($_GET['busqueda_nombre'])) {                               //SI LA BUSQUEDA FUE POR NOMBRE
+      $residencias = busquedaPorNombre($_GET['busqueda_nombre']);
     } else {
-      // SI NO HAY UNA BUSQUEDA HECHA, MUESTRA TODAS LAS RESIDENCIAS
-      $conexion=conectar();
-      $consulta= "SELECT * FROM residencia ";
-      $result=mysqli_query($conexion,$consulta);
+      if (isset($_GET['busqueda_descripcion'])) {                       // SI LA BUSQUEDA FUE POR DESCRIPCON
+        $residencias = busquedaPorDescripcion($_GET['busqueda_descripcion']);
+      }else {                                                            // SI NO HAY UNA BUSQUEDA HECHA, MUESTRA TODAS LAS RESIDENCIAS
+        $residencias = todasLasResidencias();
+      }
+    }
 
-      mysqli_close($conexion);?>
+    while($row = mysqli_fetch_array($residencias)){
+      $contenido=$row["imagen"]?>
 
-      <?php while ($row = mysqli_fetch_array($result)){
-        $contenido=$row["imagen"]?>
-
-        <div class="uk-padding-large uk-padding-remove-bottom">
-          <div class="uk-card uk-card-default uk-border-rounded" uk-grid>
-            <div class="uk-card-media-left uk-width-1-4">
-              <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" />
+      <div class="uk-padding-large uk-padding-remove-bottom">
+        <div class="uk-card uk-card-default uk-border-rounded" uk-grid>
+          <div class="uk-card-media-left uk-width-1-4">
+            <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" />
+          </div>
+          <div class="uk-width-expand">
+            <div class="uk-card-header">
+              <h3><?php echo ucwords($row['nombre']); ?></h3>
             </div>
-            <div class="uk-width-expand">
-              <div class="uk-card-header">
-                <h3><?php echo ucwords($row['nombre']); ?></h3>
-              </div>
-              <div class="uk-card-body">
-                <?php
-                  echo ucwords($row['pais']),",",ucwords($row['provincia']);
-                ?>
-              </div>
-              <div class="uk-card-footer">
-                <a href="#">Conocé más</a>
-              </div>
+            <div class="uk-card-body">
+              <?php
+                echo ucwords($row['pais']),",",ucwords($row['provincia']);
+              ?>
+            </div>
+            <div class="uk-card-footer">
+              <a href="#">Conocé más</a>
             </div>
           </div>
         </div>
-      <?php }
-    }?>
+      </div>
+<?php } ?>
+
 
   </body>
 </html>
