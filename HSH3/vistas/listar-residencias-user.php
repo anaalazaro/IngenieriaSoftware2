@@ -35,6 +35,13 @@
       </div>
     </nav>
 
+    <div class="uk-padding uk-background-default">
+      <form method="post" class="uk-width-expand uk-search uk-search-default">
+        <span uk-search-icon></span>
+        <input class="uk-search-input" type="search" placeholder="Search...">
+      </form>
+    </div>
+
     <?php
     include('../modelos/conexion.php');
 
