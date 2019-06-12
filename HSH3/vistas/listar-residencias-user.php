@@ -1,4 +1,6 @@
-<?php include('../modelos/conexion.php'); ?>
+<?php
+include('../controladores/controlBusqueda.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -70,7 +72,7 @@
         <ul class="uk-switcher uk-margin">
           <li>
             <div class="uk-search uk-search-default uk-width-expand">
-              <form class="" action="../controladores/controlBusqueda.php" method="get">
+              <form class="" action="../vistas/listar-residencias-user.php" method="get">
                 <input name="busqueda_nombre" class="uk-search-input" type="search" placeholder="Buscar por nombre de residencia...">
               </form>
             </div>
@@ -141,8 +143,12 @@
 
 
     <?php
-    if (isset($_POST['nombre'])) {
-      // SI HAY UNA BUSQUEDA HECHA, MUESTRA LOS RESULTADOS
+
+    if (isset($_GET['busqueda_nombre'])) {
+      //SI LA BUSQUEDA FUE POR NOMBRE
+      busquedaPorNombre($_GET['busqueda_nombre']);
+
+
     } else {
       // SI NO HAY UNA BUSQUEDA HECHA, MUESTRA TODAS LAS RESIDENCIAS
       $conexion=conectar();
