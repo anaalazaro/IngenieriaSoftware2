@@ -77,7 +77,9 @@
           </li>
           <li>
             <div class="uk-search uk-search-default uk-width-expand">
-              <input name="busqueda_descripcion" class="uk-search-input" type="search" placeholder="Buscar por descripcion de residencia...">
+              <form class="" action="../controladores/controlBusqueda.php" method="get">
+                <input name="busqueda_descripcion" class="uk-search-input" type="search" placeholder="Buscar por descripcion de residencia...">
+              </form>
             </div>
           </li>
           <li>
@@ -139,36 +141,41 @@
 
 
     <?php
-    $conexion=conectar();
-    $consulta= "SELECT * FROM residencia ";
-    $result=mysqli_query($conexion,$consulta);
+    if (isset($_POST['nombre'])) {
+      // SI HAY UNA BUSQUEDA HECHA, MUESTRA LOS RESULTADOS
+    } else {
+      // SI NO HAY UNA BUSQUEDA HECHA, MUESTRA TODAS LAS RESIDENCIAS
+      $conexion=conectar();
+      $consulta= "SELECT * FROM residencia ";
+      $result=mysqli_query($conexion,$consulta);
 
-    mysqli_close($conexion);?>
+      mysqli_close($conexion);?>
 
-    <?php while ($row = mysqli_fetch_array($result)){
-      $contenido=$row["imagen"]?>
+      <?php while ($row = mysqli_fetch_array($result)){
+        $contenido=$row["imagen"]?>
 
-      <div class="uk-padding-large uk-padding-remove-bottom">
-        <div class="uk-card uk-card-default uk-border-rounded" uk-grid>
-          <div class="uk-card-media-left uk-width-1-4">
-            <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" />
-          </div>
-          <div class="uk-width-expand">
-            <div class="uk-card-header">
-              <h3><?php echo ucwords($row['nombre']); ?></h3>
+        <div class="uk-padding-large uk-padding-remove-bottom">
+          <div class="uk-card uk-card-default uk-border-rounded" uk-grid>
+            <div class="uk-card-media-left uk-width-1-4">
+              <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" />
             </div>
-            <div class="uk-card-body">
-              <?php
-                echo ucwords($row['pais']),",",ucwords($row['provincia']);
-              ?>
-            </div>
-            <div class="uk-card-footer">
-              <a href="#">Conocé más</a>
+            <div class="uk-width-expand">
+              <div class="uk-card-header">
+                <h3><?php echo ucwords($row['nombre']); ?></h3>
+              </div>
+              <div class="uk-card-body">
+                <?php
+                  echo ucwords($row['pais']),",",ucwords($row['provincia']);
+                ?>
+              </div>
+              <div class="uk-card-footer">
+                <a href="#">Conocé más</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <?php } ?>
+      <?php }
+    }?>
 
   </body>
 </html>
