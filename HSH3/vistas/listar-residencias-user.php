@@ -34,7 +34,7 @@
         </ul>
       </div>
     </nav>
-
+    <!--
     <div class="uk-padding uk-background-default">
       <form method="post" class="uk-width-expand" uk-grid>
 
@@ -47,11 +47,43 @@
         </div>
 
         <div class="uk-search uk-search-default uk-width-expand">
-          <input class="uk-search-input" type="search" placeholder="Buscar...">
-          <span uk-search-icon></span>
+          <input name="busqueda" class="uk-search-input" type="search" placeholder="Buscar...">
         </div>
 
       </form>
+    </div>
+    -->
+    <div class="uk-padding uk-background-default" uk-grid>
+      <div class="">
+        <span uk-search-icon></span>
+      </div>
+      <div class="uk-width-expand">
+        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+          <li><a href="#">Nombre</a></li>
+          <li><a href="#">Descripcion</a></li>
+          <li><a href="#">Localidad</a></li>
+          <li><a href="#">Semana</a></li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+          <li>
+            <div class="uk-search uk-search-default uk-width-expand">
+              <input name="busqueda_nombre" class="uk-search-input" type="search" placeholder="Buscar por nombre de residencia...">
+            </div>
+          </li>
+          <li>
+            <div class="uk-search uk-search-default uk-width-expand">
+              <input name="busqueda_descripcion" class="uk-search-input" type="search" placeholder="Buscar por descripcion de residencia1...">
+            </div>
+          </li>
+          <li>
+            localidad
+          </li>
+          <li>
+            fecha
+          </li>
+        </ul>
+      </div>
     </div>
 
     <?php
