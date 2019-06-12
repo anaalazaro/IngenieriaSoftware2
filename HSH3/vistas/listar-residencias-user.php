@@ -73,11 +73,30 @@
           </li>
           <li>
             <div class="uk-search uk-search-default uk-width-expand">
-              <input name="busqueda_descripcion" class="uk-search-input" type="search" placeholder="Buscar por descripcion de residencia1...">
+              <input name="busqueda_descripcion" class="uk-search-input" type="search" placeholder="Buscar por descripcion de residencia...">
             </div>
           </li>
           <li>
-            localidad
+            <div class="uk-child-width-1-4" uk-grid>
+              <div class="uk-inline">
+                <button class="uk-button uk-button-default uk-width-expand" type="button">Pais</button>
+                <div uk-dropdown="mode: click">
+
+                </div>
+              </div>
+              <div class="uk-inline">
+                <button class="uk-button uk-button-default uk-width-expand" type="button">Provincia</button>
+                <div uk-dropdown="mode: click">
+
+                </div>
+              </div>
+              <div class="uk-inline">
+                <button class="uk-button uk-button-default uk-width-expand" type="button">Localidad</button>
+                <div uk-dropdown="mode: click">
+
+                </div>
+              </div>
+            </div>
           </li>
           <li>
             fecha
