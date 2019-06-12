@@ -1,5 +1,21 @@
 SET FOREIGN_KEY_CHECKS=0;
 
+USE hsh;
+
+-- ----------------------------
+-- Table structure for `pais`
+-- ----------------------------
+DROP TABLE IF EXISTS `pais`;
+CREATE TABLE `pais` (
+  `id` smallint(2) NOT NULL,
+  `pais_nombre` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of provincia
+-- ----------------------------
+INSERT INTO `pais` VALUES ('1', 'Argentina');
 
 -- ----------------------------
 -- Table structure for `provincia`
@@ -8,36 +24,37 @@ DROP TABLE IF EXISTS `provincia`;
 CREATE TABLE `provincia` (
   `id` smallint(2) NOT NULL,
   `provincia_nombre` varchar(50) NOT NULL,
+  `pais_id` smallint(2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of provincia
 -- ----------------------------
-INSERT INTO `provincia` VALUES ('1', 'Buenos Aires');
-INSERT INTO `provincia` VALUES ('2', 'Capital Federal');
-INSERT INTO `provincia` VALUES ('3', 'Catamarca');
-INSERT INTO `provincia` VALUES ('4', 'Chaco');
-INSERT INTO `provincia` VALUES ('5', 'Chubut');
-INSERT INTO `provincia` VALUES ('6', 'Córdoba');
-INSERT INTO `provincia` VALUES ('7', 'Corrientes');
-INSERT INTO `provincia` VALUES ('8', 'Entre Rí­os');
-INSERT INTO `provincia` VALUES ('9', 'Formosa');
-INSERT INTO `provincia` VALUES ('10', 'Jujuy');
-INSERT INTO `provincia` VALUES ('11', 'La Pampa');
-INSERT INTO `provincia` VALUES ('12', 'La Rioja');
-INSERT INTO `provincia` VALUES ('13', 'Mendoza');
-INSERT INTO `provincia` VALUES ('14', 'Misiones');
-INSERT INTO `provincia` VALUES ('15', 'Neuquén');
-INSERT INTO `provincia` VALUES ('16', 'Rí­o Negro');
-INSERT INTO `provincia` VALUES ('17', 'Salta');
-INSERT INTO `provincia` VALUES ('18', 'San Juan');
-INSERT INTO `provincia` VALUES ('19', 'San Luis');
-INSERT INTO `provincia` VALUES ('20', 'Santa Cruz');
-INSERT INTO `provincia` VALUES ('21', 'Santa Fé');
-INSERT INTO `provincia` VALUES ('22', 'Santiago del Estero');
-INSERT INTO `provincia` VALUES ('23', 'Tierra del Fuego');
-INSERT INTO `provincia` VALUES ('24', 'Tucumán');
+INSERT INTO `provincia` VALUES ('1', 'Buenos Aires', '1');
+INSERT INTO `provincia` VALUES ('2', 'Capital Federal', '1');
+INSERT INTO `provincia` VALUES ('3', 'Catamarca', '1');
+INSERT INTO `provincia` VALUES ('4', 'Chaco', '1');
+INSERT INTO `provincia` VALUES ('5', 'Chubut', '1');
+INSERT INTO `provincia` VALUES ('6', 'Córdoba', '1');
+INSERT INTO `provincia` VALUES ('7', 'Corrientes', '1');
+INSERT INTO `provincia` VALUES ('8', 'Entre Rí­os', '1');
+INSERT INTO `provincia` VALUES ('9', 'Formosa', '1');
+INSERT INTO `provincia` VALUES ('10', 'Jujuy', '1');
+INSERT INTO `provincia` VALUES ('11', 'La Pampa', '1');
+INSERT INTO `provincia` VALUES ('12', 'La Rioja', '1');
+INSERT INTO `provincia` VALUES ('13', 'Mendoza', '1');
+INSERT INTO `provincia` VALUES ('14', 'Misiones', '1');
+INSERT INTO `provincia` VALUES ('15', 'Neuquén', '1');
+INSERT INTO `provincia` VALUES ('16', 'Rí­o Negro', '1');
+INSERT INTO `provincia` VALUES ('17', 'Salta', '1');
+INSERT INTO `provincia` VALUES ('18', 'San Juan', '1');
+INSERT INTO `provincia` VALUES ('19', 'San Luis', '1');
+INSERT INTO `provincia` VALUES ('20', 'Santa Cruz', '1');
+INSERT INTO `provincia` VALUES ('21', 'Santa Fé', '1');
+INSERT INTO `provincia` VALUES ('22', 'Santiago del Estero', '1');
+INSERT INTO `provincia` VALUES ('23', 'Tierra del Fuego', '1');
+INSERT INTO `provincia` VALUES ('24', 'Tucumán', '1');
 
 -- ----------------------------
 -- Table structure for `ciudad`
