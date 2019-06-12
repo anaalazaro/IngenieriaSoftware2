@@ -1,3 +1,5 @@
+<?php include('../modelos/conexion.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -78,23 +80,34 @@
           </li>
           <li>
             <div class="uk-child-width-1-4" uk-grid>
-              <div class="uk-inline">
-                <button class="uk-button uk-button-default uk-width-expand" type="button">Pais</button>
-                <div uk-dropdown="mode: click">
+              <div class="">
 
-                </div>
+                <select class="uk-button uk-button-default" name="opcion">
+                  <option class="" value="pais">--Seleccione un pais--</option>
+                  <?php
+                    $conexion=conectar();
+                    $consulta="SELECT * FROM pais";
+                    $paises=mysqli_query($conexion,$consulta);
+                    mysqli_close($conexion);
+                    while ($row = mysqli_fetch_array($paises)){
+                  ?>
+                    <option value="pais"> <?php echo $row['pais_nombre']; ?></option>
+                  <?php } ?>
+                </select>
               </div>
-              <div class="uk-inline">
-                <button class="uk-button uk-button-default uk-width-expand" type="button">Provincia</button>
-                <div uk-dropdown="mode: click">
 
-                </div>
+              <div class="">
+                <select class="uk-button uk-button-default" name="opcion">
+                  <option class="" value="pais">--Seleccione una provincia--</option>
+                </select>
               </div>
-              <div class="uk-inline">
-                <button class="uk-button uk-button-default uk-width-expand" type="button">Localidad</button>
-                <div uk-dropdown="mode: click">
-
-                </div>
+              <div class="">
+                <select class="uk-button uk-button-default" name="opcion">
+                  <option class="" value="pais">--Seleccione una localidad--</option>
+                </select>
+              </div>
+              <div class="">
+                <input type="submit" name="" value="buscar" class="uk-button uk-button-primary">
               </div>
             </div>
           </li>
@@ -106,8 +119,6 @@
     </div>
 
     <?php
-    include('../modelos/conexion.php');
-
     $conexion=conectar();
     $consulta= "SELECT * FROM residencia ";
     $result=mysqli_query($conexion,$consulta);
