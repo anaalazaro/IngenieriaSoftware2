@@ -7,7 +7,7 @@ if (isset($_GET['busqueda_nombre'])){
 
   $nombre = $_GET['busqueda_nombre'];
   $conexion = conectar();
-  $consulta = "SELECT * FROM residencia WHERE nombre='$nombre'";
+  $consulta = "SELECT * FROM residencia WHERE nombre LIKE '%$nombre%'";
   $resultado = consultaResidencia($conexion, $consulta);
   mysqli_close($conexion);
 
