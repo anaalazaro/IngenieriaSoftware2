@@ -13,6 +13,7 @@ if (isset($_GET['busqueda_nombre'])){
 
   while ($row=mysqli_fetch_array($lista)) {
     echo $row['nombre'];
+    
   }
 
 }
