@@ -33,7 +33,7 @@
         }
       ?>
 
-      <div class="uk-card uk-card-small uk-card-default uk-border-rounded">
+      <div class="uk-card uk-card-small uk-card-default uk-border-rounded uk-padding">
         <?php echo $tipo; ?>
 
         <div class="uk-card-body">
