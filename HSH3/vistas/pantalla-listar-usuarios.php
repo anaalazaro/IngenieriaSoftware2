@@ -10,7 +10,7 @@
     <script src="../js/uikit-icons.min.js"></script>
 
   </head>
-  <body class="uk-height-viewport my-background-color">
+  <body class="uk-height-viewport my-background-color  uk-padding">
     <?php
     include('../modelos/conexion.php');
     $conexion=conectar();
@@ -19,42 +19,32 @@
     mysqli_close($conexion);
     ?>
 
-    <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Mail</th>
-          <th>Tipo</th>
-          <th></th>
-        </tr>
-      </thead>
+    <div class="uk-padding-small">
+      <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver</a>
+    </div>
 
+    <div class="uk-child-width-1-3 uk-padding" uk-grid>
       <?php while ($row = mysqli_fetch_array($result)) {
         if ($row['premium']) {
-          $tipo = "Premium";
+          $tipo = '<div class="uk-card-badge uk-label">premium</div>';
+
         }else {
-          $tipo = "Básico";
+          $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">basico</div>';
         }
-        ?>
-      <tbody>
-        <tr>
-          <td><?php echo $row['nombre_usuario']; ?></td>
-          <td><?php echo $row['apellido_usuario']; ?></td>
-          <td><?php echo $row['mail']; ?></td>
-          <td><?php echo $tipo; ?></td>
-          <td><span uk-icon="info"></span></td>
-        </tr>
-      </tbody>
-    <?php } ?>
+      ?>
 
+      <div class="uk-card uk-card-small uk-card-default uk-border-rounded">
+        <?php echo $tipo; ?>
 
-      <table>
-        <div class="uk-padding-small">
-          <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver</a>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><?php echo $row['apellido_usuario'].", ".$row['nombre_usuario']; ?></h3>
         </div>
-      </table>
+        <div class="uk-card-footer">
+          <?php echo $row['mail']; ?><span class="uk-float-right" uk-icon="info"></span>
+        </div>
+      </div>
+
+      <?php } ?>
     </div>
   </body>
 </html>
