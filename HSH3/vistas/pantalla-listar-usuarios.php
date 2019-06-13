@@ -40,7 +40,10 @@
           <h3 class="uk-card-title"><?php echo $row['apellido_usuario'].", ".$row['nombre_usuario']; ?></h3>
         </div>
         <div class="uk-card-footer">
-          <?php echo $row['mail']; ?><span class="uk-float-right" uk-icon="info"></span>
+          <?php echo $row['mail']; ?>
+          <a href="<?php echo "../vistas/pantalla-detalle-usuario.php?id_usuario=".$row['id'];?>">
+            <span class="uk-float-right" uk-icon="info"></span>
+          </a>
         </div>
       </div>
 
