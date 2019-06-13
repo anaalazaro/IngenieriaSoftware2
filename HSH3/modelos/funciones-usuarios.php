@@ -1,5 +1,5 @@
 <?php
-include('../modelos/conexion.php');
+
 
 function existe($mail,$conexion){
 	$existe= "SELECT * FROM usuario WHERE mail='$mail'";
@@ -13,6 +13,7 @@ function existe($mail,$conexion){
 
 function getUsuarioPorId($id)
 {
+	include('../modelos/conexion.php');
 	$conexion = conectar();
 	$consulta = "SELECT * FROM usuario WHERE id = '$id'";
 	$ret = mysqli_fetch_array(mysqli_query($conexion,$consulta));
