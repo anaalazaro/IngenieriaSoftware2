@@ -1,5 +1,6 @@
 <?php
 include('../controladores/controlBusqueda.php');
+include('../controladores/controlLocalidades.php');
 ?>
 
 <!DOCTYPE html>
@@ -67,53 +68,32 @@ include('../controladores/controlBusqueda.php');
             </div>
           </li>
           <li>
-            <div class="uk-child-width-1-4" uk-grid>
-              <div class="">
+            <form class="" action="index.html" method="post">
+              <div class="uk-child-width-1-4" uk-grid>
+                <div class="">
+                  <select class="uk-button uk-button-default" name="pais" onchange="">
+                    <option class="" value="pais" selected disabled>--Seleccione un pais--</option>
+                    <?php listarPaises() ?>
+                  </select>
+                </div>
 
-                <select class="uk-button uk-button-default" name="pais">
-                  <option class="" value="pais" selected disabled>--Seleccione un pais--</option>
-                  <?php
-                    $conexion=conectar();
-                    $consulta="SELECT * FROM pais";
-                    $paises=mysqli_query($conexion,$consulta);
-                    mysqli_close($conexion);
-                    while ($row = mysqli_fetch_array($paises)){
-                  ?>
-                    <option value="pais_nombre">
-                      <?php
-                      echo $row['pais_nombre'];
-                      $id_pais_seleccionado=$row['id'];
-                      ?>
-                    </option>
-                  <?php } ?>
-                </select>
-              </div>
+                <div class="">
+                  <select class="uk-button uk-button-default" name="opcion">
+                    <option class="" value="pais" selected disabled>--Seleccione una provincia--</option>
 
-              <div class="">
-                <select class="uk-button uk-button-default" name="opcion">
-                  <option class="" value="pais" selected disabled>--Seleccione una provincia--</option>
-                  <?php
-                  $conexion=conectar();
-                  $consulta="SELECT * FROM provincia WHERE pais_id=$id_pais_seleccionado";
-                  $paises=mysqli_query($conexion,$consulta);
-                  mysqli_close($conexion);
-                  while ($row = mysqli_fetch_array($paises)){
-                  ?>
-                  <option class="" value="pais">
-                    <?php echo $row['provincia_nombre']; ?>
-                  </option>
-                <?php } ?>
-                </select>
+                  </select>
+                </div>
+                <div class="">
+                  <select class="uk-button uk-button-default" name="opcion">
+                    <option class="" value="pais" selected disabled>--Seleccione una localidad--</option>
+
+                  </select>
+                </div>
+                <div class="">
+                  <input type="submit" name="" value="buscar" class="uk-button uk-button-primary">
+                </div>
               </div>
-              <div class="">
-                <select class="uk-button uk-button-default" name="opcion">
-                  <option class="" value="pais" selected disabled>--Seleccione una localidad--</option>
-                </select>
-              </div>
-              <div class="">
-                <input type="submit" name="" value="buscar" class="uk-button uk-button-primary">
-              </div>
-            </div>
+            </form>
           </li>
           <li>
             fecha
