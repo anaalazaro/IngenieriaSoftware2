@@ -69,10 +69,19 @@ include('../controladores/controlLocalidades.php');
           </li>
           <li>
 
-            <form class="" action="" method="get">
+            <form id="formulario" class="" action="" method="get">
               <div class="uk-child-width-1-4" uk-grid>
                 <div class="">
-                  <select name="pais" class="uk-button uk-button-default" onchange="this.form.submit()">
+                  <select name="pais" class="uk-button uk-button-default" onchange="cambioPais()">
+                    <script>
+                      function cambioPais() {
+                        var select_provincia = document.getElementById("select-provincia");
+                        select_provincia.value = 0;
+                        var formulario = document.getElementById("formulario");
+                        formulario.submit();
+                      }
+                    </script>
+
                     <?php
                     if (isset($_GET['pais'])) {
                       //$pais_seleccionado = getNombrePaisPorId($_GET['pais']);
@@ -92,7 +101,15 @@ include('../controladores/controlLocalidades.php');
                 </div>
 
                 <div class="">
-                  <select name="provincia" class="uk-button uk-button-default" onchange="this.form.submit()">
+                  <select id="select-provincia" name="provincia" class="uk-button uk-button-default" onchange="cambioProvincia()">
+                    <script>
+                      function cambioProvincia() {
+                        var select_ciudad = document.getElementById("select-ciudad");
+                        select_ciudad.value = 0;
+                        var formulario = document.getElementById("formulario");
+                        formulario.submit();
+                      }
+                    </script>
 
                     <?php
                     if (isset($_GET['pais'])) {
@@ -117,7 +134,7 @@ include('../controladores/controlLocalidades.php');
                   </select>
                 </div>
                 <div class="">
-                  <select name="ciudad" class="uk-button uk-button-default" onchange="this.form.submit()">
+                  <select id="select-ciudad" name="ciudad" class="uk-button uk-button-default" onchange="this.form.submit()">
 
                     <?php
                     if (isset($_GET['provincia'])) {
@@ -125,6 +142,8 @@ include('../controladores/controlLocalidades.php');
                         $id_ciudad_seleccionada = $_GET['ciudad'];
                         $nombre_ciudad_seleccionada = getNombreCiudadPorId($id_ciudad_seleccionada);
                         echo '<option value="'.$id_ciudad_seleccionada.'" selected>'.$nombre_ciudad_seleccionada.'</option>';
+
+
                       }else {
                         echo '<option value="pais" selected disabled>--Seleccione una localidad--</option>';
                       }
