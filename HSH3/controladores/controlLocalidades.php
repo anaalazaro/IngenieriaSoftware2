@@ -1,32 +1,23 @@
 <?php
 
-/**
- *
- */
-class SelectorDeLocalidad
+function getIdPaisPorNombre($nombre_pais)
 {
-
-  private $id_pais_seleccionado = 0;
-
-  function __construct()
-  {
-    // code...
-  }
-
-  function listarPaises()
-  {
-      $conexion=conectar();
-      $consulta="SELECT * FROM pais";
-      $paises=mysqli_query($conexion,$consulta);
-      mysqli_close($conexion);
-      while ($row = mysqli_fetch_array($paises)){
-
-        echo "<option value='pais_nombre'>".$row['pais_nombre']."</option>";
-      }
-  }
-
+  $conexion=conectar();
+  $consulta="SELECT * FROM pais WHERE pais_nombre='$nombre_pais'";
+  $id_pais=mysqli_query($conexion,$consulta);
+  mysqli_close($conexion);
+  return $id_pais;
 }
 
+function getNombrePaisPorId($id_pais)
+{
+  $conexion=conectar();
+  $consulta="SELECT * FROM pais WHERE id='$id_pais'";
+  $resultado=mysqli_fetch_array(mysqli_query($conexion,$consulta));
+  $nombre_pais = $resultado['pais_nombre'];
+  mysqli_close($conexion);
+  return $nombre_pais;
+}
 
 function listarPaises()
 {
@@ -34,42 +25,47 @@ function listarPaises()
     $consulta="SELECT * FROM pais";
     $paises=mysqli_query($conexion,$consulta);
     mysqli_close($conexion);
-    while ($row = mysqli_fetch_array($paises)){
-
-      echo "<option value='pais_nombre'>".$row['pais_nombre']."</option>";
-    }
+    return $paises;
 }
 
-
-/*<?php
-  $conexion=conectar();
-  $consulta="SELECT * FROM pais";
-  $paises=mysqli_query($conexion,$consulta);
-  mysqli_close($conexion);
-  while ($row = mysqli_fetch_array($paises)){
-?>
-  <option value="pais_nombre">
-    <?php
-    echo $row['pais_nombre'];
-    $id_pais_seleccionado=$row['id'];
-    ?>
-  </option>
-<?php } ?>*/
-
-function listarProvincias($pais)
+function getNombreProvinciaPorId($id_provincia)
 {
   $conexion=conectar();
-  $consulta="SELECT * FROM provincias WHERE pais_id='$pais'";
-  $provincias=mysqli_query($conexion,$consulta);
+  $consulta="SELECT * FROM provincia WHERE id='$id_provincia'";
+  $resultado= mysqli_fetch_array(mysqli_query($conexion,$consulta));
+  $nombre_provincia = $resultado['provincia_nombre'];
   mysqli_close($conexion);
-  while ($row = mysqli_fetch_array($provincias)){
-    echo "<option value='provincia_nombre'>".$row['provincia_nombre']."</option>";
-  }
+  return $nombre_provincia;
 }
 
-function cambiaProvincia()
+function listarProvinciasDe($nombre_pais)
 {
-  cambiaProvincia(1);
+  $id_pais = mysqli_fetch_array(getIdPaisPorNombre($nombre_pais))['id'];
+  echo $id_pais;
+  $conexion=conectar();
+  $consulta = "SELECT * FROM provincia WHERE pais_id='$id_pais'";
+  $provincias = mysqli_query($conexion, $consulta);
+  mysqli_close($conexion);
+  return $provincias;
+}
+
+function getNombreCiudadPorId($id_ciudad)
+{
+  $conexion=conectar();
+  $consulta="SELECT * FROM ciudad WHERE id='$id_ciudad'";
+  $resultado= mysqli_fetch_array(mysqli_query($conexion,$consulta));
+  $nombre_ciudad = $resultado['ciudad_nombre'];
+  mysqli_close($conexion);
+  return $nombre_ciudad;
+}
+
+function listarCiudadesDe($id_provincia)
+{
+  $conexion=conectar();
+  $consulta = "SELECT * FROM ciudad WHERE provincia_id='$id_provincia'";
+  $ciudades = mysqli_query($conexion, $consulta);
+  mysqli_close($conexion);
+  return $ciudades;
 }
 
 ?>

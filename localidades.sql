@@ -10,7 +10,7 @@ CREATE TABLE `pais` (
   `id` smallint(2) NOT NULL,
   `pais_nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of provincia
@@ -26,7 +26,7 @@ CREATE TABLE `provincia` (
   `provincia_nombre` varchar(50) NOT NULL,
   `pais_id` smallint(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of provincia
@@ -36,25 +36,25 @@ INSERT INTO `provincia` VALUES ('2', 'Capital Federal', '1');
 INSERT INTO `provincia` VALUES ('3', 'Catamarca', '1');
 INSERT INTO `provincia` VALUES ('4', 'Chaco', '1');
 INSERT INTO `provincia` VALUES ('5', 'Chubut', '1');
-INSERT INTO `provincia` VALUES ('6', 'Córdoba', '1');
+INSERT INTO `provincia` VALUES ('6', 'CÃ³rdoba', '1');
 INSERT INTO `provincia` VALUES ('7', 'Corrientes', '1');
-INSERT INTO `provincia` VALUES ('8', 'Entre Rí­os', '1');
+INSERT INTO `provincia` VALUES ('8', 'Entre RÃ­os', '1');
 INSERT INTO `provincia` VALUES ('9', 'Formosa', '1');
 INSERT INTO `provincia` VALUES ('10', 'Jujuy', '1');
 INSERT INTO `provincia` VALUES ('11', 'La Pampa', '1');
 INSERT INTO `provincia` VALUES ('12', 'La Rioja', '1');
 INSERT INTO `provincia` VALUES ('13', 'Mendoza', '1');
 INSERT INTO `provincia` VALUES ('14', 'Misiones', '1');
-INSERT INTO `provincia` VALUES ('15', 'Neuquén', '1');
-INSERT INTO `provincia` VALUES ('16', 'Rí­o Negro', '1');
+INSERT INTO `provincia` VALUES ('15', 'NeuquÃ©n', '1');
+INSERT INTO `provincia` VALUES ('16', 'RÃ­o Negro', '1');
 INSERT INTO `provincia` VALUES ('17', 'Salta', '1');
 INSERT INTO `provincia` VALUES ('18', 'San Juan', '1');
 INSERT INTO `provincia` VALUES ('19', 'San Luis', '1');
 INSERT INTO `provincia` VALUES ('20', 'Santa Cruz', '1');
-INSERT INTO `provincia` VALUES ('21', 'Santa Fé', '1');
+INSERT INTO `provincia` VALUES ('21', 'Santa FÃ©', '1');
 INSERT INTO `provincia` VALUES ('22', 'Santiago del Estero', '1');
 INSERT INTO `provincia` VALUES ('23', 'Tierra del Fuego', '1');
-INSERT INTO `provincia` VALUES ('24', 'Tucumán', '1');
+INSERT INTO `provincia` VALUES ('24', 'TucumÃ¡n', '1');
 
 -- ----------------------------
 -- Table structure for `ciudad`
@@ -67,7 +67,7 @@ CREATE TABLE `ciudad` (
   `provincia_id` smallint(2) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cp` (`cp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ciudad

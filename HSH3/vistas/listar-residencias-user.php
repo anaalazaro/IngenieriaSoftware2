@@ -45,7 +45,7 @@ include('../controladores/controlLocalidades.php');
         <span uk-search-icon></span>
       </div>
       <div class="uk-width-expand">
-        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+        <ul class="uk-subnav uk-subnav-pill" <?php if(isset($_GET['pais'])){echo "active=2";} ?> uk-switcher>
           <li><a href="#">Nombre</a></li>
           <li><a href="#">Descripcion</a></li>
           <li><a href="#">Localidad</a></li>
@@ -68,24 +68,78 @@ include('../controladores/controlLocalidades.php');
             </div>
           </li>
           <li>
-            <form class="" action="index.html" method="post">
+
+            <form class="" action="" method="get">
               <div class="uk-child-width-1-4" uk-grid>
                 <div class="">
-                  <select class="uk-button uk-button-default" name="pais" onchange="">
-                    <option class="" value="pais" selected disabled>--Seleccione un pais--</option>
-                    <?php listarPaises() ?>
+                  <select name="pais" class="uk-button uk-button-default" onchange="this.form.submit()">
+                    <?php
+                    if (isset($_GET['pais'])) {
+                      //$pais_seleccionado = getNombrePaisPorId($_GET['pais']);
+                      $id_pais_seleccionado = $_GET['pais'];
+                      $nombre_pais_seleccionado = getNombrePaisPorId($id_pais_seleccionado);
+                      echo '<option value="'.$id_pais_seleccionado.'" selected>'.$nombre_pais_seleccionado.'</option>';
+                    } else {
+                      echo '<option value="" selected disabled>-- seleccione un pais --</option>';
+                    }
+                    $paises = listarPaises();
+                    while ($row = mysqli_fetch_array($paises)){
+                      $nombre_pais = $row['pais_nombre'];
+                      $id_pais = $row['id'];
+                      echo "<option value=".$id_pais.">".$nombre_pais."</option>";
+                    }?>
                   </select>
                 </div>
 
                 <div class="">
-                  <select class="uk-button uk-button-default" name="opcion">
-                    <option class="" value="pais" selected disabled>--Seleccione una provincia--</option>
+                  <select name="provincia" class="uk-button uk-button-default" onchange="this.form.submit()">
 
+                    <?php
+                    if (isset($_GET['pais'])) {
+                      if (isset($_GET['provincia'])) {
+                        $nombre_provincia_seleccionada = getNombreProvinciaPorId($_GET['provincia']);
+                        $id_provincia_seleccionada = $_GET['provincia'];
+                        echo '<option value="'.$id_provincia_seleccionada.'" selected>'.$nombre_provincia_seleccionada.'</option>';
+                      } else {
+                        echo '<option value="pais" selected disabled>--Seleccione una provincia--</option>';
+                      }
+
+                      $provincias = listarProvinciasDe($nombre_pais_seleccionado);
+                      while ($row = mysqli_fetch_array($provincias)){
+                        $nombre_provincia = $row['provincia_nombre'];
+                        $id_provincia = $row['id'];
+                        echo "<option value=".$id_provincia.">".$nombre_provincia."</option>";
+                      }
+                    } else {
+                      echo '<option value="pais" selected disabled>--Seleccione una provincia--</option>';
+                    }
+                     ?>
                   </select>
                 </div>
                 <div class="">
-                  <select class="uk-button uk-button-default" name="opcion">
-                    <option class="" value="pais" selected disabled>--Seleccione una localidad--</option>
+                  <select name="ciudad" class="uk-button uk-button-default" onchange="this.form.submit()">
+
+                    <?php
+                    if (isset($_GET['provincia'])) {
+                      if (isset($_GET['ciudad'])) {
+                        $id_ciudad_seleccionada = $_GET['ciudad'];
+                        $nombre_ciudad_seleccionada = getNombreCiudadPorId($id_ciudad_seleccionada);
+                        echo '<option value="'.$id_ciudad_seleccionada.'" selected>'.$nombre_ciudad_seleccionada.'</option>';
+                      }else {
+                        echo '<option value="pais" selected disabled>--Seleccione una localidad--</option>';
+                      }
+
+                      $ciudades = listarCiudadesDe($id_provincia_seleccionada);
+                      while ($row = mysqli_fetch_array($ciudades)) {
+                        $nombre_ciudad = $row['ciudad_nombre'];
+                        $id_ciudad = $row['id'];
+                        echo "<option value=".$id_ciudad.">".$nombre_ciudad."</option>";
+                      }
+
+                    }else {
+                      echo '<option value="pais" selected disabled>--Seleccione una localidad--</option>';
+                    }
+                     ?>
 
                   </select>
                 </div>
