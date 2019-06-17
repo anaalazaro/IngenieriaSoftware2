@@ -27,27 +27,35 @@
           <th>Apellido</th>
           <th>Mail</th>
           <th>Tipo</th>
-          <th></th>
+          <th>Solicitud</th>
         </tr>
       </thead>
 
       <?php while ($row = mysqli_fetch_array($result)) {
-        if ($row['premium']) {
+      if($row['mail']!== 'admin@hsh.com'){
+        if ($row['premium']==1) {
           $tipo = "Premium";
         }else {
+          if($row['premium']==0){
           $tipo = "Básico";
+          }
+          if ($row['premium']==2) {
+          $tipo= "En espera";
+          }
         }
         ?>
       <tbody>
         <tr>
           <td><?php echo $row['nombre_usuario']; ?></td>
           <td><?php echo $row['apellido_usuario']; ?></td>
-          <td><?php echo $row['mail']; ?></td>
+          <td><?php echo $mail=$row['mail']; ?></td>
           <td><?php echo $tipo; ?></td>
+          <td><?php echo "<a href='../controladores/aceptarPremium.php?mail=$mail'> Aceptar Premium</a>";?></td>
           <td><span uk-icon="info"></span></td>
         </tr>
       </tbody>
     <?php } ?>
+  <?php }?>
 
 
       <table>
