@@ -10,7 +10,7 @@
     <script src="../js/uikit-icons.min.js"></script>
 
   </head>
-  <body class="uk-height-viewport my-background-color">
+  <body class="uk-height-viewport my-background-color  uk-padding">
     <?php
     include('../modelos/conexion.php');
     $conexion=conectar();
@@ -19,50 +19,43 @@
     mysqli_close($conexion);
     ?>
 
-    <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Mail</th>
-          <th>Tipo</th>
-          <th>Solicitud</th>
-        </tr>
-      </thead>
+    <div class="uk-padding-small">
+      <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver</a>
+    </div>
 
+    <div class="uk-child-width-1-3 uk-padding" uk-grid>
       <?php while ($row = mysqli_fetch_array($result)) {
-      if($row['mail']!== 'admin@hsh.com'){
         if ($row['premium']==1) {
-          $tipo = "Premium";
-        }else {
-          if($row['premium']==0){
-          $tipo = "Básico";
-          }
-          if ($row['premium']==2) {
-          $tipo= "En espera";
-          }
+          $tipo = '<div class="uk-card-badge uk-label">premium</div>';
+
+        }else { if($row['premium']==0){
+              $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">basico</div>';
+              }
+              if ($row['premium']==2) {
+                $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;"></div>es espera'; 
+              }
         }
-        ?>
-      <tbody>
-        <tr>
-          <td><?php echo $row['nombre_usuario']; ?></td>
-          <td><?php echo $row['apellido_usuario']; ?></td>
-          <td><?php echo $mail=$row['mail']; ?></td>
-          <td><?php echo $tipo; ?></td>
-          <td><?php echo "<a href='../controladores/aceptarPremium.php?mail=$mail'> Aceptar Premium</a>";?></td>
-          <td><span uk-icon="info"></span></td>
-        </tr>
-      </tbody>
-    <?php } ?>
-  <?php }?>
+      
+      ?>
 
+      <div class="uk-card uk-card-small uk-card-default uk-border-rounded uk-padding">
+        <?php echo $tipo; ?>
 
-      <table>
-        <div class="uk-padding-small">
-          <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver</a>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><?php echo $row['apellido_usuario'].", ".$row['nombre_usuario']; ?></h3>
         </div>
-      </table>
+        <div class="uk-card-footer">
+          <?php echo $mail=$row['mail']; ?>
+          <a href="<?php echo "../vistas/pantalla-detalle-usuario.php?id_usuario=".$row['id'];?>">
+            <span class="uk-float-right" uk-icon="info"></span>
+          </a>
+        </div>
+        <div>
+          <?php echo "<a href='../controladores/aceptarPremium.php?mail=$mail'> Aceptar Premium</a>";?>
+        </div>
+      </div>
+
+      <?php } ?>
     </div>
   </body>
 </html>
