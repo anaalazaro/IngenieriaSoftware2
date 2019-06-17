@@ -25,6 +25,7 @@
 
     <div class="uk-child-width-1-3 uk-padding" uk-grid>
       <?php while ($row = mysqli_fetch_array($result)) {
+        if($row['mail']!== 'admin@hsh.com'){
         if ($row['premium']==1) {
           $tipo = '<div class="uk-card-badge uk-label">premium</div>';
 
@@ -35,6 +36,7 @@
                 $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;"></div>es espera'; 
               }
         }
+
       
       ?>
 
@@ -50,11 +52,9 @@
             <span class="uk-float-right" uk-icon="info"></span>
           </a>
         </div>
-        <div>
-          <?php echo "<a href='../controladores/aceptarPremium.php?mail=$mail'> Aceptar Premium</a>";?>
-        </div>
+        
       </div>
-
+    <?php }?>
       <?php } ?>
     </div>
   </body>

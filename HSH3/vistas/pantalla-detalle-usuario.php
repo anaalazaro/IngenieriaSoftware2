@@ -21,11 +21,16 @@
     <?php
     if (isset($_GET['id_usuario'])) {
       $usuario = getUsuarioPorId($_GET['id_usuario']);
-      if($usuario['premium']){
+      if($usuario['premium']==1){
         $estado = "<span class='uk-badge uk-label'>Premium</span>";
       }else {
-        $estado = "<span class='uk-badge uk-label' style='background-color:lightgrey;'>basico</span>";
-      }
+          if ($usuario['premium']==0) {
+          $estado = "<span class='uk-badge uk-label' style='background-color:lightgrey;'>basico</span>";
+           }
+          if ($usuario['premium']==2) {
+            $estado = "<span class='uk-badge uk-label' style='background-color:lightgrey;'>en espera</span>";
+          }
+    }
     }
      ?>
 
@@ -36,9 +41,9 @@
             <li><?php echo $usuario['id']; ?></li>
             <li><?php echo $usuario['nombre_usuario']; ?></li>
             <li><?php echo $usuario['apellido_usuario']; ?></li>
-            <li><?php echo $usuario['mail']; ?></li>
+            <li><?php echo $mail= $usuario['mail']; ?></li>
             <li><?php echo $estado ?></li>
-
+            <li><?php echo "<a href='../controladores/aceptarPremium.php?mail=$mail'> Aceptar Premium</a>";?></li>
           </ul>
 
         </div>
