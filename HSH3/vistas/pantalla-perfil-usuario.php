@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/personal.css" />
     <script src="../js/uikit.min.js"></script>
     <script src="../js/uikit-icons.min.js"></script>
+    <script type="text/javascript" src="../controladores/botonPremium.js"></script>
   </head>
 
   <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
@@ -63,12 +64,17 @@
             $row['direccion']; ?></p>
             <p><label>Teléfono: </label><?php echo $row['telefono']; ?></p>
             <p><label>Tarjeta: </label><?php echo $row['tarjeta_numero']. "  Vencimiento: " .$row['tarjeta_vencimiento']; ?></p>
-            <p><label>Mail: </label><?php echo $row['mail']; ?></p>
+            <p><label>Mail: </label><?php echo $mail=$row['mail']; ?></p>
             <p><?php echo $subscripcion ?></p>
           </div>
           <div class="uk-card-footer">
-            <a href="#">modificar</a>
-            <a href="#">Solicitar Premium</a><!--json con listado de mails de los que solicitan. Cuando los aceptan se borra-->
+            <?php echo "<a href='../controladores/editar-perfil.php?mail=$mail'>Editar mi perfil</a>";?>
+            <a href="../controladores/solicitarPremium.php" id="boton" class="uk-padding-small" onclick="cambiartext();" >Solicitar Premium</a><!--json con listado de mails de los que solicitan. Cuando los aceptan se borra
+          <form action="../controladores/solicitarPremium.php" method="post" class="uk-form uk-padding-small uk-padding-remove-top">
+              <div class="uk-padding-small">
+                <input type="submit" name='enviar' id="boton" value="Solicitar Premium" class="" onclick="return cambiartext()"></input>
+              </div>
+          </form>-->
           </div>
         </div>
       </div>
