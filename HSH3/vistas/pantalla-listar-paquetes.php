@@ -13,6 +13,7 @@
   <body class="uk-height-viewport my-background-color">
     <?php
     include('../modelos/conexion.php');
+	include('../modelos/get_format.php');
 
     $conexion=conectar();
     $consulta= "SELECT * FROM paquete";
@@ -30,7 +31,7 @@
           <th>Usuario</th>
 		  <th>Entra en subasta<th>
           
-	  <th></th>
+	  
 	  <th></th>
         </tr>
       </thead>
@@ -45,7 +46,12 @@
           <td><?php echo $row['semana']; ?></td>
           <td><?php echo $row['estado']; ?></td>
           <td><?php echo $row['id_usuario']; ?></td>
-		  <td></td>
+		  <td><?php $date1 = new DateTime("now");
+		  $dt=$row['semana'];
+		 $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
+		  $date2 = new DateTime($dt_subasta);
+		  $diff = $date1->diff($date2);
+		  echo get_format($diff);?></td>
 	  <td><a onclick="eliminarResidencia();" href="../controladores/eliminarRes.php?id_paquete=<?php echo $id_paquete ?>"><span uk-icon="trash"></span></a></td>
         <?php } ?>
         </tr>
