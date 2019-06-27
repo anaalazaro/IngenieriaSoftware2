@@ -11,6 +11,18 @@
  <script type="text/javascript" src="../controladores/validar_eli.js"></script>
   </head>
   <body class="uk-height-viewport my-background-color">
+
+    <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
+      <div class="uk-navbar-left uk-padding-small">
+        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver al home</a>
+      </div>
+      <div class="uk-navbar-center">
+        <ul class="uk-navbar-nav">
+            <li><a href="../vistas/home-admin.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
+        </ul>
+      </div>
+    </nav>
+
     <?php
     include('../modelos/conexion.php');
 

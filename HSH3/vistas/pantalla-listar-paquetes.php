@@ -11,6 +11,18 @@
  <script type="text/javascript" src="../controladores/validar_eli.js"></script>
   </head>
   <body class="uk-height-viewport my-background-color">
+
+    <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
+      <div class="uk-navbar-left uk-padding-small">
+        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver al home</a>
+      </div>
+      <div class="uk-navbar-center">
+        <ul class="uk-navbar-nav">
+            <li><a href="../vistas/home-admin.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
+        </ul>
+      </div>
+    </nav>
+
     <?php
     include('../modelos/conexion.php');
 	include('../modelos/get_format.php');
@@ -20,50 +32,57 @@
     $result=mysqli_query($conexion,$consulta);
 
     mysqli_close($conexion);?>
-    <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
-      <thead>
-        <tr>
-         <th>Id</th>
-          <th>Nombre</th>
-          <th>Semana</th>
-          <th>Estado</th>
-          <th>Usuario</th>
-		  <th>Entra en subasta<th>
-          
-	  
-	  <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php while ($row = mysqli_fetch_array($result)){
-       
+
+    <div class="uk-padding uk-margin-left">
+      <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove" uk-grid>
+        <div class="uk-child-width-1-4" uk-grid>
+          <div class="">ID</div>
+          <div class="">Nombre</div>
+          <div class="">Semana</div>
+          <div class="">Usuario</div>
+        </div>
+        <div class="uk-child-width-1-2 uk-margin-remove-top" uk-grid>
+          <div class="">Estado</div>
+          <div class="">Entra en subasta</div>
+        </div>
+      </div>
+      <?php
+      while ($row = mysqli_fetch_array($result)) {
         $id_paquete=$row['id'];
         ?>
-        <tr>
-          <td><?php echo $row['id']; ?></td>
-          <td><?php echo $row['nombre_res']; ?></td>
-          <td><?php echo $row['semana']; ?></td>
-          <td><?php echo $row['estado']; ?></td>
-          <td><?php echo $row['id_usuario']; ?></td>
-          <?php if ($row['estado']=='ACTIVO'){?>
-		  <td><?php $date1 = new DateTime("now");
-		  $dt=$row['semana'];
-		 $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
-		  $date2 = new DateTime($dt_subasta);
-		  $diff = $date1->diff($date2);
-		  echo get_format($diff);?></td>
-      <?php }?>
-	  </td>
-        <?php } ?>
-        </tr>
-      </tbody>
-    </table>
-      <div class="uk-padding-small">
-        <a href="home-admin.php" class="uk-button uk-button-primary">Volver</a>
+        <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove uk-margin-small-top" uk-grid>
+          <div class="uk-child-width-1-4" uk-grid>
+            <div class=""><?php echo $row['id']; ?></div>
+            <div class=""><?php echo $row['nombre_res']; ?></div>
+            <div class=""><?php echo $row['semana']; ?></div>
+            <div class=""><?php echo $row['id_usuario']; ?></div>
+          </div>
+          <div class="uk-child-width-1-2 uk-margin-remove-top" uk-grid>
+            <div class=""><?php echo $row['estado']; ?></div>
+            <div class="">
+              <?php
+              if ($row['estado']=='ACTIVO'){
+                $date1 = new DateTime("now");
+                $dt=$row['semana'];
+                $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
+                $date2 = new DateTime($dt_subasta);
+                $diff = $date1->diff($date2);
+                $tiempo_restante=get_format($diff);
+              }else {
+                $tiempo_restante = "no aplica";
+              }
+              ?>
+              <?php echo $tiempo_restante;?>
+            </div>
+          </div>
 
-        <a href="pantalla-crear-paquete.php" class="uk-button uk-button-primary">Agregar</a>
-      </div>
+        </div>
+        <?php
+      }
+       ?>
     </div>
+
+
+
   </body>
 </html>

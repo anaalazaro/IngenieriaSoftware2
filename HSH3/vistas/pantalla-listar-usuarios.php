@@ -10,7 +10,19 @@
     <script src="../js/uikit-icons.min.js"></script>
 
   </head>
-  <body class="uk-height-viewport my-background-color  uk-padding">
+  <body class="uk-height-viewport my-background-color">
+
+    <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
+      <div class="uk-navbar-left uk-padding-small">
+        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver al home</a>
+      </div>
+      <div class="uk-navbar-center">
+        <ul class="uk-navbar-nav">
+            <li><a href="../vistas/home-admin.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
+        </ul>
+      </div>
+    </nav>
+
     <?php
     include('../modelos/conexion.php');
     $conexion=conectar();
@@ -18,10 +30,6 @@
     $result=mysqli_query($conexion,$consulta);
     mysqli_close($conexion);
     ?>
-
-    <div class="uk-padding-small">
-      <a href="../vistas/home-user.php" class="uk-button uk-button-primary">Volver</a>
-    </div>
 
     <div class="uk-child-width-1-3 uk-padding" uk-grid>
       <?php while ($row = mysqli_fetch_array($result)) {
@@ -33,11 +41,11 @@
               $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">basico</div>';
               }
               if ($row['premium']==2) {
-                $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">en espera</div>'; 
+                $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">en espera</div>';
               }
         }
 
-      
+
       ?>
 
       <div class="uk-card uk-card-small uk-card-default uk-border-rounded uk-padding">
@@ -52,7 +60,7 @@
             <span class="uk-float-right" uk-icon="info"></span>
           </a>
         </div>
-        
+
       </div>
     <?php }?>
       <?php } ?>
