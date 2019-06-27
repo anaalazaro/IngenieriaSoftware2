@@ -90,23 +90,6 @@ INSERT INTO `precios` (`basico`, `premium`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `provincias`
---
-DROP TABLE IF EXISTS `provincias`;
-CREATE TABLE `provincias` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(150) NOT NULL,
-  `nombre_pais` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `provincias`
---
-
-INSERT INTO `provincias` (`id`, `nombre`, `nombre_pais`) VALUES
-(1, 'Cordoba', 'argentina'),
-(2, 'San Luis', 'argentina');
 
 -- --------------------------------------------------------
 
