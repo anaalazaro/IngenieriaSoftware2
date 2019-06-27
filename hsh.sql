@@ -198,11 +198,6 @@ ALTER TABLE `foto`
 ALTER TABLE `paquete`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `provincias`
---
-ALTER TABLE `provincias`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `residencia`
