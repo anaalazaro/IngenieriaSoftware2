@@ -20,7 +20,7 @@
     ?>
 
     <div class="uk-padding-small">
-      <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver</a>
+      <a href="../vistas/home-user.php" class="uk-button uk-button-primary">Volver</a>
     </div>
 
     <div class="uk-child-width-1-3 uk-padding" uk-grid>
@@ -33,7 +33,7 @@
               $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">basico</div>';
               }
               if ($row['premium']==2) {
-                $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;"></div>es espera'; 
+                $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">en espera</div>'; 
               }
         }
 

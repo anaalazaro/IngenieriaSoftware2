@@ -44,21 +44,28 @@
   $consulta= "SELECT * FROM usuario WHERE id=$id";
   $result=mysqli_query($conexion,$consulta);
   $row = mysqli_fetch_array($result);
+  $contenido=$row["imagen"];
 
-  if ($row['premium']) {
+  if ($row['premium']==1 or $row['premium']==3) {
     $subscripcion = "Usuario Premium";
-  } else {
+  }
+  else{
     $subscripcion = "Usuario Básico";
   }
+
   ?>
 
   <body class="uk-height-viewport my-background-color">
+      <div class="uk-padding-small">
+      <a href="../vistas/home-user.php" class="uk-button uk-button-primary">Volver</a>
+    </div>
     <div class="uk-padding-large uk-padding-remove-bottom">
       <div class="uk-card uk-card-default uk-border-rounded" uk-grid>
         <div class="uk-width-expand">
           <div class="uk-card-header">
             <h3><?php echo $row['nombre_usuario'].", ".$row['apellido_usuario'] ?></h3>
-          </div>
+          </div class="uk-card-media-left uk-width-1-4">
+           <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" with='20%' />
           <div class="uk-card-body">
             <p><label>Localidad: </label><?php echo $row['localidad']. ", ".
             $row['direccion']; ?></p>
@@ -68,8 +75,19 @@
             <p><?php echo $subscripcion ?></p>
           </div>
           <div class="uk-card-footer">
-            <?php echo "<a href='../controladores/editar-perfil.php?mail=$mail'>Editar mi perfil</a>";?>
-            <a href="../controladores/solicitarPremium.php" id="boton" class="uk-padding-small" onclick="cambiartext();" >Solicitar Premium</a><!--json con listado de mails de los que solicitan. Cuando los aceptan se borra
+            <?php echo "<a href='../controladores/editar-perfil.php?mail=$mail' class='uk-button uk-button-primary'>Editar mi perfil</a>";?>
+            <?php if($row['premium']==0){?>
+            <a href="../controladores/solicitarPremium.php" id="boton" class='uk-button uk-button-primary'  >Solicitar Premium</a>
+          <?php }?>
+          <?php if($row['premium']==1){?>
+            <a href="../controladores/solicitarPremium.php" id="boton" class='uk-button uk-button-primary' >Solicito deshabilitar Premium</a>
+            <?php }?>
+          <?php if($row['premium']==2 or $row['premium']==3){
+            $tipo = '<div class="uk-card-footer uk-label uk-" style="background-color:lightgrey;">en espera</div>';
+            echo $tipo; }?>
+
+
+          <!--json con listado de mails de los que solicitan. Cuando los aceptan se borra
           <form action="../controladores/solicitarPremium.php" method="post" class="uk-form uk-padding-small uk-padding-remove-top">
               <div class="uk-padding-small">
                 <input type="submit" name='enviar' id="boton" value="Solicitar Premium" class="" onclick="return cambiartext()"></input>
@@ -80,4 +98,4 @@
       </div>
     </div>
   </body>
-</html>
+  </html>

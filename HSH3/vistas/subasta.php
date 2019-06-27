@@ -43,7 +43,6 @@
     $conexion=conectar();
     $consulta= "SELECT * FROM paquete WHERE estado='SUBASTA' ";
     $result=mysqli_query($conexion,$consulta);
-
     mysqli_close($conexion);?>
     <div class="uk-position-center my-form-box">
     <table class="table table-striped uk-table uk-table-divider uk-align-center">
@@ -53,9 +52,9 @@
           <th>Residencia</th>
           <th>Desde</th>
           <th>Hasta</th>
-          <th>Precio</th><!--falta x para que termine la subasta-->
+          <th>Precio</th>
 		  <th>Usuario</th>
-		  <th></th>
+		  <th>Falta</th>
         </tr>
       </thead>
       <tbody>
@@ -72,7 +71,7 @@
 		  echo $dt_subasta_inicio; ?></td>
           <td><?php echo '$',$row['precio_base']; ?></td>
 		  <td><?php echo $row['id_usuario'];  ?></td>
-		  <td><a href="subasta.php?id_paquete=<?php echo $id ?>">Subastar<span class="uk-icon uk-icon-image" style="background-image: url('../files/martillo.svg');" ></span></a></td>
+		  <td><?php echo $dt_subasta_fin-$dt_subasta_inicio?></td>
         <?php } ?>
         </tr>
       </tbody>

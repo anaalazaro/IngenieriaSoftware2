@@ -14,15 +14,14 @@
 
         <ul class="uk-navbar-nav">
 
-            <li><a href="pantalla-modificar-residencia.php">modificacion de residencia</a></li>
-            <li><a href="pantalla-eliminar-residencia.php">baja de residencia</a></li>
-
-            <li><a href="pantalla-cerrar-subasta.php">cerrar subasta</a></li>
             <li><a href="pantalla-listar-residencias.php">listar residencias</a></li>
             <li><a href="pantalla-listar-subastas.php">Listar subastas</a></li>
             <li><a href="pantalla-listar-usuarios.php">Listar usuarios</a></li>
-<li><a href="pantalla-listar-paquetes.php">Listar paquetes</a></li> 
+            <li><a href="pantalla-listar-paquetes.php">Listar paquetes</a></li> 
+            <li><a href="pantalla-configurar-precios.php">Configurar precios</a></li> 
+
             <li><a href="../modelos/cerrar-sesion.php"> Cerrar Sesion</a></li>
+
         </ul>
 
       </div>

@@ -26,7 +26,6 @@
                 <li><a href="..\vistas\pantalla-perfil-usuario.php">Mi Perfil</a></li>
                 <li><a href="#">Mis Subastas</a></li>
                 <li><a href="#">Mi Plan</a></li>
-                <li><a href="#">Mi Perfil</a></li>
                 <li class="uk-nav-divider"></li>
                 <li class="uk-nav-header">Sesión</li>
                 <li><a href="../modelos/cerrar-sesion.php">Cerrar Sesión</a></li>
@@ -46,7 +45,7 @@
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
           <h3 class="uk-card-title">Subastas de paquetes</h3>
-          <p><a href="#">click aquí</a></p>
+          <p><a href="pantalla-subastas-disponibles.php">click aquí</a></p>
         </div>
       </div>
       <div>

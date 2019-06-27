@@ -46,13 +46,15 @@
           <td><?php echo $row['semana']; ?></td>
           <td><?php echo $row['estado']; ?></td>
           <td><?php echo $row['id_usuario']; ?></td>
+          <?php if ($row['estado']=='ACTIVO'){?>
 		  <td><?php $date1 = new DateTime("now");
 		  $dt=$row['semana'];
 		 $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
 		  $date2 = new DateTime($dt_subasta);
 		  $diff = $date1->diff($date2);
 		  echo get_format($diff);?></td>
-	  <td><a onclick="eliminarResidencia();" href="../controladores/eliminarRes.php?id_paquete=<?php echo $id_paquete ?>"><span uk-icon="trash"></span></a></td>
+      <?php }?>
+	  </td>
         <?php } ?>
         </tr>
       </tbody>

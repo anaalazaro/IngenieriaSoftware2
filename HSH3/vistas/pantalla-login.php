@@ -1,4 +1,7 @@
-<?php //header('location: home-user.php')?>
+<?php //header('location: home-user.php')
+include('../modelos/fEstado.php');
+modificarEstado();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
