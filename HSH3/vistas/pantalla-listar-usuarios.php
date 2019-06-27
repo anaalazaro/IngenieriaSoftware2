@@ -14,7 +14,7 @@
 
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
       <div class="uk-navbar-left uk-padding-small">
-        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver al home</a>
+        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary uk-border-rounded">Volver al home</a>
       </div>
       <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">

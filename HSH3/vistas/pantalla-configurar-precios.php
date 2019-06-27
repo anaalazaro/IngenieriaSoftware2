@@ -14,7 +14,7 @@
 
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
       <div class="uk-navbar-left uk-padding-small">
-        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary">Volver al home</a>
+        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary uk-border-rounded">Volver al home</a>
       </div>
       <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
@@ -25,40 +25,44 @@
 
     <?php
     include('../modelos/conexion.php');
-
     $conexion=conectar();
     $consulta= "SELECT * FROM precios ";
     $result=mysqli_query($conexion,$consulta);
-
     mysqli_close($conexion);?>
-    <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
-      <thead>
-        <tr>
-          <th>Basico</th>
-          <th>Premium</th>
 
-        </tr>
-      </thead>
-      <tbody>
-        <?php while ($row = mysqli_fetch_array($result)){ ?>
+    <?php
+    while ($row = mysqli_fetch_array($result)){
+      $premium = $row['premium'];
+      $basico = $row['basico'];
+    }
+    ?>
 
-        <tr>
-          <td><?php echo $row['basico']; ?></td>
-
-          <td><?php echo $row['premium']; ?></td>
-
-        <?php } ?>
-        </tr>
-      </tbody>
-    </table>
-
-      <div class="uk-padding-small">
-        <a href="../modelos/funcionModificarBasico.php" class="uk-button uk-button-primary">Modificar Basico</a>
-        <a href="funcionModificarPremium.php" class="uk-button uk-button-primary">Modificar Premium</a>
-        <a href="home-admin.php" class="uk-button uk-button-primary">Volver</a>
-
+    <div class="uk-child-width-1-2 uk-grid-match uk-padding uk-margin" uk-grid>
+      <div class="uk-card-small uk-card-default uk-card-body" uk-card>
+        <div class="uk-card-title">
+          <p>Precio del basico</p>
+        </div>
+        <div class="uk-card-body">
+          <h2><?php echo "$".$basico ?></h2>
+        </div>
+        <div class="uk-card-footer">
+          <button class="uk-button uk-button-primary">Cambiar precio</button>
+        </div>
       </div>
+      <div class="uk-card-small uk-card-default uk-card-body" uk-card>
+        <div class="uk-card-title">
+          <p>Precio del premium</p>
+        </div>
+        <div class="uk-card-body">
+          <h2><?php echo "$".$premium ?></h2>
+        </div>
+        <div class="uk-card-footer">
+          <button class="uk-button uk-button-primary">Cambiar precio</button>
+        </div>
+      </div>
+    </div>
+
+
     </div>
   </body>
 </html>
