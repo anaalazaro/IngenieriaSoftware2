@@ -38,12 +38,16 @@ if($row['premium']==0){
 
 
 }else {
-		if($_SESSION['premium']==1){
+
+	    if($row['premium']==1){
+	    	$consulta= "UPDATE usuario SET premium='3' WHERE mail='$mail'";// 3 siginifica 	que esta es espera para  desabilitar
+	        $resultado=mysqli_query($conexion,$consulta);
 			echo "<script language='javascript'>
-			alert('Usted ya es usuario premium!..');
+			alert('Usted es usuario premium, ya se envio su solicitud para darle de baja!..');
 			location.href= '../vistas/pantalla-perfil-usuario.php' ;
 			</script>";  
 		}
+		
 		if ($_SESSION['premium']==2) {
 			echo "<script language='javascript'>
 			alert('Usted tiene pendiente su solicitud!..');

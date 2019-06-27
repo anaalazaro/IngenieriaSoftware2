@@ -66,7 +66,7 @@ $nombre= ($_GET['nom_residencia']);
             <div class="uk-width-1-3">
               <label>Pais:</label>
               <select id="pais"  class="uk-input" name="pais">
-                <option value="<?php echo $mostrar['pais']; ?>""><?php echo $mostrar['pais']; ?></option>
+                <option value="<?php echo $mostrar['pais']; ?>"><?php echo $mostrar['pais']; ?></option>
                 <!--<option value="argentina" >Argentina</option>
                 <option value="brasil">Brasil</option>
                 <option value="chile">Chile</option>
