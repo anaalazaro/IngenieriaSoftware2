@@ -237,11 +237,6 @@ ALTER TABLE `foto`
 ALTER TABLE `paquete`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `provincias`
---
-ALTER TABLE `provincias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `residencia`
 --
 ALTER TABLE `residencia`
