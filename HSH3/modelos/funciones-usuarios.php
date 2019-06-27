@@ -11,6 +11,13 @@ function existe($mail,$conexion){
 	}
 }
 
+function getUsuario($conexion,$usuario)
+{
+	$consulta = "SELECT * FROM usuario WHERE mail='$usuario'";
+	$ret = mysqli_fetch_array(mysqli_query($conexion, $consulta));
+	return $ret;
+}
+
 function getUsuarioPorId($id)
 {
 	include('../modelos/conexion.php');
