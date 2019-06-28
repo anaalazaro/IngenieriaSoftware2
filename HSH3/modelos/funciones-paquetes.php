@@ -10,7 +10,7 @@ function hayDatos($nombre, $semana){
 function existe($nombre,$semana,$conexion){
 	$existe= "SELECT * FROM paquete WHERE nombre_res='$nombre' AND semana='$semana'";
 	$resultado1= mysqli_query($conexion,$existe);
-	
+
 	if(mysqli_num_rows($resultado1)==0){
 		return 0;
 	}else {
@@ -21,6 +21,15 @@ function existe($nombre,$semana,$conexion){
 
 function guardarPaquete($conexion, $consulta){
 	return mysqli_query($conexion, $consulta);
+}
+
+function getPaquetesPorEstado($estado)
+{
+	include("conexion.php");
+	$conexion = conectar();
+	$consulta = "SELECT * FROM paquete WHERE estado = '$estado'";
+	$resultado = mysqli_query($conexion, $consulta);
+	return $resultado;
 }
 
 

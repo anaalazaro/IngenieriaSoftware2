@@ -52,7 +52,7 @@
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
           <div class="uk-card-badge uk-label">premium</div>
           <h3 class="uk-card-title">Reservar paquetes</h3>
-          <p><a href="pantalla-subastas-disponibles.php">click aquí</a></p>
+          <p><a href="../controladores/controlVerReservas.php?id=<?php echo $_SESSION['id']; ?>">click aquí</a></p>
         </div>
       </div>
     </div>
