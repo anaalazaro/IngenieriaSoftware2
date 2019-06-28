@@ -29,8 +29,9 @@
     $result=mysqli_query($conexion,$consulta);
 
     mysqli_close($conexion);?>
-    <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
+    <div class="uk-panel uk-panel-scrollable uk-position-center uk-padding uk-margin uk-border-rounded" style="background-color:white;">
+    <table class="uk-table-striped uk-table uk-table-divider uk-table-condensed uk-text-nowrap">
+      <caption><h2>SUBASTAS</h2> </caption>
       <thead>
         <tr>
           <th>ID</th>
@@ -38,16 +39,16 @@
           <th>Desde</th>
           <th>Hasta</th>
           <th>Precio</th><!--falta x para que termine la subasta-->
-      <th>Usuario</th>
-      <th></th>
+          <th>Usuario</th>
+          <th></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="">
         <?php while ($row = mysqli_fetch_array($result)){
       $dt=$row['semana'];
       $id=$row['id']?>
 
-        <tr>
+        <tr class="">
           <td><?php echo $id; ?></td>
           <td><?php echo $row['nombre_res']; ?></td>
           <td><?php $dt_subasta_inicio=date("Y-m-d", strtotime("$dt -6 month"));
@@ -59,10 +60,6 @@
         </tr>
       </tbody>
     </table>
-      <div class="uk-padding-small">
-        <a href="home-admin.php" class="uk-button uk-button-primary">Volver</a>
-
-      </div>
     </div>
   </body>
 </html>
