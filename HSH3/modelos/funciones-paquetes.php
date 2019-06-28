@@ -32,6 +32,15 @@ function getPaquetesPorEstado($estado)
 	return $resultado;
 }
 
+function getPaquetePorId($id)
+{
+	include("conexion.php");
+	$conexion = conectar();
+	$consulta = "SELECT * FROM paquete WHERE id = '$id'";
+	$resultado = mysqli_query($conexion, $consulta);
+	return $resultado;
+}
+
 
 
 ?>

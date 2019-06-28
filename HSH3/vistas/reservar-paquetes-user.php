@@ -34,7 +34,7 @@
         </ul>
       </div>
     </nav>
-    <div class="uk-padding uk-child-width-1-2" uk-grid>
+    <div class="uk-padding uk-child-width-1-2 uk-grid-small uk-grid-match" uk-grid>
       <?php
         include("../modelos/funciones-paquetes.php");
         $paquetes_en_reserva = getPaquetesPorEstado("RESERVA");
