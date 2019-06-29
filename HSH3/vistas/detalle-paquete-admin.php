@@ -30,15 +30,52 @@
 
       //include("../modelos/funciones-residencias.php");
       $residencia = getResidenciaPorID($paquete['id_res']);
+      $color = "grey";
+      $ocultar_boton_hotsale = "hidden";
+      switch ($paquete['estado']) {
+        case 'FINALIZADO':
+          if(($paquete['id_usuario'])>0) {
+            $ocultar_boton_hotsale="hidden";
+          }else {
+            $ocultar_boton_hotsale="";
+          }
+          $color = "red";
+          break;
+        case 'SUBASTA':
+          $color = "orange";
+          break;
+        case 'ACTIVO':
+          $color = "green";
+          break;
+        case 'ADQUIRIDO':
+          $color = "black";
+          break;
+      }
      ?>
 
     <div class="uk-card uk-card-body uk-card-default">
-      <h2 class="uk-card-title">
-        <?php echo $residencia["nombre"]; ?>
-      </h2>
-      <?php echo $paquete["estado"]; ?>
-      <?php echo $paquete["semana"]; ?>
-      <?php echo $paquete["precio_base"]; ?>
+      <div class="uk-card-title" uk-grid>
+        <img class="uk-border-rounded uk-width-1-4" data-src="data:image/jpeg; base64, <?php echo base64_encode($residencia['imagen']); ?>" width="180" height="120" alt="" uk-img>
+        <div class="uk-width-1-2">
+          <h1 class="">
+            <?php echo $residencia["nombre"]; ?>
+          </h1>
+          <h4>
+            <?php echo "Semana del paquete: ".$paquete["semana"]; ?>
+          </h4>
+        </div>
+        <div class="uk-float-right">
+          <h1 class=""><?php echo "$".$paquete["precio_base"]; ?></h1>
+
+        </div>
+      </div>
+      <div class="uk-card-badge">
+        <span class="uk-badge uk-border-rounded" style="background-color:<?php echo $color; ?>"><?php echo $paquete['estado'];?></span>
+      </div>
+      <div class="uk-card-footer uk-float-right">
+        <button type="button" name="button" class="uk-button uk-button-primary uk-border-rounded">editar</button>
+        <button type="button" name="button" class="uk-button uk-border-rounded" <?php echo $ocultar_boton_hotsale;?>>poner en hotsale</button>
+      </div>
     </div>
 
   </body>
