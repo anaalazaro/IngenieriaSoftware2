@@ -61,15 +61,15 @@
 
     <div class="uk-padding uk-margin-left">
       <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove" uk-grid>
-        <div class="uk-child-width-1-4" uk-grid>
+        <div class="uk-child-width-1-6" uk-grid>
           <div class="">ID</div>
           <div class="">Nombre</div>
           <div class="">Semana</div>
           <div class="">Usuario</div>
-        </div>
-        <div class="uk-child-width-1-2 uk-margin-remove-top" uk-grid>
           <div class="">Estado</div>
-          <div class="">Entra en subasta</div>
+        </div>
+        <div class="uk-child-width-1-4 uk-margin-remove-top" uk-grid>
+          <div class="uk-width-3-4">Entra en subasta</div>
         </div>
       </div>
       <?php
@@ -82,15 +82,15 @@
         mysqli_close($conexion);
         ?>
         <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove uk-margin-small-top" uk-grid>
-          <div class="uk-child-width-1-4" uk-grid>
+          <div class="uk-child-width-1-6" uk-grid>
             <div class=""><?php echo $row['id']; ?></div>
             <div class=""><?php echo $residencia['nombre']; ?></div>
             <div class=""><?php echo $row['semana']; ?></div>
             <div class=""><?php if (($row['id_usuario'])>0) {echo $row['id_usuario'];}else {echo "sin dueño";} ?></div>
-          </div>
-          <div class="uk-child-width-1-2 uk-margin-remove-top" uk-grid>
             <div class=""><?php echo $row['estado']; ?></div>
-            <div class="">
+          </div>
+          <div class="uk-child-width-1-4 uk-margin-remove-top" uk-grid>
+            <div class="uk-width-3-4">
               <?php
               if ($row['estado']=='ACTIVO'){
                 $date1 = new DateTime("now");
@@ -104,6 +104,11 @@
               }
               ?>
               <?php echo $tiempo_restante;?>
+            </div>
+            <div class="uk-width-1-4">
+                <a href=detalle-paquete-admin.php?id_paquete=<?php echo $row['id']; ?>">
+                  <button type="button" name="button" class="uk-button uk-button-small uk-border-rounded uk-button-primary">ver</button>
+                </a>
             </div>
           </div>
 
