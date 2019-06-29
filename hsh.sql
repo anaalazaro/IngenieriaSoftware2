@@ -43,7 +43,7 @@ CREATE TABLE `foto` (
 DROP TABLE IF EXISTS `paquete`;
 CREATE TABLE `paquete` (
   `id` int(11) NOT NULL,
-  `nombre_res` varchar(30) NOT NULL,
+  `id_res` int(11) NOT NULL,
   `semana` date NOT NULL,
   `estado` varchar(20) NOT NULL,
   `precio_base` int(11) NOT NULL,
@@ -54,21 +54,21 @@ CREATE TABLE `paquete` (
 -- Dumping data for table `paquete`
 --
 
-INSERT INTO `paquete` (`id`, `nombre_res`, `semana`, `estado`, `precio_base`, `id_usuario`) VALUES
-(1, 'Los alamos', '2019-07-15', 'ESPERA', 200, ''),
-(2, 'Las Calles', '2019-07-01', 'ESPERA', 90, ''),
-(3, 'Las Calles', '2019-12-23', 'ESPERA', 300, ''),
-(4, 'Los alamos', '2020-02-24', 'ACTIVO', 100, ''),
-(5, 'Las Calles', '2019-10-21', 'ESPERA', 150, ''),
-(6, 'Los alamos', '2019-09-16', 'ESPERA', 140, ''),
-(7, 'Las Quintas', '2019-12-23', 'ESPERA', 200, ''),
-(8, 'Las Quintas', '2019-12-16', 'ESPERA', 140, ''),
-(9, 'Las Quintas', '2019-06-17', 'FINALIZADO', 700, ''),
-(10, 'Las Calles', '2019-06-18', 'FINALIZADO', 100, ''),
-(11, 'Las Quintas', '2019-12-17', 'ESPERA', 900, ''),
-(12, 'Los alamos', '2019-12-18', 'ESPERA', 100, ''),
-(13, 'Los alamos', '2019-11-11', 'ESPERA', 0, ''),
-(14, 'Las Quintas', '2020-06-22', 'ACTIVO', 20, '');
+INSERT INTO `paquete` (`id`, `id_res`, `semana`, `estado`, `precio_base`, `id_usuario`) VALUES
+(1, 12, '2019-07-15', 'ESPERA', 200, ''),
+(2, 11, '2019-07-01', 'ESPERA', 90, ''),
+(3, 12, '2019-12-23', 'ESPERA', 300, ''),
+(4, 12, '2020-02-24', 'ACTIVO', 100, ''),
+(5, 11, '2019-10-21', 'ESPERA', 150, ''),
+(6, 12, '2019-09-16', 'ESPERA', 140, ''),
+(7, 13, '2019-12-23', 'ESPERA', 200, ''),
+(8, 13, '2019-12-16', 'ESPERA', 140, ''),
+(9, 13, '2019-06-17', 'FINALIZADO', 700, ''),
+(10, 11, '2019-06-18', 'FINALIZADO', 100, ''),
+(11, 13, '2019-12-17', 'ESPERA', 900, ''),
+(12, 12, '2019-12-18', 'ESPERA', 100, ''),
+(13, 12, '2019-11-11', 'ESPERA', 0, ''),
+(14, 13, '2020-06-22', 'ACTIVO', 20, '');
 
 -- --------------------------------------------------------
 

@@ -23,14 +23,40 @@
       </div>
     </nav>
 
+    <?php if (isset($_GET['filtro'])) {
+      $opcion = $_GET['filtro'];
+    } ?>
+
+    <div class="uk-padding uk-padding-remove-bottom">
+      <form class="" action="pantalla-listar-paquetes.php" method="get">
+        <div class="uk-padding-small uk-padding-remove-bottom" uk-grid>
+            <select name="filtro" class="uk-select uk-width-1-3" onchange="submit" >
+              <option value="todos" <?php if ($opcion=="todos") {echo "selected";} ?>>Todos los Paquetes</option>
+              <option value="finalizados" <?php if ($opcion=="finalizados") {echo "selected";} ?>>Paquetes Finalizados</option>
+            </select>
+            <button type="submit" name="button" class="uk-button uk-button-primary">aplicar</button>
+        </div>
+      </form>
+    </div>
+
     <?php
-    include('../modelos/conexion.php');
-	include('../modelos/get_format.php');
+      include('../modelos/conexion.php');
+	    include('../modelos/get_format.php');
 
     $conexion=conectar();
-    $consulta= "SELECT * FROM paquete";
-    $result=mysqli_query($conexion,$consulta);
+    if (isset($_GET['filtro'])) {
+      $opcion=$_GET['filtro'];
+      if ($opcion=='finalizados') {
+        $consulta= "SELECT * FROM paquete WHERE estado='FINALIZADO'";
+      }
+      if ($opcion=='todos') {
+        $consulta= "SELECT * FROM paquete";
+      }
+    }else {
+      $consulta= "SELECT * FROM paquete";
+    }
 
+    $result=mysqli_query($conexion,$consulta);
     mysqli_close($conexion);?>
 
     <div class="uk-padding uk-margin-left">
@@ -49,13 +75,18 @@
       <?php
       while ($row = mysqli_fetch_array($result)) {
         $id_paquete=$row['id'];
+        $id_residencia = $row['id_res'];
+        $conexion = conectar();
+        $consulta = "SELECT * FROM residencia WHERE id = '$id_residencia'";
+        $residencia = mysqli_fetch_array(mysqli_query($conexion,$consulta));
+        mysqli_close($conexion);
         ?>
         <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove uk-margin-small-top" uk-grid>
           <div class="uk-child-width-1-4" uk-grid>
             <div class=""><?php echo $row['id']; ?></div>
-            <div class=""><?php echo $row['nombre_res']; ?></div>
+            <div class=""><?php echo $residencia['nombre']; ?></div>
             <div class=""><?php echo $row['semana']; ?></div>
-            <div class=""><?php echo $row['id_usuario']; ?></div>
+            <div class=""><?php if (($row['id_usuario'])>0) {echo $row['id_usuario'];}else {echo "sin dueño";} ?></div>
           </div>
           <div class="uk-child-width-1-2 uk-margin-remove-top" uk-grid>
             <div class=""><?php echo $row['estado']; ?></div>
