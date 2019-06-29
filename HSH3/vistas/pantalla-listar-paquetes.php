@@ -106,7 +106,7 @@
               <?php echo $tiempo_restante;?>
             </div>
             <div class="uk-width-1-4">
-                <a href=detalle-paquete-admin.php?id_paquete=<?php echo $row['id']; ?>">
+                <a href="detalle-paquete-admin.php?id_paquete=<?php echo $row['id']; ?>">
                   <button type="button" name="button" class="uk-button uk-button-small uk-border-rounded uk-button-primary">ver</button>
                 </a>
             </div>
