@@ -10,25 +10,12 @@
   </head>
   <body class="uk-height-viewport my-background-color">
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
-      <div class="uk-navbar-left">
+      <div class="uk-navbar-left uk-padding-small">
+        <a href="javascript:history.back()" class="uk-button uk-button-primary uk-border-rounded">Volver atras</a>
+      </div>
+      <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
             <li><a href="../vistas/home-admin.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
-        </ul>
-      </div>
-      <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
-            <li><a href="#">OPCIONES</a></li>
-            <div uk-dropdown>
-              <ul class="uk-nav uk-dropdown-nav">
-                <li class="uk-nav-header">Usuario</li>
-                <li><a href="..\vistas\pantalla-perfil-usuario.php">Mi Perfil</a></li>
-                <li><a href="#">Mis Subastas</a></li>
-                <li><a href="#">Mi Plan</a></li>
-                <li class="uk-nav-divider"></li>
-                <li class="uk-nav-header">Sesión</li>
-                <li><a href="../modelos/cerrar-sesion.php">Cerrar Sesión</a></li>
-              </ul>
-            </div>
         </ul>
       </div>
     </nav>
