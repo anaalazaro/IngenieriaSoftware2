@@ -35,6 +35,7 @@
             <select name="filtro" class="uk-select uk-width-1-3" onchange="submit" >
               <option value="todos" <?php if ($opcion=="todos") {echo "selected";} ?>>Todos los Paquetes</option>
               <option value="finalizados" <?php if ($opcion=="finalizados") {echo "selected";} ?>>Paquetes Finalizados</option>
+              <option value="hotsale" <?php if($opcion=="hotsale"){echo "selected";} ?>>Paquetes en Hotsale</option>
             </select>
             <button type="submit" name="button" class="uk-button uk-button-primary">aplicar</button>
         </div>
@@ -46,16 +47,20 @@
 	    include('../modelos/get_format.php');
 
     $conexion=conectar();
+    $consulta= "SELECT * FROM paquete";
     if (isset($_GET['filtro'])) {
       $opcion=$_GET['filtro'];
-      if ($opcion=='finalizados') {
-        $consulta= "SELECT * FROM paquete WHERE estado='FINALIZADO'";
+      switch ($opcion) {
+        case 'finalizados':
+          $consulta= "SELECT * FROM paquete WHERE estado='FINALIZADO'";
+          break;
+        case 'todos':
+          $consulta= "SELECT * FROM paquete";
+          break;
+        case 'hotsale':
+          $consulta= "SELECT * FROM paquete WHERE estado='HOTSALE'";
+          break;
       }
-      if ($opcion=='todos') {
-        $consulta= "SELECT * FROM paquete";
-      }
-    }else {
-      $consulta= "SELECT * FROM paquete";
     }
 
     $result=mysqli_query($conexion,$consulta);
