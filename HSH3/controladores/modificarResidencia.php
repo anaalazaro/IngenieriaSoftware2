@@ -8,7 +8,7 @@ $nombre= ($_GET['nom_residencia']);
 	echo "mal";
 	/*echo '<script>window.location="../eliminarResidencia.php";</script>';*/
 
-	$verificar=existe($nombre,$conexion);
+	$verificar=existeResidencia($nombre,$conexion);
     if($verificar==0){
 
        echo "<script language='javascript'>
@@ -45,7 +45,7 @@ $nombre= ($_GET['nom_residencia']);
              <label for="foto">
               Imagen:</label>
               <img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="25%"/>
-           
+
             <input id="foto" name="foto" type="file" size="20" accept="image/*" class="uk-input" >
           <!--<button  class="uk-width-1-1 uk-button uk-button-default" type="button" tabindex="-1">Seleccionar Fotos</button>-->
            </div>

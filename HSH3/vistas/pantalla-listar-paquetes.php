@@ -23,7 +23,9 @@
       </div>
     </nav>
 
-    <?php if (isset($_GET['filtro'])) {
+    <?php
+    $opcion="";
+    if (isset($_GET['filtro'])) {
       $opcion = $_GET['filtro'];
     } ?>
 

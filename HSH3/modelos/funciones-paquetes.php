@@ -1,5 +1,5 @@
 <?php
-function hayDatos($nombre, $semana){
+function hayDatosPaquete($nombre, $semana){
 	if((isset($nombre)) && !empty($nombre) &&  (isset($semana)) && !empty($semana)  ){
 		return true;
 	}else {
@@ -7,7 +7,7 @@ function hayDatos($nombre, $semana){
 	}
 }
 
-function existe($nombre,$semana,$conexion){
+function existePaquete($nombre,$semana,$conexion){
 	$existe= "SELECT * FROM paquete WHERE nombre_res='$nombre' AND semana='$semana'";
 	$resultado1= mysqli_query($conexion,$existe);
 

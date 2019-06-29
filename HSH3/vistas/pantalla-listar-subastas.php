@@ -22,13 +22,10 @@
       </div>
     </nav>
     <?php
-    include('../modelos/conexion.php');
-
-    $conexion=conectar();
-    $consulta= "SELECT * FROM paquete WHERE estado='SUBASTA' ";
-    $result=mysqli_query($conexion,$consulta);
-
-    mysqli_close($conexion);?>
+    include('../controladores/controlPaquetes.php');
+    include('../controladores/controlResidencias.php');
+    $paquetes_en_subasta = getPaquetesPorEstado('SUBASTA')
+    ?>
     <div class="uk-panel uk-panel-scrollable uk-position-center uk-padding uk-margin uk-border-rounded" style="background-color:white;">
     <table class="uk-table-striped uk-table uk-table-divider uk-table-condensed uk-text-nowrap">
       <caption><h2>SUBASTAS</h2> </caption>
@@ -44,13 +41,14 @@
         </tr>
       </thead>
       <tbody class="">
-        <?php while ($row = mysqli_fetch_array($result)){
-      $dt=$row['semana'];
-      $id=$row['id']?>
+        <?php while ($row = mysqli_fetch_array($paquetes_en_subasta)){
+          $residencia = getResidenciaPorId($row['id_res']);
+          $dt=$row['semana'];
+          $id=$row['id']?>
 
         <tr class="">
           <td><?php echo $id; ?></td>
-          <td><?php echo $row['nombre_res']; ?></td>
+          <td><?php echo $residencia['nombre']; ?></td>
           <td><?php $dt_subasta_inicio=date("Y-m-d", strtotime("$dt -6 month"));
       echo $dt_subasta_inicio; ?></td>
           <td><?php $dt_subasta_fin=date("Y-m-d", strtotime("$dt_subasta_inicio +3 days"));
