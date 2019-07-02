@@ -13,7 +13,10 @@
   </head>
 
   <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
-    <div class="uk-navbar-left">
+    <div class="uk-navbar-left uk-padding-remove-vertical uk-padding">
+      <a href="../vistas/home-user.php" class="uk-button uk-button-primary uk-border-rounded">Volver al Home</a>
+    </div>
+    <div class="uk-navbar-center">
       <ul class="uk-navbar-nav">
           <li><a href="../vistas/home-user.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
       </ul>
@@ -56,9 +59,6 @@
   ?>
 
   <body class="uk-height-viewport my-background-color">
-      <div class="uk-padding-small">
-      <a href="../vistas/home-user.php" class="uk-button uk-button-primary">Volver</a>
-    </div>
     <div class="uk-padding-large uk-padding-remove-bottom">
       <div class="uk-card uk-card-default uk-border-rounded" uk-grid>
         <div class="uk-width-expand">
