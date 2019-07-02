@@ -44,8 +44,8 @@
       </div>
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
-          <h3 class="uk-card-title">Subastas de paquetes</h3>
-          <p><a href="pantalla-subastas-disponibles.php">click aquí</a></p>
+          <h3 class="uk-card-title">Subastas en curso</h3>
+          <p><a href="pantalla-subastas-en-curso.php">click aquí</a></p>
         </div>
       </div>
       <div>
