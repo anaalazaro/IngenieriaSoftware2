@@ -39,14 +39,14 @@
     </nav>
     <?php
     include('../modelos/conexion.php');
-
+    include('../controladores/controlResidencias.php');
     $conexion=conectar();
-    $consulta= "SELECT * FROM paquete WHERE estado='SUBASTA' ";
+    $consulta= "SELECT * FROM paquete WHERE estado='SUBASTA'";
     $result=mysqli_query($conexion,$consulta);
 
     mysqli_close($conexion);?>
-    <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
+    <div class="uk-panel uk-padding uk-margin uk-border-rounded" style="background-color:white;">
+    <table class="table-striped uk-table uk-table-divider uk-table-condensed uk-text-nowrap">
       <thead>
         <tr>
           <th>ID</th>
@@ -62,7 +62,6 @@
         <?php while ($row = mysqli_fetch_array($result)){
 			$dt=$row['semana'];
 			$id=$row['id'];
-      include('../controladores/controlResidencias.php');
       $residencia= getResidenciaPorId($row['id_res']);
       ?>
 
@@ -80,10 +79,6 @@
         </tr>
       </tbody>
     </table>
-      <div class="uk-padding-small">
-        <a href="home-user.php" class="uk-button uk-button-primary">Volver</a>
-
-      </div>
     </div>
   </body>
 </html>
