@@ -37,7 +37,13 @@
               <option value="finalizados" <?php if ($opcion=="finalizados") {echo "selected";} ?>>Paquetes Finalizados</option>
               <option value="hotsale" <?php if($opcion=="hotsale"){echo "selected";} ?>>Paquetes en Hotsale</option>
             </select>
-            <button type="submit" name="button" class="uk-button uk-button-primary">aplicar</button>
+            <button type="submit" name="aplicar-filtro" class="uk-button uk-button-primary">
+              aplicar filtro
+            </button>
+            <div class="uk-width-expand"></div>
+            <button type="button" name="nuevo-paquete" onclick="window.location='../vistas/pantalla-crear-paquete.php'" class="uk-button uk-button-primary" style="background-color:green;">
+              agregar paquete
+            </button>
         </div>
       </form>
     </div>
@@ -88,7 +94,7 @@
         $residencia = mysqli_fetch_array(mysqli_query($conexion,$consulta));
         mysqli_close($conexion);
         ?>
-        <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove uk-margin-small-top" uk-grid>
+        <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove uk-margin-small-top uk-border-rounded" uk-grid>
           <div class="uk-child-width-1-6" uk-grid>
             <div class=""><?php echo $row['id']; ?></div>
             <div class=""><?php echo $residencia['nombre']; ?></div>
