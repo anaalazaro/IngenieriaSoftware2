@@ -61,11 +61,14 @@
       <tbody>
         <?php while ($row = mysqli_fetch_array($result)){
 			$dt=$row['semana'];
-			$id=$row['id']?>
-			
+			$id=$row['id'];
+      include('../controladores/controlResidencias.php');
+      $residencia= getResidenciaPorId($row['id_res']);
+      ?>
+
         <tr>
           <td><?php echo $id; ?></td>
-          <td><?php echo $row['nombre_res']; ?></td>
+          <td><?php echo $residencia['nombre']; ?></td>
           <td><?php $dt_subasta_inicio=date("Y-m-d", strtotime("$dt -6 month"));
 		  echo $dt_subasta_inicio; ?></td>
           <td><?php $dt_subasta_fin=date("Y-m-d", strtotime("$dt_subasta_inicio +3 days"));
@@ -79,7 +82,7 @@
     </table>
       <div class="uk-padding-small">
         <a href="home-user.php" class="uk-button uk-button-primary">Volver</a>
-        
+
       </div>
     </div>
   </body>
