@@ -31,8 +31,13 @@
     $result=mysqli_query($conexion,$consulta);
 
     mysqli_close($conexion);?>
-    <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
+    <div class="uk-padding-small">
+      <a href="pantalla-agregar-residencia.php" class="uk-button uk-button-primary uk-border-rounded" style="background-color:green;">
+        Agregar Nueva Residencia
+      </a>
+    </div>
+    <div class="uk-panel" style="background-color:white;">
+    <table class="uk-width-expand table-striped uk-table uk-table-divider">
       <thead>
         <tr>
          <th>Imagen</th>
@@ -63,11 +68,6 @@
         </tr>
       </tbody>
     </table>
-      <div class="uk-padding-small">
-        <a href="home-admin.php" class="uk-button uk-button-primary">Volver</a>
-
-        <a href="pantalla-agregar-residencia.php" class="uk-button uk-button-primary">Agregar</a>
-      </div>
     </div>
   </body>
 </html>

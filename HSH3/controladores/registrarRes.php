@@ -26,7 +26,7 @@ function existe($nombre,$conexion){
 */
 
 
-if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_imagen)){
+if(hayDatosResidencia($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_imagen)){
 
 	$tipo= addslashes($tip_imagen);
 	$exp_String="/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/";
@@ -50,7 +50,7 @@ if(hayDatos($nombre, $descripcion, $provincia, $ciudad, $nombre_imagen, $size_im
 
 
 		/*verifica que no exista el mismo nombre en la bd*/
-		if(existe($nombre, $conexion)==0){
+		if(existeResidencia($nombre, $conexion)==0){
 			$insertar= "INSERT INTO residencia(nombre,pais,provincia,ciudad,descripcion,imagen, tipoimagen) VALUES ('$nombre','$pais','$provincia','$ciudad','$descripcion','$contenido','$tipo')";
 
 			//Ejecutar consulta
