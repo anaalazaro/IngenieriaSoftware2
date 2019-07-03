@@ -73,6 +73,7 @@
             <p><label>Tarjeta: </label><?php echo $row['tarjeta_numero']. "  Vencimiento: " .$row['tarjeta_vencimiento']; ?></p>
             <p><label>Mail: </label><?php echo $mail=$row['mail']; ?></p>
             <p><?php echo $subscripcion ?></p>
+            <p><?php echo "Creditos restantes: ".$row['creditos']; ?></p>
           </div>
           <div class="uk-card-footer">
             <?php echo "<a href='../controladores/editar-perfil.php?mail=$mail' class='uk-button uk-button-primary'>Editar mi perfil</a>";?>
