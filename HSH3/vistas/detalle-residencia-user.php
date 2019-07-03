@@ -1,4 +1,7 @@
-<?php include('../controladores/controlBusqueda.php') ?>
+<?php
+include('../controladores/controlBusqueda.php');
+include('../controladores/controlPaquetes.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -66,10 +69,45 @@
           </div>
           </div>
         </div>
-        
+
       </div>
 
     <?php
+    }
+
+    $paquetes = getPaquetesPorIdDeResidencia($residencia['id']);
+    if ($paquetes) {
+      ?>
+      <div class="uk-tile uk-tile-default uk-tile-small">
+        <p class="uk-position-center">Paquetes de esta residencia</p>
+      </div>
+      <div class="uk-child-width-1-4 uk-padding" uk-grid>
+        <?php
+        while ($paquete = mysqli_fetch_array($paquetes)) {
+          ?>
+          <div class="uk-card uk-card-default uk-padding ">
+            <div class="uk-card-title">
+              <?php echo $paquete['semana']; ?>
+            </div>
+            <div class="uk-card-badge">
+              <span class="uk-badge">
+                <?php echo $paquete['estado']; ?>
+              </span>
+            </div>
+            <div class="uk-card-footer">
+              <a href="detalle-paquete-user.php?id=<?php echo $paquete['id']; ?>">ver detalle</a>
+            </div>
+          </div>
+          <?php
+        }?>
+      </div>
+      <?php
+    }else {
+      ?>
+      <div class="uk-tile uk-tile-default uk-tile-small">
+        <p class="uk-position-center">Por el momento esta residencia no tiene paquetes disponibles</p>
+      </div>
+      <?php
     }
     ?>
 

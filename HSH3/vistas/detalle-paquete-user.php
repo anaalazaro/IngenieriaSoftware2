@@ -41,7 +41,7 @@
 
     <div class="uk-card uk-card-body uk-card-default">
       <h2 class="uk-card-title">
-        <?php echo $paquete["nombre_res"]; ?>
+        <?php echo $paquete["id_res"]; ?>
       </h2>
       <?php echo $paquete["estado"]; ?>
       <?php echo $paquete["semana"]; ?>
