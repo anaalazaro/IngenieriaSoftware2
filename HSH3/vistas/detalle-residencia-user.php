@@ -16,7 +16,12 @@ include('../controladores/controlPaquetes.php');
   <body class="uk-height-viewport my-background-color">
 
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
-      <div class="uk-navbar-left">
+      <div class="uk-navbar-left uk-padding uk-padding-remove-vertical">
+        <button type="button" name="volver-atras" onclick="javascript: history.back()" class="uk-button uk-button-primary uk-border-rounded">
+          volver atras
+        </button>
+      </div>
+      <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
             <li><a href="../vistas/home-user.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
         </ul>
