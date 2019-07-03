@@ -19,7 +19,7 @@ $tarjeta_vencimiento=$_POST['tarjeta_vencimiento'];
 if (!empty($nombre)&& !empty($contrasenia)){
 	if (existe($mail,$conexion)==0){
 		if ($contrasenia==$contrasenia_copia) {
-			$consulta= "INSERT INTO usuario(nombre_usuario,apellido_usuario,mail,contrasenia,localidad,direccion,telefono,tarjeta_numero,tarjeta_codigo,tarjeta_vencimiento) VALUES  ('$nombre','$apellido','$mail','$contrasenia','$localidad','$direccion','$telefono','$tarjeta_numero','$tarjeta_codigo','$tarjeta_vencimiento')";
+			$consulta= "INSERT INTO usuario(nombre_usuario,apellido_usuario,mail,contrasenia,localidad,direccion,telefono,tarjeta_numero,tarjeta_codigo,tarjeta_vencimiento,creditos) VALUES  ('$nombre','$apellido','$mail','$contrasenia','$localidad','$direccion','$telefono','$tarjeta_numero','$tarjeta_codigo','$tarjeta_vencimiento',2)";
 			$resultado= mysqli_query($conexion,$consulta);
 			echo  "<script language='javascript'>
 					alert('Se registro usuario correctamente!..');
