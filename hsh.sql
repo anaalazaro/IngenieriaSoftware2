@@ -166,7 +166,8 @@ CREATE TABLE `usuario` (
   `tarjeta_codigo` int(3) NOT NULL,
   `tarjeta_vencimiento` date NOT NULL,
   `imagen` mediumblob NOT NULL,
-  `tipoimagen` varchar(10) NOT NULL
+  `tipoimagen` varchar(10) NOT NULL,
+  `creditos` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
