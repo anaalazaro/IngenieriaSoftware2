@@ -54,21 +54,34 @@ CREATE TABLE `paquete` (
 -- Dumping data for table `paquete`
 --
 
+/*  ESTADOS DE UN PAQUETE
+
+      RESERVA     -> un paquete que se encuentra disponible para ser reservado
+      RESERVADO   -> un paquete que fue adquirido en tiempo de reserva
+      SUBASTA     -> un paquete que paso el tiempo de reserva y nadie lo adquirio
+      SUBASTADO   -> un paquete que paso el tiempo de subasta y alguien lo adquirio
+      ESPERA      -> un paquete que paso el tiempo de subasta y nadie lo adquirio
+      HOTSALE     -> un paquete que estaba en espera y fue seleccionado para hotsale
+      LIQUIDADO   -> un paquete en hotsale que fue adquirido por alguien
+      CADUCADO    -> cualquier paquete cuando pasa su fecha de uso
+
+*/
+
 INSERT INTO `paquete` (`id`, `id_res`, `semana`, `estado`, `precio_base`, `id_usuario`) VALUES
 (1, 12, '2019-07-15', 'ESPERA', 200, ''),
-(2, 11, '2019-07-01', 'ESPERA', 90, ''),
+(2, 11, '2019-07-01', 'HOTSALE', 90, ''),
 (3, 12, '2019-12-23', 'ESPERA', 300, ''),
-(4, 12, '2020-02-24', 'ACTIVO', 100, ''),
-(5, 11, '2019-10-21', 'ESPERA', 150, ''),
+(4, 12, '2020-02-24', 'RESERVA', 100, ''),
+(5, 11, '2019-10-21', 'HOTSALE', 150, ''),
 (6, 12, '2019-09-16', 'ESPERA', 140, ''),
-(7, 13, '2019-12-23', 'ESPERA', 200, ''),
+(7, 13, '2019-12-23', 'HOTSALE', 200, ''),
 (8, 13, '2019-12-16', 'ESPERA', 140, ''),
-(9, 13, '2019-06-17', 'FINALIZADO', 700, ''),
-(10, 11, '2019-06-18', 'FINALIZADO', 100, ''),
+(9, 13, '2019-06-17', 'CADUCADO', 700, ''),
+(10, 11, '2019-06-18', 'CADUCADO', 100, ''),
 (11, 13, '2019-12-17', 'ESPERA', 900, ''),
-(12, 12, '2019-12-18', 'ESPERA', 100, ''),
+(12, 12, '2019-12-18', 'HOTSALE', 100, ''),
 (13, 12, '2019-11-11', 'ESPERA', 0, ''),
-(14, 13, '2020-06-22', 'ACTIVO', 20, '');
+(14, 13, '2020-06-22', 'RESERVADO', 20, '');
 
 -- --------------------------------------------------------
 
