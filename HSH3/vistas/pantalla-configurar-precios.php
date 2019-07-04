@@ -48,8 +48,8 @@
         <div class="uk-card-footer">
           <button class="toggle-basico uk-button uk-button-primary" type="button" uk-toggle="target: .toggle-basico">Cambiar precio</button>
           <div class="toggle-basico" hidden>
-            <form class="" action="../modelos/funcionModificarBasico.php" method="post">
-              <input class="uk-input uk-form-width-medium" name="nuevo-precio" type="number" placeholder="Ingrese nuevo precio">
+            <form class="" action="../controladores/controlPrecios.php" method="post">
+              <input class="uk-input uk-form-width-medium" name="nuevo-precio-basico" type="number" placeholder="Ingrese nuevo precio" required>
               <button type="submit" name="button" class="uk-button" style="background-color: green; color:white;">confirmar</button>
               <button type="reset" name="button" class="uk-button" uk-toggle="target: .toggle-basico" style="background-color: red; color:white;">cancelar</button>
             </form>
@@ -67,8 +67,8 @@
         <div class="uk-card-footer">
           <button class="toggle-premium uk-button uk-button-primary" type="button" uk-toggle="target: .toggle-premium">Cambiar precio</button>
           <div class="toggle-premium" hidden>
-            <form class="" action="../modelos/funcionModificarPremium.php" method="post">
-              <input class="uk-input uk-form-width-medium" name="nuevo-precio" type="number" placeholder="Ingrese nuevo precio">
+            <form class="" action="../controladores/controlPrecios.php" method="post">
+              <input class="uk-input uk-form-width-medium" name="nuevo-precio-premium" type="number" placeholder="Ingrese nuevo precio" required>
               <button type="submit" name="button" class="uk-button" style="background-color: green; color:white;">confirmar</button>
               <button type="reset" name="button" class="uk-button" uk-toggle="target: .toggle-premium" style="background-color: red; color:white;">cancelar</button>
             </form>
