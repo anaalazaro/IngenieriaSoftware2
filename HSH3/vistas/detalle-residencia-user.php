@@ -68,15 +68,14 @@ include('../controladores/controlPaquetes.php');
             <div class="uk-card-footer">
               <?php  echo "Ubicación: ".ucwords($residencia['ciudad']).", ".ucwords($residencia['provincia']).", ".ucwords($residencia['pais']); ?>
             </div>
-            <div class="uk-width-1-1 uk-padding-small">
-              <a class="uk-width-1-1 uk-button " href="listar-residencias-user.php">Volver</a>
-
-          </div>
           </div>
         </div>
+      </div>
+      <div class="uk-padding">
 
       </div>
 
+      <div class="">
     <?php
     }
 
@@ -115,7 +114,7 @@ include('../controladores/controlPaquetes.php');
       <?php
     }
     ?>
-
+    </div>
 
   </body>
 </html>
