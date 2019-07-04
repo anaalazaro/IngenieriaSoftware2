@@ -74,7 +74,7 @@
 		  echo $dt_subasta_inicio; ?></td>
           <td><?php echo '$',$row['precio_base']; ?></td>
 		  <td><?php echo $row['id_usuario'];  ?></td>
-		  <td><a href="subasta.php?id_paquete=<?php echo $id ?>">Subastar<span class="uk-icon uk-icon-image" style="background-image: url('../files/martillo.svg');" ></span></a></td>
+		  <td><a href="../vistas/detalle-paquete-user.php?id=<?php echo $id ?>">Ir a la Subasta<span class="uk-icon uk-icon-image" style="background-image: url('../files/martillo.svg');" ></span></a></td>
         <?php } ?>
         </tr>
       </tbody>
