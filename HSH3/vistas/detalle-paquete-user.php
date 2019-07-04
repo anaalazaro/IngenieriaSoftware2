@@ -49,18 +49,58 @@
     */
 
       include("../modelos/funciones-paquetes.php");
+      include("../modelos/funciones-residencias.php");
       $id = $_GET['id'];
       $paquete = mysqli_fetch_array(getPaquetePorId($id));
+      $residencia = getResidenciaPorId($paquete['id_res']);
      ?>
 
-    <div class="uk-card uk-card-body uk-card-default">
-      <h2 class="uk-card-title">
-        <?php echo $paquete["id_res"]; ?>
-      </h2>
-      <?php echo $paquete["estado"]; ?>
-      <?php echo $paquete["semana"]; ?>
-      <?php echo $paquete["precio_base"]; ?>
-    </div>
+     <div class="uk-child-width-1-3 uk-padding" align="" uk-grid>
+       <div class="uk-card uk-card-default uk-width-2-3" uk-grid>
+         <div class="uk-card-media-left">
+           <img src='data:image/jpeg; base64, <?php echo base64_encode($residencia['imagen']); ?>' alt="Aca va una imagen" />
+         </div>
+         <div class="uk-width-expand">
+           <div class="uk-card-header">
+             <h3><?php echo ucwords($residencia['nombre']); ?></h3>
+           </div>
+           <div class="uk-card-body">
+             <?php echo "Descripción: ".$residencia['descripcion']; ?>
+           </div>
+           <div class="uk-card-footer">
+             <?php  echo "Ubicación: ".ucwords($residencia['ciudad']).", ".ucwords($residencia['provincia']).", ".ucwords($residencia['pais']); ?>
+           </div>
+         </div>
+       </div>
+       <div class="uk-card uk-card-body uk-card-default">
+         <h2 class="uk-card-title">
+           <?php echo "Semana: ".$paquete["semana"]; ?>
+         </h2>
+         <div class="uk-badge uk-card-badge uk-border-rounded">
+           <?php echo $paquete["estado"]; ?>
+         </div>
+         <div class="uk-card-body">
+           <h1 class="uk-align-right"><?php echo "$".$paquete["precio_base"]; ?></h1>
+
+           <?php $color_boton="light-blue" ?>
+           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+             Reservar
+           </button>
+           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+             Pujar
+           </button>
+           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+             Adquirir
+           </button>
+           <button type="button" name="subasta" class="uk-button uk-button-muted uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+             No disponible
+           </button>
+         </div>
+       </div>
+       <div class="">
+
+       </div>
+     </div>
 
   </body>
 </html>
