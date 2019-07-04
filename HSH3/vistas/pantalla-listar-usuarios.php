@@ -40,7 +40,7 @@
         }else { if($row['premium']==0){
               $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">basico</div>';
               }
-              if ($row['premium']==2) {
+              if ($row['premium']==2 or $row['premium']==3) {
                 $tipo = '<div class="uk-card-badge uk-label uk-" style="background-color:lightgrey;">en espera</div>';
               }
         }
