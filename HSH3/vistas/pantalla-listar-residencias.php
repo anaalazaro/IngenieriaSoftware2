@@ -1,3 +1,20 @@
+<?php 
+include('../modelos/conexion.php');
+$conexion=conectar();
+/*if(isset( $_GET['residencia'])){
+$elem= $_GET['residencia'];
+$eliminar="DELETE FROM residencia WHERE Nombre='$elem'";
+$enviar2=mysqli_query($conexion,$eliminar);
+$rows=mysqli_num_rows($enviar2);
+  if($rows!=0){
+    echo "<script language='javascript'>
+        alert('La residencia  se elimino!..');
+        location.href= '../vistas/pantalla-listar-residencias.php' ;
+        </script>";}
+  else{
+    echo 'mal';
+  }}*/
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -24,9 +41,9 @@
     </nav>
 
     <?php
-    include('../modelos/conexion.php');
+   // include('../modelos/conexion.php');
 
-    $conexion=conectar();
+    //$conexion=conectar();
     $consulta= "SELECT * FROM residencia ";
     $result=mysqli_query($conexion,$consulta);
 
@@ -53,7 +70,7 @@
       <tbody>
         <?php while ($row = mysqli_fetch_array($result)){
         $contenido=$row["imagen"];
-        $nom_residencia=$row['nombre'];
+        $nom_residencia=$row['id'];
         ?>
         <tr>
           <td><img src='data:image/jpeg; base64, <?php echo base64_encode($contenido); ?>' alt="Aca va una imagen" width="60px"/></td>
@@ -63,7 +80,7 @@
           <td><?php echo $row['ciudad']; ?></td>
           <td><?php echo $row['descripcion']; ?></td>
           <td><a href="../controladores/modificarResidencia.php?nom_residencia=<?php echo $nom_residencia ?>">modificar<span uk-icon="pencil"></span></a></td>
-	  <td><a onclick="eliminarResidencia();" href="../controladores/eliminarRes.php?nom_residencia=<?php echo $nom_residencia ?>"><span uk-icon="trash"></span></a></td>
+	  <td><a href="../controladores/eliminarRes.php?nom_residencia=<?php echo $nom_residencia ?>"><span uk-icon="trash" onclick="return eliminarResidencia();"></span></a></td>
         <?php } ?>
         </tr>
       </tbody>
