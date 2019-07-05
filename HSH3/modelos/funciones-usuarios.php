@@ -20,7 +20,6 @@ function getUsuario($conexion,$usuario)
 
 function getUsuarioPorId($id)
 {
-	include('../modelos/conexion.php');
 	$conexion = conectar();
 	$consulta = "SELECT * FROM usuario WHERE id = '$id'";
 	$ret = mysqli_fetch_array(mysqli_query($conexion,$consulta));

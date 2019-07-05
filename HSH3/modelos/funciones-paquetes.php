@@ -51,6 +51,7 @@ function getPaquetesPorIdDeResidencia($id_res)
 
 function getPaquetesPorIdUsuario($id_usuario)
 {
+	include('../modelos/conexion.php');
 	$conexion = conectar();
 	$consulta = "SELECT * FROM paquete WHERE id_usuario = '$id_usuario'";
 	$resultado = mysqli_query($conexion, $consulta);

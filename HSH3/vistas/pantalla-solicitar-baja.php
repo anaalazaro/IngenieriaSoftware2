@@ -45,7 +45,10 @@
       <div class="uk-tile uk-tile-default uk-border-rounded">
         <div class="uk-width-1-1">
           <h2>Esta a punto de solicitar la baja de su cuenta</h2>
-          <h3>Si hace click en confirmar, se enviara una solicitud al administrador para que le otorgue la baja.</h3>
+          <h3>
+            Si hace click en confirmar, se enviara una solicitud al administrador para que le otorgue la baja.
+            Ademas, debe ser un usuario basico y no tener paquetes ganados.
+          </h3>
           <h3>(Esta accion no se puede deshacer)</h3>
         </div>
         <div class="uk-child-width-1-2 uk-margin" uk-grid>
