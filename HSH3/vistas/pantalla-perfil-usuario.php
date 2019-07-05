@@ -87,6 +87,11 @@
             $tipo = '<div class="uk-card-footer uk-label uk-" style="background-color:lightgrey;">en espera</div>';
             echo $tipo; }?>
 
+          <div class="uk-align-right">
+            <a href="../vistas/pantalla-solicitar-baja.php?id_usuario=<?php echo $row['id']; ?>" class="uk-button uk-button-danger" style="background-color:red">
+              eliminar cuenta
+            </a>
+          </div>
 
           <!--json con listado de mails de los que solicitan. Cuando los aceptan se borra
           <form action="../controladores/solicitarPremium.php" method="post" class="uk-form uk-padding-small uk-padding-remove-top">

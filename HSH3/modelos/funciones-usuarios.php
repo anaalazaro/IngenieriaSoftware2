@@ -27,4 +27,13 @@ function getUsuarioPorId($id)
 	return $ret;
 }
 
+function setSolicitudDeBaja($id_usuario)
+{
+	$conexion = conectar();
+	$consulta = "INSERT INTO solicitudes(id_usuario, tipo_solicitud) VALUES ('$id_usuario','BAJA')";
+	$ret = mysqli_query($conexion,$consulta);
+	mysqli_close($conexion);
+	return $ret;
+}
+
 ?>

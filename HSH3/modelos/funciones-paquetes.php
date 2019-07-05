@@ -49,5 +49,13 @@ function getPaquetesPorIdDeResidencia($id_res)
 	return $resultado;
 }
 
+function getPaquetesPorIdUsuario($id_usuario)
+{
+	$conexion = conectar();
+	$consulta = "SELECT * FROM paquete WHERE id_usuario = '$id_usuario'";
+	$resultado = mysqli_query($conexion, $consulta);
+	return $resultado;
+}
+
 
 ?>
