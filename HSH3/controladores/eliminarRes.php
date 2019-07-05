@@ -2,27 +2,28 @@
 include('../modelos/conexion.php');
 $conexion=conectar();
 
-$elem= $_POST['nom_residencia'];
+$elem= $_GET['nom_residencia'];
 if(empty($elem)){
 	echo '<script>window.location="../vistas/pantalla-eliminar-residencia.php";</script>';}
 else{
-	$buscar= "SELECT * FROM residencia WHERE Nombre='$elem'";
+	$buscar= "SELECT * FROM paquete WHERE id_res='$elem'";
 	$enviar=mysqli_query($conexion,$buscar);
 	$rows=mysqli_num_rows($enviar);
-	if($rows==0){
+	$row = mysqli_fetch_array($enviar);
+	if($row['estado']=='SUBASTA'or $row['estado']=='RESERVADO'or$row['estado']=='GANO_SUBASTA'){
 	echo "<script language='javascript'>
-				alert('La residencia  no existe!..');
-				location.href= '../vistas/pantalla-eliminar-residencia.php' ;
+				alert('La residencia  no puede ser eliminada porque esta en reserva o subasta!..');
+				location.href= '../vistas/pantalla-listar-residencias.php' ;
 				</script>";
 		/*echo '<script>alert("La residencia ".$elem ."no existe")</script>';
 		echo '<script> window.location="eliminarResidencia.php";</script>';*/
 	}
 	else{
-		$eliminar="DELETE FROM residencia WHERE Nombre='$elem'";
+		$eliminar="DELETE FROM residencia WHERE id='$elem'";
 		$enviar2=mysqli_query($conexion,$eliminar);
 		echo "<script language='javascript'>
 				alert('La residencia  se elimino!..');
-				location.href= '../vistas/pantalla-eliminar-residencia.php' ;
+				location.href= '../vistas/pantalla-listar-residencias.php' ;
 				</script>";
 		/*echo '<script>alert("La residencia ". $elem ." se ha eliminado correctamente")</script>';
 		echo '<script>window.location="../eliminarResidencia.php";</script>';*/
