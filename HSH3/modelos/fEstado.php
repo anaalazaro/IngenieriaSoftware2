@@ -17,14 +17,18 @@ function modificarEstado($conexion){
 		$dt_subasta_fin=date("Y-m-d", strtotime("$dt_subasta_inicio +3 days"));
 
 		
-		if ($estado=='ACTIVO' AND ($fecha>=$dt_subasta_inicio AND $fecha<=$dt_subasta_fin)){
+		if (($estado=='SUBASTA' OR $estado=='ESPERA' OR $estado=='FINALIZADO') AND ($fecha<=$dt_subasta_inicio)){
+			$consulta3 = "UPDATE paquete SET estado='ACTIVO' WHERE id='$id'";
+			$result4 = mysqli_query($conexion,$consulta3);
+		
+		}elseif(($estado=='ACTIVO' OR $estado=='ESPERA' OR $estado=='FINALIZADO') AND ($fecha>=$dt_subasta_inicio AND $fecha<=$dt_subasta_fin)){
 			
 			$consulta = "UPDATE paquete SET estado='SUBASTA' WHERE id='$id'";
 			$result1 = mysqli_query($conexion,$consulta);
 			
 			
 			
-		}elseif(($estado=='ACTIVO' OR $estado=='SUBASTA') AND ($fecha>=$dt_subasta_fin)){
+		}elseif(($estado=='ACTIVO' OR $estado=='SUBASTA' OR $estado=='FINALIZADO') AND ($fecha>=$dt_subasta_fin)){
 			
 			$consulta1 = "UPDATE paquete SET estado='ESPERA' WHERE id='$id'";
 			$result2 = mysqli_query($conexion,$consulta1);
