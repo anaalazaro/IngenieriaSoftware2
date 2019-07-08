@@ -1,6 +1,5 @@
 <?php
 include('../modelos/conexion.php');
-include("../modelos/funciones-usuarios.php");
 $conexion=conectar();
 session_start();
 include('../modelos/autenticacion.php');
