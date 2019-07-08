@@ -36,7 +36,13 @@
                 </ul>
               </div>
             </li>
-            <li><a href="pantalla-listar-paquetes.php">Listar paquetes</a></li> 
+           <li><a href="pantalla-listar-paquetes.php">Paquetes</a>
+             <div class="uk-navbar-dropdown">
+                <ul class=" uk-nav uk-navbar-dropdown-nav">
+                  <li><a href="pantalla-listar-paquetes.php">Lista de paquetes</a></li>
+                </ul>
+              </div> 
+            </li> 
             <li><a href="pantalla-configurar-precios.php">Configurar precios</a></li> 
 
             <li><a href="../modelos/cerrar-sesion.php"> Cerrar Sesion</a></li>
