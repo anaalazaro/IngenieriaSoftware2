@@ -1,5 +1,5 @@
 <?php
-
+include('conexion.php')
 
 function existe($mail,$conexion){
 	$existe= "SELECT * FROM usuario WHERE mail='$mail'";
