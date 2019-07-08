@@ -49,16 +49,18 @@
     </div>
 
     <?php
-      include('../modelos/conexion.php');
-	    include('../modelos/get_format.php');
+     include('../modelos/conexion.php');
+	 include('../modelos/get_format.php');
+	 include('../modelos/fEstado.php');
 
     $conexion=conectar();
+	modificarEstado($conexion);
     $consulta= "SELECT * FROM paquete";
     if (isset($_GET['filtro'])) {
       $opcion=$_GET['filtro'];
       switch ($opcion) {
         case 'finalizados':
-          $consulta= "SELECT * FROM paquete WHERE estado='FINALIZADO'";
+          $consulta= "SELECT * FROM paquete WHERE estado='CADUCADO'";
           break;
         case 'todos':
           $consulta= "SELECT * FROM paquete";
@@ -105,7 +107,7 @@
           <div class="uk-child-width-1-4 uk-margin-remove-top" uk-grid>
             <div class="uk-width-3-4">
               <?php
-              if ($row['estado']=='ACTIVO'){
+              if ($row['estado']=='RESERVA'){
                 $date1 = new DateTime("now");
                 $dt=$row['semana'];
                 $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
