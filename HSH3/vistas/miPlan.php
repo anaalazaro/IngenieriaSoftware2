@@ -67,9 +67,10 @@
            
           </div>
           <div class="uk-align-left">
-             <p><label>Usuario: </label><?php echo $mail=$row['mail']; ?></p>
-            <p><label>Tipo de Usuario: </label><?php echo $subscripcion; ?></p>
-            <p><label>Precio: $</label><?php echo $row1['basico']; ?></p>
+            <p></p>
+             <p><label>USUARIO: </label><?php echo $mail=$row['mail']; ?></p>
+            <p><label>TIPO DE USUARIO: </label><?php echo $subscripcion; ?></p>
+            <p><label>PRECIO: $</label><?php echo $row1['basico']; ?></p>
           </div>
           </div>
         </div>
