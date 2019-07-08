@@ -1,8 +1,6 @@
 <?php
-include('../modelos/conexion.php');
 
-function modificarEstado(){
-	$conexion=conectar();
+function modificarEstado($conexion){
 	$consulta="Select * from paquete ";
 	$result=mysqli_query($conexion,$consulta);
 	$fecha= date('Y-m-d');
