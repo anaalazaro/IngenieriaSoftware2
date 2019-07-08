@@ -27,10 +27,9 @@ include('../controladores/controlLocalidades.php');
             <div uk-dropdown>
               <ul class="uk-nav uk-dropdown-nav">
                 <li class="uk-nav-header">Usuario</li>
-                <li><a href="#">Mi Perfil</a></li>
+                <li><a href="..\vistas\pantalla-perfil-usuario.php">Mi Perfil</a></li>
                 <li><a href="#">Mis Subastas</a></li>
                 <li><a href="#">Mi Plan</a></li>
-                <li><a href="#">Mi Perfil</a></li>
                 <li class="uk-nav-divider"></li>
                 <li class="uk-nav-header">Sesión</li>
                 <li><a href="../modelos/cerrar-sesion.php">Cerrar Sesión</a></li>
