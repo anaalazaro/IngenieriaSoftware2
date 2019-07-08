@@ -1,17 +1,23 @@
 <?php
 include('../modelos/conexion.php');
 include("../modelos/funciones-paquetes.php");
+include("../modelos/funciones-residencias.php");
+include('../modelos/fEstado.php');
+
 $conexion=conectar();
 $nombre= $_POST['nombre'];
 $semana=$_POST['semana'];
 $p_base=$_POST['precio_base'];
 
-if(hayDatos($nombre,$semana)){
+
+if(hayDatosPaquete($nombre,$semana)){
+	 $res=getResidencia($conexion,$nombre);
+	 $id_paquete=$res['id'];
 	
 	/*verifica que no exista el mismo nombre en la bd*/
-	if(existe($nombre,$semana,$conexion)==0){
+	if(existePaquete($id_paquete,$semana,$conexion)==0){
 		
-		$insertar= "INSERT INTO paquete(nombre_res,semana,estado,precio_base) VALUES ('$nombre','$semana','ACTIVO','$p_base')";
+		$insertar= "INSERT INTO paquete(id_res,semana,estado,precio_base) VALUES ('$id_paquete','$semana','ACTIVO','$p_base')";
 		
 		//Ejecutar consulta
 		$resultado = guardarPaquete($conexion,$insertar);
@@ -33,7 +39,7 @@ if(hayDatos($nombre,$semana)){
 	}
 
 
-
+modificarEstado($conexion);
 mysqli_close($conexion);
 
 
