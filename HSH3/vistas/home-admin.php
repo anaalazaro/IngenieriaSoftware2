@@ -14,7 +14,13 @@
 
         <ul class="uk-navbar-nav">
 
-            <li><a href="pantalla-listar-residencias.php">listar residencias</a></li>
+            <li><a href="pantalla-listar-residencias.php">Residencias</a>
+               <div class="uk-navbar-dropdown">
+                <ul class=" uk-nav uk-navbar-dropdown-nav">
+                  <li><a href="pantalla-listar-residencias.php">Lista de residencias</a></li>
+                </ul>
+              </div>
+            </li>
             <li><a href="pantalla-listar-subastas.php">Listar subastas</a></li>
             <li><a href="pantalla-listar-usuarios.php">Listar usuarios</a></li>
             <li><a href="pantalla-listar-paquetes.php">Listar paquetes</a></li> 
