@@ -21,7 +21,13 @@
                 </ul>
               </div>
             </li>
-             <li><a href="pantalla-listar-subastas.php">Listar subastas</a></li>
+            <li><a href="pantalla-listar-subastas.php">Subastas</a>
+              <div class="uk-navbar-dropdown">
+                <ul class=" uk-nav uk-navbar-dropdown-nav">
+                  <li><a href="pantalla-listar-subastas.php">Lista de subastas</a></li>
+                </ul>
+              </div>
+            </li>
             <li><a href="pantalla-listar-usuarios.php"> Usuarios</a>
               <div class="uk-navbar-dropdown">
                 <ul class=" uk-nav uk-navbar-dropdown-nav">
