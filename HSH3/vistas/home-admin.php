@@ -21,8 +21,15 @@
                 </ul>
               </div>
             </li>
-            <li><a href="pantalla-listar-subastas.php">Listar subastas</a></li>
-            <li><a href="pantalla-listar-usuarios.php">Listar usuarios</a></li>
+             <li><a href="pantalla-listar-subastas.php">Listar subastas</a></li>
+            <li><a href="pantalla-listar-usuarios.php"> Usuarios</a>
+              <div class="uk-navbar-dropdown">
+                <ul class=" uk-nav uk-navbar-dropdown-nav">
+                  <li><a href="pantalla-listar-usuarios.php">Lista de usuarios</a></li>
+                  <li><a href="pantalla-solicitudes"> Solicitudes</a></li>
+                </ul>
+              </div>
+            </li>
             <li><a href="pantalla-listar-paquetes.php">Listar paquetes</a></li> 
             <li><a href="pantalla-configurar-precios.php">Configurar precios</a></li> 
 
