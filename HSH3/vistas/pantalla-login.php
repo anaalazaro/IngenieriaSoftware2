@@ -1,6 +1,8 @@
 <?php //header('location: home-user.php')
+include('../modelos/conexion.php');
 include('../modelos/fEstado.php');
-modificarEstado();
+$conexion=conectar();
+modificarEstado($conexion);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
