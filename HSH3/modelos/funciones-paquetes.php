@@ -7,8 +7,8 @@ function hayDatosPaquete($nombre, $semana){
 	}
 }
 
-function existePaquete($nombre,$semana,$conexion){
-	$existe= "SELECT * FROM paquete WHERE nombre_res='$nombre' AND semana='$semana'";
+function existePaquete($id_paquete,$semana,$conexion){
+	$existe= "SELECT * FROM paquete WHERE id_res='$id_paquete' AND semana='$semana'";
 	$resultado1= mysqli_query($conexion,$existe);
 
 	if(mysqli_num_rows($resultado1)==0){
