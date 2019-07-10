@@ -58,5 +58,17 @@ function getPaquetesPorIdUsuario($id_usuario)
 	return $resultado;
 }
 
+function modificarPrecio($precio, $conexion, $id){
+	$consulta="UPDATE paquete SET precio_base='$precio' WHERE id='$id'";
+	$resultado=mysqli_query($conexion,$consulta);
+	
+}
+function getPaquetePorId2($id,$conexion)
+{
+	$consulta = "SELECT * FROM paquete WHERE id = '$id'";
+	$resultado = mysqli_query($conexion, $consulta);
+	return $resultado;
+}
+
 
 ?>
