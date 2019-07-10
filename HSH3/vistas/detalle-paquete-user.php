@@ -34,7 +34,7 @@
         </ul>
       </div>
     </nav>
-
+<form action="../controladores/agregarPuja.php" method="POST">
     <?php
 
     /*  ESTADOS DE UN PAQUETE
@@ -112,6 +112,6 @@
        </div>
        
      </div>
-
+	  </form>
   </body>
 </html>
