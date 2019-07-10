@@ -86,14 +86,14 @@
         <div id="modal-example" uk-modal>
           <div class="uk-modal-dialog uk-modal-body uk-padding">
             <h2>Precio actual <?php echo "$".$paquete['precio_base']; ?></h2>
-            <form class="" action="" method="post">
+            <form class="" action="../controladores/controlCambioDePrecio.php?id-paquete=<?php echo $paquete['id']; ?>" method="post">
               <div class="uk-child-width-1-2" uk-grid>
                 <h3>Nuevo precio: </h3>
-                <input type="number" name="" value="" class="uk-input" required>
+                <input type="number" name="nuevo-precio" value="" class="uk-input" required>
               </div>
               <div class="uk-child-width-1-2 uk-padding-small" uk-grid>
                 <button type="reset" class="uk-button uk-button-default uk-modal-close">cancelar</button>
-                <button type="button" class="uk-button uk-button-primary">aplicar</button>
+                <button type="submit" class="uk-button uk-button-primary">aplicar</button>
               </div>
             </form>
           </div>
