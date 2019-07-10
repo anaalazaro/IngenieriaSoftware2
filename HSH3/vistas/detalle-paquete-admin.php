@@ -24,7 +24,6 @@
       include("../controladores/controlPaquetes.php");
       include("../controladores/controlResidencias.php");
 
-
       $id = $_GET['id_paquete'];
       $paquete = mysqli_fetch_array(getPaquetePorId($id));
 
@@ -73,14 +72,33 @@
         </div>
         <div class="uk-float-right">
           <h1 class=""><?php echo "$".$paquete["precio_base"]; ?></h1>
-
         </div>
+
       </div>
       <div class="uk-card-badge">
         <span class="uk-badge uk-border-rounded" style="background-color:<?php echo $color; ?>"><?php echo $paquete['estado'];?></span>
       </div>
       <div class="uk-card-footer uk-float-right">
-        <button type="button" name="button" class="uk-button uk-button-primary uk-border-rounded">editar</button>
+
+        <button type="button" name="button" class="uk-button uk-button-primary uk-border-rounded" uk-toggle="target: #modal-example">
+          editar
+        </button>
+        <div id="modal-example" uk-modal>
+          <div class="uk-modal-dialog uk-modal-body uk-padding">
+            <h2>Precio actual <?php echo "$".$paquete['precio_base']; ?></h2>
+            <form class="" action="" method="post">
+              <div class="uk-child-width-1-2" uk-grid>
+                <h3>Nuevo precio: </h3>
+                <input type="number" name="" value="" class="uk-input" required>
+              </div>
+              <div class="uk-child-width-1-2 uk-padding-small" uk-grid>
+                <button type="reset" class="uk-button uk-button-default uk-modal-close">cancelar</button>
+                <button type="button" class="uk-button uk-button-primary">aplicar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <?php if ($paquete['estado']=="ESPERA"): ?>
           <button type="button" name="button" class="uk-button uk-border-rounded" onclick="window.location='../vistas/confirmar-hotsale-admin.php?id=<?php echo $paquete['id'];?>'">
             poner en hotsale
