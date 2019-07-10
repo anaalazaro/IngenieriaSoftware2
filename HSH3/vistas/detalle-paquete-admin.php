@@ -28,17 +28,24 @@
       $id = $_GET['id_paquete'];
       $paquete = mysqli_fetch_array(getPaquetePorId($id));
 
+      /*  ESTADOS DE UN PAQUETE
+
+            RESERVA     -> un paquete que se encuentra disponible para ser reservado
+            RESERVADO   -> un paquete que fue adquirido en tiempo de reserva
+            SUBASTA     -> un paquete que paso el tiempo de reserva y nadie lo adquirio
+            SUBASTADO   -> un paquete que paso el tiempo de subasta y alguien lo adquirio
+            ESPERA      -> un paquete que paso el tiempo de subasta y nadie lo adquirio
+            HOTSALE     -> un paquete que estaba en espera y fue seleccionado para hotsale
+            LIQUIDADO   -> un paquete en hotsale que fue adquirido por alguien
+            CADUCADO    -> cualquier paquete cuando pasa su fecha de uso
+
+      */
+
       //include("../modelos/funciones-residencias.php");
       $residencia = getResidenciaPorID($paquete['id_res']);
       $color = "grey";
-      $ocultar_boton_hotsale = "hidden";
       switch ($paquete['estado']) {
         case 'FINALIZADO':
-          if(($paquete['id_usuario'])>0) {
-            $ocultar_boton_hotsale="hidden";
-          }else {
-            $ocultar_boton_hotsale="";
-          }
           $color = "red";
           break;
         case 'SUBASTA':
@@ -74,7 +81,16 @@
       </div>
       <div class="uk-card-footer uk-float-right">
         <button type="button" name="button" class="uk-button uk-button-primary uk-border-rounded">editar</button>
-        <button type="button" name="button" class="uk-button uk-border-rounded" <?php echo $ocultar_boton_hotsale;?>>poner en hotsale</button>
+        <?php if ($paquete['estado']=="ESPERA"): ?>
+          <button type="button" name="button" class="uk-button uk-border-rounded" onclick="window.location='../vistas/confirmar-hotsale-admin.php?id=<?php echo $paquete['id'];?>'">
+            poner en hotsale
+          </button>
+        <?php endif; ?>
+        <?php if ($paquete['estado']=="SUBASTA"): ?>
+          <button type="button" name="button" class="uk-button uk-border-rounded" onclick="window.location='../vistas/pantalla-detalle-subasta.php?id=<?php echo $paquete['id'];?>'">
+            ver historial de pujas
+          </button>
+        <?php endif; ?>
       </div>
     </div>
 
