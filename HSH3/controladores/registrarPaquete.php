@@ -17,7 +17,7 @@ if(hayDatosPaquete($nombre,$semana)){
 	/*verifica que no exista el mismo nombre en la bd*/
 	if(existePaquete($id_paquete,$semana,$conexion)==0){
 		
-		$insertar= "INSERT INTO paquete(id_res,nombre_res,semana,estado,precio_base) VALUES ('$id_paquete','$nombre','$semana','RESERVA','$p_base')";
+		$insertar= "INSERT INTO paquete(id_res,semana,estado,precio_base) VALUES ('$id_paquete','$semana','RESERVA','$p_base')";
 		
 		//Ejecutar consulta
 		$resultado = guardarPaquete($conexion,$insertar);
