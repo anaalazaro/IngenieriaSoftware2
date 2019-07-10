@@ -73,6 +73,15 @@ function modificarPrecio($precio, $conexion, $id){
 	$resultado=mysqli_query($conexion,$consulta);
 }
 
+function modificarPaquete($id, $precio)
+{
+	include_once('../modelos/conexion.php');
+	$conexion = conectar();
+	$consulta = "UPDATE paquete SET precio_base='$precio' WHERE id='$id'";
+	mysqli_query($conexion,$consulta);
+	mysqli_close($conexion);
+}
+
 function getPaquetePorId2($id,$conexion)
 {
 	$consulta = "SELECT * FROM paquete WHERE id = '$id'";
