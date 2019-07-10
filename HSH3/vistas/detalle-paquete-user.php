@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/uikit.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/personal.css" />
+    <link rel="stylesheet" type="text/css" href="../css/subasta.css" />
     <script src="../js/uikit.min.js"></script>
     <script src="../js/uikit-icons.min.js"></script>
+    <script src="../controladores/habilitarPujar.js"></script>
   </head>
   <body class="uk-height-viewport my-background-color">
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
@@ -86,7 +88,7 @@
            <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
              Reservar
            </button>
-           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick="habilitar_pujar('puja')">
              Pujar
            </button>
            <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
@@ -96,10 +98,19 @@
              No disponible
            </button>
          </div>
+         <div id="puja" class="uk-width-1-1 uk-padding-small">
+			<label>Ingrese subasta:</label>
+			 <input type="number" name="puja" class="uk-input " >
+			 <button type="submit" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+             Aceptar
+           </button>
+		
        </div>
-       <div class="">
-
+	   <div id="escondido">
+	   <input name="id" value="<?php echo $paquete['id']; ?>">
+	   </div>
        </div>
+       
      </div>
 
   </body>
