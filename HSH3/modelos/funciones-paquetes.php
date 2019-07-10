@@ -1,4 +1,14 @@
 <?php
+
+function ponerEnHotsale($id,$precio)
+{
+	include_once('../modelos/conexion.php');
+	$conexion = conectar();
+	$consulta = "UPDATE paquete SET estado='HOTSALE',precio_base='$precio' WHERE id='$id'";
+	$resultado = mysqli_query($conexion,$consulta);
+	mysqli_close($conexion);
+}
+
 function hayDatosPaquete($nombre, $semana){
 	if((isset($nombre)) && !empty($nombre) &&  (isset($semana)) && !empty($semana)  ){
 		return true;
