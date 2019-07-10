@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
       ponerEnHotsale($id_paquete,$precio);
       echo'<script type="text/javascript">
         alert("El paquete '.$id_paquete.', se puso en Hotsale! Con un precio de $'.$precio.'");
-        window.history.back();
+        window.location.href = "../vistas/detalle-paquete-admin.php?id_paquete='.$id_paquete.'";
         </script>';
     }else {
       echo'<script type="text/javascript">
