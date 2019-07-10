@@ -25,7 +25,7 @@ function guardarPaquete($conexion, $consulta){
 
 function getPaquetesPorEstado($estado)
 {
-	include("conexion.php");
+	include_once("conexion.php");
 	$conexion = conectar();
 	$consulta = "SELECT * FROM paquete WHERE estado = '$estado'";
 	$resultado = mysqli_query($conexion, $consulta);
@@ -34,7 +34,7 @@ function getPaquetesPorEstado($estado)
 
 function getPaquetePorId($id)
 {
-	include("conexion.php");
+	include_once("conexion.php");
 	$conexion = conectar();
 	$consulta = "SELECT * FROM paquete WHERE id = '$id'";
 	$resultado = mysqli_query($conexion, $consulta);
@@ -51,7 +51,7 @@ function getPaquetesPorIdDeResidencia($id_res)
 
 function getPaquetesPorIdUsuario($id_usuario)
 {
-	include('../modelos/conexion.php');
+	include_once('../modelos/conexion.php');
 	$conexion = conectar();
 	$consulta = "SELECT * FROM paquete WHERE id_usuario = '$id_usuario'";
 	$resultado = mysqli_query($conexion, $consulta);
@@ -61,7 +61,7 @@ function getPaquetesPorIdUsuario($id_usuario)
 function modificarPrecio($precio, $conexion, $id){
 	$consulta="UPDATE paquete SET precio_base='$precio' WHERE id='$id'";
 	$resultado=mysqli_query($conexion,$consulta);
-	
+
 }
 function getPaquetePorId2($id,$conexion)
 {

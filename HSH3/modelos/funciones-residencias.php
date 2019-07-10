@@ -34,6 +34,7 @@ function hayDatosResidencia($nombre, $descripcion, $provincia, $ciudad, $nombre_
 }
 
 function getResidenciaPorId($id){
+	include_once('../modelos/conexion.php');
 	$conexion = conectar();
 	$consulta = "SELECT * FROM residencia WHERE id='$id'";
 	$ret = mysqli_fetch_array(mysqli_query($conexion, $consulta));

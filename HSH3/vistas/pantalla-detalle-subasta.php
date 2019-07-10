@@ -2,6 +2,8 @@
  session_start();
     include('../modelos/conexion.php');
     include('../modelos/funciones-subasta.php');
+    include('../modelos/funciones-paquetes.php');
+    include('../modelos/funciones-residencias.php');
     $conexion=conectar();
 
 ?>
@@ -48,32 +50,55 @@
    <?php
     $id=$_GET['id'];
 
-    $result=getSubastaPorId($id,$conexion);
-
+    $subastas=getSubastaPorId($id,$conexion);
+    $paquete=mysqli_fetch_array(getPaquetePorID($id));
+    $residencia=getResidenciaPorId($paquete['id_res']);
     mysqli_close($conexion);
 ?>
- <div class="uk-position-center my-form-box">
-    <table class="table table-striped uk-table uk-table-divider uk-align-center">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Fecha</th><!--falta x para que termine la subasta-->
-		  <th>Usuario</th>
-		  <th>Monto</th>
-        </tr>
-      </thead>
 
-
-
-
-
-    </table>
-
-
-      <div class="uk-padding-small">
-        <a href="home-user.php" class="uk-button uk-button-primary">Volver</a>
-
+    <div class="uk-panel uk-padding uk-margin uk-border-rounded uk-child-width-1-2" style="background-color:white;" uk-grid>
+      <div class="">
+        <div class="uk-card-media-left uk-child-width-1-2" uk-grid>
+          <img src='data:image/jpeg; base64, <?php echo base64_encode($residencia["imagen"]); ?>' alt="Aca va una imagen" class="uk-border-rounded"/>
+          <div class="">
+            <h2>
+              <?php echo $residencia['nombre']; ?>
+            </h2>
+            <h4>
+              <?php echo $residencia['ciudad']; ?>
+            </h4>
+          </div>
+        </div>
+        <div class="uk-child-width-1-2" uk-grid>
+          <div class="" align="right">
+            <h5><?php echo "id del paquete: "?></h5>
+            <h5><?php echo "Semana del paquete: "?></h5>
+          </div>
+          <div class="" align="left">
+            <h5><?php echo $paquete['id']?></h5>
+            <h5><?php echo $paquete['semana']; ?></h5>
+          </div>
+        </div>
       </div>
+
+      <table class="table-striped uk-table uk-table-divider uk-table-condensed uk-text-nowrap uk-panel-scrollable">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>fecha de puja</th>
+            <th>monto de puja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <?php while ($row=mysqli_fetch_array($subastas)) {?>
+              <th><?php echo $row['usuario']; ?></th>
+              <th><?php echo $row['hora_puja']; ?></th>
+              <th><?php echo "$".$row['monto_oferta']; ?></th>
+            <?php } ?>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </body>
   </html>
