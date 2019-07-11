@@ -9,6 +9,7 @@
     <script src="../js/uikit.min.js"></script>
     <script src="../js/uikit-icons.min.js"></script>
     <script src="../controladores/habilitarPujar.js"></script>
+    <script src="../controladores/confirmar.js"></script>
   </head>
   <body class="uk-height-viewport my-background-color">
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
@@ -49,12 +50,18 @@
           CADUCADO    -> cualquier paquete cuando pasa su fecha de uso
 
     */
-
+      include("../modelos/conexion.php");
       include("../modelos/funciones-paquetes.php");
       include("../modelos/funciones-residencias.php");
       $id = $_GET['id'];
-      $paquete = mysqli_fetch_array(getPaquetePorId($id));
+      $conexion=conectar();
+      $paquete = mysqli_fetch_array(getPaquetePorId2($id,$conexion));
       $residencia = getResidenciaPorId($paquete['id_res']);
+      session_start();
+      $id=$_SESSION['id'];
+      $consulta= "SELECT * FROM usuario WHERE id='$id'";
+      $result=mysqli_query($conexion,$consulta);
+      $row = mysqli_fetch_array($result);
      ?>
 
      <div class="uk-child-width-1-3 uk-padding" align="" uk-grid>
@@ -82,18 +89,22 @@
            <?php echo $paquete["estado"]; ?>
          </div>
          <div class="uk-card-body">
-           <h1 class="uk-align-right"><?php echo "$".$paquete["precio_base"]; ?></h1>
+           <h1 class="uk-align-right"><?php /*echo "$".$paquete["precio_base"]; */?></h1>
 
-           <?php $color_boton="light-blue" ?>
-           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             Reservar
-           </button>
+           <?php $color_boton="light-blue";
+           if($paquete['estado']=='RESERVA' and $row['premium']==1) {?>
+           <a  href= "../controladores/confirmarReserva.php?id=<?php echo $paquete['id'];?>" type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick='return confirm("Desea confirmar la reserva del paquete?")'>Reservar paquete </a>
+           <?php }?>
+           <?php if($paquete['estado']=='SUBASTA') {?>
            <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick="habilitar_pujar('puja')">
              Pujar
            </button>
+         <?php }?>
+         <?php if($paquete['estado']=='HOTSALE'){?>
            <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
              Adquirir
            </button>
+            <?php }?>
            <button type="button" name="subasta" class="uk-button uk-button-muted uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
              No disponible
            </button>

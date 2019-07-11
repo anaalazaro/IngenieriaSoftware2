@@ -78,7 +78,6 @@ include('../controladores/controlPaquetes.php');
     }
 
     $paquetes = getPaquetesPorIdDeResidencia($residencia['id']);
-    if ($paquetes) {
       ?>
       <div class="uk-tile uk-tile-default uk-tile-small uk-border-rounded">
         <h4 class="uk-position-center">Paquetes de esta residencia</h4>
@@ -86,7 +85,7 @@ include('../controladores/controlPaquetes.php');
       <div class="uk-child-width-1-4 uk-padding" uk-grid>
         <?php
         while ($paquete = mysqli_fetch_array($paquetes)) {
-          ?>
+          if ($paquete['estado']=='SUBASTA' or $paquete['estado']=='RESERVA' or $paquete['estado']=='HOTSALE'){?>
           <div class="uk-card uk-card-default uk-padding uk-border-rounded">
             <div class="uk-card-title">
               <?php echo $paquete['semana']; ?>
@@ -100,18 +99,15 @@ include('../controladores/controlPaquetes.php');
               <a href="detalle-paquete-user.php?id=<?php echo $paquete['id']; ?>">ver detalle</a>
             </div>
           </div>
+          
           <?php
-        }?>
+    }}
+    ?> 
       </div>
-      <?php
-    }else {
-      ?>
-      <div class="uk-tile uk-tile-default uk-tile-small uk-border-rounded">
+     <!-- <div class="uk-tile uk-tile-default uk-tile-small uk-border-rounded">
         <p class="uk-position-center">Por el momento esta residencia no tiene paquetes disponibles</p>
-      </div>
-      <?php
-    }
-    ?>
+      </div>-->
+     
     </div>
 
   </body>
