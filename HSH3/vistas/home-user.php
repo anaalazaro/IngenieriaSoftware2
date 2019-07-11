@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
   include('../modelos/conexion.php');
 
   $conexion=conectar();
@@ -66,6 +66,14 @@
         </div>
       </div>
     <?php }?>
+    </div>
+    <div class="uk-child-width-expand@s uk-text-center uk-padding" uk-grid>
+      <div>
+        <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+          <h3 class="uk-card-title">Ver Todos Los Paquetes</h3>
+          <p><a href="../vistas/listar-paquetes-user.php">click aquí</a></p>
+        </div>
+      </div>
     </div>
 
 
