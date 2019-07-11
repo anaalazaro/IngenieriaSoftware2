@@ -12,6 +12,6 @@
   if ($row["premium"]) {
     header("location: ../vistas/reservar-paquetes-user.php");
   }else {
-    header("location: ../vistas/home-user.php");
+header("location: ../vistas/reservar-paquetes-user.php")
   }
  ?>
