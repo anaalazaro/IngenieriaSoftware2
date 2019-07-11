@@ -14,11 +14,11 @@
 
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
       <div class="uk-navbar-left uk-padding-small">
-        <a href="../vistas/home-admin.php" class="uk-button uk-button-primary uk-border-rounded">Volver al home</a>
+        <a href="../vistas/home-user.php" class="uk-button uk-button-primary uk-border-rounded">Volver al home</a>
       </div>
       <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
-            <li><a href="../vistas/home-admin.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
+            <li><a href="../vistas/home-user.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
         </ul>
       </div>
     </nav>
@@ -30,20 +30,17 @@
     } ?>
 
     <div class="uk-padding uk-padding-remove-bottom">
-      <form class="" action="pantalla-listar-paquetes.php" method="get">
+      <form class="" action="listar-paquetes-user.php" method="get">
         <div class="uk-padding-small uk-padding-remove-bottom" uk-grid>
             <select name="filtro" class="uk-select uk-width-1-3" onchange="submit" >
               <option value="todos" <?php if ($opcion=="todos") {echo "selected";} ?>>Todos los Paquetes</option>
-              <option value="finalizados" <?php if ($opcion=="finalizados") {echo "selected";} ?>>Paquetes Finalizados</option>
+              <option value="subasta" <?php if ($opcion=="subasta") {echo "selected";} ?>>Paquetes En Subasta</option>
               <option value="hotsale" <?php if($opcion=="hotsale"){echo "selected";} ?>>Paquetes en Hotsale</option>
             </select>
             <button type="submit" name="aplicar-filtro" class="uk-button uk-button-primary">
               aplicar filtro
             </button>
             <div class="uk-width-expand"></div>
-            <button type="button" name="nuevo-paquete" onclick="window.location='../vistas/pantalla-crear-paquete.php'" class="uk-button uk-button-primary" style="background-color:green;">
-              agregar paquete
-            </button>
         </div>
       </form>
     </div>
@@ -54,13 +51,13 @@
 	 include('../modelos/fEstado.php');
 
     $conexion=conectar();
-	modificarEstado($conexion);
+	   //modificarEstado($conexion);
     $consulta= "SELECT * FROM paquete";
     if (isset($_GET['filtro'])) {
       $opcion=$_GET['filtro'];
       switch ($opcion) {
-        case 'finalizados':
-          $consulta= "SELECT * FROM paquete WHERE estado='CADUCADO'";
+        case 'subasta':
+          $consulta= "SELECT * FROM paquete WHERE estado='SUBASTA'";
           break;
         case 'todos':
           $consulta= "SELECT * FROM paquete";
@@ -121,7 +118,7 @@
               <?php echo $tiempo_restante;?>
             </div>
             <div class="uk-width-1-4">
-                <a href="detalle-paquete-admin.php?id_paquete=<?php echo $row['id']; ?>">
+                <a href="detalle-paquete-user.php?id=<?php echo $row['id']; ?>">
                   <button type="button" name="button" class="uk-button uk-button-small uk-border-rounded uk-button-primary">ver</button>
                 </a>
             </div>
