@@ -13,7 +13,10 @@
   </head>
   <body class="uk-height-viewport my-background-color">
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
-      <div class="uk-navbar-left">
+      <div class="uk-navbar-left uk-padding-small">
+        <a href="../vistas/listar-paquetes-user.php" class="uk-button uk-button-primary uk-border-rounded">Volver atras</a>
+      </div>
+      <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
             <li><a href="../vistas/home-user.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
         </ul>
@@ -35,7 +38,7 @@
         </ul>
       </div>
     </nav>
-<form action="../controladores/agregarPuja.php" method="POST">
+
     <?php
 
     /*  ESTADOS DE UN PAQUETE

@@ -92,17 +92,6 @@
          <h2 class="uk-card-title">
            <?php echo "Semana: ".$paquete["semana"]; ?>
          </h2>
-         <h4>Tiempo restante para ser subastado: </h4>
-         <?php
-         include_once('../modelos/get_format.php');
-         $date1 = new DateTime("now");
-         $dt=$paquete['semana'];
-         $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
-         $date2 = new DateTime($dt_subasta);
-         $diff = $date1->diff($date2);
-         $tiempo_restante=get_format($diff);
-         ?>
-
          <div class="uk-badge uk-card-badge uk-border-rounded">
            <?php echo $paquete["estado"]; ?>
          </div>
@@ -116,6 +105,18 @@
            </a>
            <?php }?>
 
+         </div>
+         <div class="uk-card-footer">
+           <h4>Tiempo restante para ser subastado: </h4>
+           <?php
+           include_once('../modelos/get_format.php');
+           $date1 = new DateTime("now");
+           $dt=$paquete['semana'];
+           $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
+           $date2 = new DateTime($dt_subasta);
+           $diff = $date1->diff($date2);
+           $tiempo_restante=get_format($diff);
+           ?>
          </div>
 
          <div id="escondido">
