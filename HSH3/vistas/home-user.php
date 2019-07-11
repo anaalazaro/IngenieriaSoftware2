@@ -56,8 +56,8 @@
           <p><a href="pantalla-subastas-en-curso.php">click aquí</a></p>
         </div>
       </div>
-     <?php  if ($row['premium']==1){
-     ?>
+     
+     
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
           <div class="uk-card-badge uk-label">premium</div>
@@ -65,7 +65,7 @@
           <p><a href="../controladores/controlVerReservas.php?id=<?php echo $_SESSION['id']; ?>">click aquí</a></p>
         </div>
       </div>
-    <?php }?>
+    
     </div>
     <div class="uk-child-width-expand@s uk-text-center uk-padding" uk-grid>
       <div>
