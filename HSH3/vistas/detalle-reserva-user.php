@@ -12,8 +12,12 @@
     <script src="../controladores/confirmar.js"></script>
   </head>
   <body class="uk-height-viewport my-background-color">
+
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
-      <div class="uk-navbar-left">
+      <div class="uk-navbar-left uk-padding-small">
+        <a href="../vistas/listar-paquetes-user.php" class="uk-button uk-button-primary uk-border-rounded">Volver atras</a>
+      </div>
+      <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
             <li><a href="../vistas/home-user.php"><img data-src="../files/hsh-logo.png"  width="150" uk-img></a></li>
         </ul>
@@ -35,6 +39,8 @@
         </ul>
       </div>
     </nav>
+
+
 <form action="../controladores/agregarPuja.php" method="POST">
     <?php
 
@@ -81,10 +87,22 @@
            </div>
          </div>
        </div>
+
        <div class="uk-card uk-card-body uk-card-default">
          <h2 class="uk-card-title">
            <?php echo "Semana: ".$paquete["semana"]; ?>
          </h2>
+         <h4>Tiempo restante para ser subastado: </h4>
+         <?php
+         include_once('../modelos/get_format.php');
+         $date1 = new DateTime("now");
+         $dt=$paquete['semana'];
+         $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
+         $date2 = new DateTime($dt_subasta);
+         $diff = $date1->diff($date2);
+         $tiempo_restante=get_format($diff);
+         ?>
+
          <div class="uk-badge uk-card-badge uk-border-rounded">
            <?php echo $paquete["estado"]; ?>
          </div>
@@ -93,36 +111,18 @@
 
            <?php $color_boton="light-blue";
            if($paquete['estado']=='RESERVA' and $row['premium']==1) {?>
-           <a  href= "../controladores/confirmarReserva.php?id=<?php echo $paquete['id'];?>" type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick='return confirm("Desea confirmar la reserva del paquete?")'>Reservar paquete </a>
+           <a  href= "../controladores/confirmarReserva.php?id=<?php echo $paquete['id'];?>" type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick='return confirm("Desea confirmar la reserva del paquete?")'>
+             Reservar paquete
+           </a>
            <?php }?>
-           <?php if($paquete['estado']=='SUBASTA') {?>
-           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick="habilitar_pujar('puja')">
-             Pujar
-           </button>
-         <?php }?>
-         <?php if($paquete['estado']=='HOTSALE'){?>
-           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             Adquirir
-           </button>
-            <?php }?>
-           <button type="button" name="subasta" class="uk-button uk-button-muted uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             No disponible
-           </button>
-         </div>
-         <div id="puja" class="uk-width-1-1 uk-padding-small">
-			<label>Ingrese subasta:</label>
-			 <input type="number" name="puja" class="uk-input " >
-			 <button type="submit" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             Aceptar
-           </button>
 
-       </div>
-	   <div id="escondido">
-	   <input name="id" value="<?php echo $paquete['id']; ?>">
-	   </div>
+         </div>
+
+         <div id="escondido">
+          	   <input name="id" value="<?php echo $paquete['id']; ?>">
+          	</div>
        </div>
 
      </div>
-	  </form>
   </body>
 </html>
