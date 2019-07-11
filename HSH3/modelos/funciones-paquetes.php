@@ -9,6 +9,15 @@ function ponerEnHotsale($id,$precio)
 	mysqli_close($conexion);
 }
 
+function ponerEnReserva($id,$id_user){
+	include_once('../modelos/conexion.php');
+	$conexion = conectar();
+	$consulta = "UPDATE paquete SET estado='RESERVADO',id_usuario='$id_user' WHERE id='$id'";
+	$resultado = mysqli_query($conexion,$consulta);
+	mysqli_close($conexion);
+
+}
+
 function hayDatosPaquete($nombre, $semana){
 	if((isset($nombre)) && !empty($nombre) &&  (isset($semana)) && !empty($semana)  ){
 		return true;
