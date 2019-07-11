@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php session_start(); 
+  include('../modelos/conexion.php');
+
+  $conexion=conectar();
+  $id = $_SESSION['id'];
+  $consulta= "SELECT * FROM usuario WHERE id=$id";
+  $result=mysqli_query($conexion,$consulta);
+  $row = mysqli_fetch_array($result);
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -38,23 +46,26 @@
     <div class="uk-child-width-expand@s uk-text-center uk-padding" uk-grid>
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
-          <h3 class="uk-card-title">Mirar Residencias</h3>
+          <h3 class="uk-card-title">Ver  Residencias Disponibles</h3>
           <p><a href="../vistas/listar-residencias-user.php">click aquí</a></p>
         </div>
       </div>
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
-          <h3 class="uk-card-title">Subastas en curso</h3>
+          <h3 class="uk-card-title">Ver Subastas en curso</h3>
           <p><a href="pantalla-subastas-en-curso.php">click aquí</a></p>
         </div>
       </div>
+     <?php  if ($row['premium']==1){
+     ?>
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
           <div class="uk-card-badge uk-label">premium</div>
-          <h3 class="uk-card-title">Reservar paquetes</h3>
+          <h3 class="uk-card-title">Mis paquetes</h3>
           <p><a href="../controladores/controlVerReservas.php?id=<?php echo $_SESSION['id']; ?>">click aquí</a></p>
         </div>
       </div>
+    <?php }?>
     </div>
 
 
