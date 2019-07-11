@@ -51,7 +51,7 @@
 	 include('../modelos/fEstado.php');
 
     $conexion=conectar();
-	   //modificarEstado($conexion);
+	  modificarEstado($conexion);
     $consulta= "SELECT * FROM paquete";
     if (isset($_GET['filtro'])) {
       $opcion=$_GET['filtro'];
