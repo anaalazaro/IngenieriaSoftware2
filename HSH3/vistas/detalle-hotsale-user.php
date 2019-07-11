@@ -81,48 +81,40 @@
            </div>
          </div>
        </div>
+
        <div class="uk-card uk-card-body uk-card-default">
          <h2 class="uk-card-title">
            <?php echo "Semana: ".$paquete["semana"]; ?>
          </h2>
-         <div class="uk-badge uk-card-badge uk-border-rounded">
-           <?php echo $paquete["estado"]; ?>
+         <div class="uk-badge uk-card-badge uk-border-rounded uk-label-danger" >
+           <?php echo $paquete["estado"]."!"; ?>
          </div>
          <div class="uk-card-body">
-           <h1 class="uk-align-right"><?php /*echo "$".$paquete["precio_base"]; */?></h1>
+           <h1 class="uk-align-right">
+             <?php echo "$".$paquete["precio_base"]; ?>
+           </h1>
 
-           <?php $color_boton="light-blue";
-           if($paquete['estado']=='RESERVA' and $row['premium']==1) {?>
-           <a  href= "../controladores/confirmarReserva.php?id=<?php echo $paquete['id'];?>" type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick='return confirm("Desea confirmar la reserva del paquete?")'>Reservar paquete </a>
-           <?php }?>
-           <?php if($paquete['estado']=='SUBASTA') {?>
-           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick="habilitar_pujar('puja')">
-             Pujar
-           </button>
-         <?php }?>
-         <?php if($paquete['estado']=='HOTSALE'){?>
-           <button type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             Adquirir
+           <?php
+           $color_boton="light-blue";
+           if($paquete['estado']=='HOTSALE'){
+             ?>
+           <button type="button" name="hotsale" class="uk-button uk-button-danger uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+             Adquirir Hotsale
            </button>
             <?php }?>
-           <button type="button" name="subasta" class="uk-button uk-button-muted uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             No disponible
-           </button>
          </div>
-         <div id="puja" class="uk-width-1-1 uk-padding-small">
-			<label>Ingrese subasta:</label>
-			 <input type="number" name="puja" class="uk-input " >
-			 <button type="submit" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             Aceptar
-           </button>
-
-       </div>
-	   <div id="escondido">
-	   <input name="id" value="<?php echo $paquete['id']; ?>">
-	   </div>
+         <div class="uk-card-footer">
+           <h4>
+             Esta publicacion no consume creditos! <br>
+             Al pagar el total, el paquete es tuyo.
+           </h4>
+         </div>
        </div>
 
-     </div>
+       <div id="escondido">
+	        <input name="id" value="<?php echo $paquete['id']; ?>">
+	     </div>
+      </div>
 	  </form>
   </body>
 </html>
