@@ -71,7 +71,7 @@
      ?>
 
      <div class="uk-child-width-1-3 uk-padding" align="" uk-grid>
-       <div class="uk-card uk-card-default uk-width-2-3" uk-grid>
+       <div class="uk-card uk-card-default uk-width-2-3">
          <div class="uk-card-media-left">
            <img src='data:image/jpeg; base64, <?php echo base64_encode($residencia['imagen']); ?>' alt="Aca va una imagen" />
          </div>
