@@ -35,23 +35,33 @@
       </div>
     </nav>
     <div class="uk-padding uk-child-width-1-2 uk-grid-small uk-grid-match" uk-grid>
-      <?php
+       <?php
+        session_start();
+        include('../modelos/conexion.php');
+        $conexion=conectar();
+        $id_user=$_SESSION['id'];
         include("../modelos/funciones-paquetes.php");
-        $paquetes_en_reserva = getPaquetesPorEstado("RESERVA");
-        while ($row = mysqli_fetch_array($paquetes_en_reserva)) {
+       /* $a="SELECT * FROM paquete WHERE id_usuario = '$id_user'";
+        $paquetes_del_usuario = mysqli_query($conexion,$a);*/
+ 
+        $consulta= "SELECT * FROM residencia r INNER JOIN  paquete p ON r.id=p.id_res WHERE p.id_usuario = '$id_user'";
+        $enviar= mysqli_query($conexion,$consulta);
+       // $rows=mysqli_fetch_array($enviar);
+        while ($rows=mysqli_fetch_array($enviar) /*= mysqli_fetch_array($paquetes_del_usuario)*/) {
           ?>
+
 
           <div class="uk-card uk-card-default uk-card-body uk-width-1-2 " uk-card>
             <div class="uk-card-title">
-              <?php echo $row["nombre_res"]; ?>
+              <?php echo $rows["nombre"]; ?>
             </div>
             <div class="uk-card-body">
-              <?php echo $row["semana"]; ?>
+              <?php echo $rows["semana"]; ?>
               <div class="uk-float-right">
-                <?php echo "$".$row["precio_base"]; ?>
+                <?php echo "$".$rows["precio_base"]; ?>
               </div>
               <div class="uk-card-footer">
-                <a href="../vistas/detalle-paquete-user.php?id=<?php echo $row['id']; ?>">click aquí para mas info</a>
+                <a href="../vistas/detalle-paquete-user.php?id=<?php echo $rows['id']; ?>">click aquí para mas info</a>
               </div>
             </div>
           </div>
