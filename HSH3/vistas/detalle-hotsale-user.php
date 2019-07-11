@@ -101,9 +101,31 @@
            $color_boton="light-blue";
            if($paquete['estado']=='HOTSALE'){
              ?>
-           <button type="button" name="hotsale" class="uk-button uk-button-danger uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+           <button uk-toggle="target: #confirmacion" type="button" class="uk-button uk-button-danger uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
              Adquirir Hotsale
            </button>
+           <div id="confirmacion" uk-modal>
+               <div class="uk-modal-dialog uk-modal-body">
+                   <h2 class="uk-modal-title">Esta seguro que desea adquirir este paquete?</h2>
+                   <div class="uk-width-auto uk-padding">
+                     <img  class="uk-comment-avatar uk-border-rounded" width="" height="" src='data:image/jpeg; base64, <?php echo base64_encode($residencia['imagen']); ?>' alt="Aca va una imagen" />
+                   </div>
+                   <div class="uk-width-auto" uk-grid>
+                     <h3><?php echo $residencia['nombre']; ?></h3>
+                     <h3><?php echo $paquete['semana']; ?></h3>
+                   </div>
+                   <div class="" align="right">
+                     <h2 align="right"><?php echo "$".$paquete['precio_base']; ?></h2>
+                   </div>
+
+
+                   <p class="uk-text-right">
+                     <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                     <a href="../controladores/confirmarHotsale.php?id_paquete=<?php echo $paquete['id'] ?>" class="uk-button uk-button-danger" type="button">Confirmar</a>
+                   </p>
+               </div>
+           </div>
+
             <?php }?>
          </div>
          <div class="uk-card-footer">

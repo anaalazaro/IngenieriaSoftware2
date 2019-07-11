@@ -1,5 +1,15 @@
 <?php
 
+function asignarPaquete($id_paquete,$id_usuario,$estado_anterior)
+{
+	include_once('../modelos/conexion.php');
+	if ($estado_anterior) {
+		$consulta="UPDATE paquete SET id_usuario='$id_usuario' WHERE id='$id_paquete'";
+	}
+	$conexion = conectar();
+	$resultado = mysqli_query($conexion,$consulta);
+}
+
 function ponerEnHotsale($id,$precio)
 {
 	include_once('../modelos/conexion.php');
