@@ -60,7 +60,7 @@
      
       <div>
         <div class="uk-card uk-card-default uk-card-body uk-card-hover">
-          <div class="uk-card-badge uk-label">premium</div>
+          <!--<div class="uk-card-badge uk-label">premium</div>-->
           <h3 class="uk-card-title">Mis paquetes</h3>
           <p><a href="../controladores/controlVerReservas.php?id=<?php echo $_SESSION['id']; ?>">click aquí</a></p>
         </div>
