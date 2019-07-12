@@ -59,6 +59,7 @@
       include("../modelos/funciones-paquetes.php");
       include("../modelos/funciones-residencias.php");
       include_once("../modelos/funciones-pujas.php");
+      include_once("../modelos/funciones-usuarios.php");
 
       $id = $_GET['id'];
       $conexion=conectar();
@@ -110,7 +111,47 @@
                echo "$".$paquete["precio_base"];
              }
               ?>
+              <span uk-icon="icon: history" uk-toggle="target: #historial" uk-tooltip="Historial de pujas"></span>
            </h1>
+
+           <div id="historial" uk-modal>
+             <div class="uk-modal-dialog uk-modal-body">
+               <div class="" uk-grid>
+                 <h2 class="uk-modal-title">Historial de pujas</h2>
+                 <div align="right">
+                   <button class="uk-button uk-button-default uk-modal-close" type="button">
+                     <span uk-icon="icon: close"></span>
+                   </button>
+                 </div>
+               </div>
+               <div class="">
+                 <table class="uk-table uk-table-small uk-table-divider">
+                   <thead>
+                     <tr>
+                       <th>Usuario</th>
+                       <th>Fecha</th>
+                       <th>Monto</th>
+                     </tr>
+                   </thead>
+                   <tbody class="uk-panel uk-panel-scrollable">
+                     <?php
+                     $pujas = getPujasPorIdDePaquete($paquete['id']);
+                     while ($puja=mysqli_fetch_array($pujas)) {
+                       $usuario = getUsuarioPorId($puja['id_usuario']);
+                     ?>
+                     <tr>
+                       <td><?php echo $usuario['mail']; ?></td>
+                       <td><?php echo $puja['fecha']; ?></td>
+                       <td><?php echo $puja['monto']; ?></td>
+                     </tr>
+                    <?php
+                      }
+                    ?>
+                   </tbody>
+                 </table>
+               </div>
+             </div>
+           </div>
 
            <?php $color_boton="light-blue";
            if($paquete['estado']=='SUBASTA') {?>

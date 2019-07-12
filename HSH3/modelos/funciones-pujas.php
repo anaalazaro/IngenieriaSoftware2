@@ -22,7 +22,7 @@ function getPujasPorIdDePaquete($id_paquete)
 {
   include_once('../modelos/conexion.php');
   $conexion = conectar();
-  $consulta = "SELECT * FROM pujas WHERE id_paquete='$id_paquete'";
+  $consulta = "SELECT * FROM pujas WHERE id_paquete='$id_paquete' ORDER BY monto DESC";
   $result = mysqli_query($conexion,$consulta);
   mysqli_close($conexion);
   return $result;
