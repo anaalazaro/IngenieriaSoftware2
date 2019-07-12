@@ -1,5 +1,30 @@
 <?php
-include('conexion.php');
+include_once('conexion.php');
+
+function getCreditos($id_usuario)
+{
+	$conexion = conectar();
+	$consulta = "SELECT creditos FROM usuario WHERE id = '$id_usuario'";
+	$result = mysqli_fetch_assoc(mysqli_query($conexion,$consulta));
+	mysqli_close($conexion);
+	return $result['creditos'];
+}
+
+function tieneTarjetaValida($id_usuario)
+{
+	$conexion = conectar();
+	$consulta = "SELECT tarjeta_numero,tarjeta_codigo,tarjeta_vencimiento FROM usuario WHERE id='$id_usuario'";
+	$resultado = mysqli_fetch_assoc(mysqli_query($conexion,$consulta));
+	mysqli_close($conexion);
+	include_once('../modelos/get_format.php');
+	$fecha_actual = new DateTime('now');
+	$fecha_vencimiento = new DateTime($resultado['tarjeta_vencimiento']);
+	if ($fecha_actual>$fecha_vencimiento) {
+		return false;
+	}else {
+		return true;
+	}
+}
 
 function existe($mail,$conexion){
 	$existe= "SELECT * FROM usuario WHERE mail='$mail'";

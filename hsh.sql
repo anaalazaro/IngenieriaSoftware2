@@ -32,7 +32,8 @@ DROP TABLE IF EXISTS `pujas`;
 CREATE TABLE `pujas` (
   `id_paquete` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `monto` int(20) NOT NULL
+  `monto` int(20) NOT NULL,
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

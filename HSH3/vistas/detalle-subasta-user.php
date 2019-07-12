@@ -116,7 +116,7 @@
                  <h3>Ingrese su puja</h3>
                </div>
 
-               <form class="" action="../controladores/controlSubasta.php" method="post">
+               <form class="" action="../controladores/controlSubasta.php?id_paquete=<?php echo $paquete['id'] ?>" method="post">
                  <input type="number" name="nuevo-precio" value="" min="<?php echo $puja_minima+50 ?>" placeholder="Minima puja de $<?php echo $puja_minima+50; ?>" class="uk-input uk-width-1-1" required>
                  <div class="uk-child-width-1-2 uk-padding uk-padding-remove-horizontal uk-margin-left" uk-grid>
                    <input type="button" name="cancelar" value="cancelar" class="uk-button uk-button-primary" uk-toggle="target: .toggle" style="background-color:red;">
