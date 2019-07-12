@@ -40,8 +40,6 @@
       </div>
     </nav>
 
-
-<form action="../controladores/agregarPuja.php" method="POST">
     <?php
 
     /*  ESTADOS DE UN PAQUETE
@@ -68,6 +66,7 @@
       $consulta= "SELECT * FROM usuario WHERE id='$id'";
       $result=mysqli_query($conexion,$consulta);
       $row = mysqli_fetch_array($result);
+      $puja_minima=$paquete['precio_base'];
      ?>
 
      <div class="uk-child-width-1-3 uk-padding" align="" uk-grid>
@@ -97,18 +96,45 @@
          <div class="uk-badge uk-card-badge uk-border-rounded">
            <?php echo $paquete["estado"]; ?>
          </div>
-         <div class="uk-card-body">
-           <h1 class="uk-align-right"><?php /*echo "$".$paquete["precio_base"]; */?></h1>
+
+         <div class="">
+           <h1 class="uk-align-right">
+             <?php echo "$".$paquete["precio_base"]; ?>
+           </h1>
 
            <?php $color_boton="light-blue";
            if($paquete['estado']=='SUBASTA') {?>
-           <a  href= "" type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick='return confirm("Desea confirmar la reserva del paquete?")'>
-             Pujar
-           </a>
+             <div class="">
+
+
+             </div>
+             <button type="button" class="uk-button uk-button-primary uk-border-rounded uk-width-expand toggle" uk-toggle="target: .toggle">
+               Pujar
+             </button>
+             <div class="toggle uk-padding uk-padding-remove-horizontal" hidden>
+               <div class="">
+                 <h3>Ingrese su puja</h3>
+               </div>
+
+               <form class="" action="../controladores/controlSubasta.php" method="post">
+                 <input type="number" name="nuevo-precio" value="" min="<?php echo $puja_minima+50 ?>" placeholder="Minima puja de $<?php echo $puja_minima+50; ?>" class="uk-input uk-width-1-1" required>
+                 <div class="uk-child-width-1-2 uk-padding uk-padding-remove-horizontal uk-margin-left" uk-grid>
+                   <input type="button" name="cancelar" value="cancelar" class="uk-button uk-button-primary" uk-toggle="target: .toggle" style="background-color:red;">
+                   <input type="submit" name="pujar" value="pujar" class="uk-button uk-button-primary">
+                 </div>
+               </form>
+             </div>
            <?php }?>
-
          </div>
-
+         <br>
+         <div class="uk-card-footer">
+           <p>
+             Recuerde que para pujar debe: <br>
+             - Contar con al menos 1 credito. <br>
+             - Pujar sobre el minimo de puja. <br>
+             - Tener una tarjeta de credito valida.
+           </p>
+         </div>
          <div id="escondido">
           	   <input name="id" value="<?php echo $paquete['id']; ?>">
           	</div>
