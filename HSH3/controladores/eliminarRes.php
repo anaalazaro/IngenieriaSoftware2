@@ -10,7 +10,7 @@ else{
 	$enviar=mysqli_query($conexion,$buscar);
 	$rows=mysqli_num_rows($enviar);
 	$row = mysqli_fetch_array($enviar);
-	if($row['estado']=='RESERVA' or $row['estado']=='ESPERA' $row['estado']=='SUBASTA'or $row['estado']=='RESERVADO'or$row['estado']=='SUBASTADO'or $row['estado']=='HOTSALE' or$row['estado']=='LIQUIDADO'){
+	if($row['estado']=='RESERVA' or $row['estado']=='ESPERA' or $row['estado']=='SUBASTA'or $row['estado']=='RESERVADO'or $row['estado']=='SUBASTADO'or $row['estado']=='HOTSALE' or $row['estado']=='LIQUIDADO'){
 	echo "<script language='javascript'>
 				alert('La residencia  no puede ser eliminada porque esta en reserva o subasta!..');
 				location.href= '../vistas/pantalla-listar-residencias.php' ;
