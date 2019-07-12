@@ -22,6 +22,19 @@ SET time_zone = "+00:00";
 -- Database: `hsh`
 --
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pujas`
+--
+DROP TABLE IF EXISTS `pujas`;
+CREATE TABLE `pujas` (
+  `id_paquete` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `monto` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
