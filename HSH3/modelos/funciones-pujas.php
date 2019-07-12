@@ -30,15 +30,11 @@ function getPujasPorIdDePaquete($id_paquete)
 
 function getMejorPuja($id_paquete)
 {
-  if (existenPujasDe($id_paquete)) {
-    include_once('../modelos/conexion.php');
-    $conexion = conectar();
-    $consulta = "SELECT MAX(monto) AS puja FROM pujas WHERE id_paquete='$id_paquete'";
-    $result = mysqli_fetch_assoc(mysqli_query($conexion,$consulta));
-    mysqli_close($conexion);
-    return $result['puja'];
-  }else {
-    return false;
-  }
+  include_once('../modelos/conexion.php');
+  $conexion = conectar();
+  $consulta = "SELECT MAX(monto) AS puja FROM pujas WHERE id_paquete='$id_paquete'";
+  $result = mysqli_fetch_assoc(mysqli_query($conexion,$consulta));
+  mysqli_close($conexion);
+  return $result['puja'];
 }
  ?>

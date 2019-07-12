@@ -54,9 +54,12 @@
           CADUCADO    -> cualquier paquete cuando pasa su fecha de uso
 
     */
+
       include("../modelos/conexion.php");
       include("../modelos/funciones-paquetes.php");
       include("../modelos/funciones-residencias.php");
+      include_once("../modelos/funciones-pujas.php");
+
       $id = $_GET['id'];
       $conexion=conectar();
       $paquete = mysqli_fetch_array(getPaquetePorId2($id,$conexion));
@@ -99,7 +102,14 @@
 
          <div class="">
            <h1 class="uk-align-right">
-             <?php echo "$".$paquete["precio_base"]; ?>
+             <?php
+             if (existenPujasDe($paquete['id'])) {
+               $mejor_puja = getMejorPuja($paquete['id']);
+               echo "$".$mejor_puja;
+             }else {
+               echo "$".$paquete["precio_base"];
+             }
+              ?>
            </h1>
 
            <?php $color_boton="light-blue";

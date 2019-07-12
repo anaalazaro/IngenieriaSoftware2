@@ -39,7 +39,7 @@ if ($puja_valida) {
   registrarPuja($id_paquete,$id_usuario,$nuevo_precio);
   echo'<script type="text/javascript">
     alert("Se ha registrado su puja!");
-    window.location.href="../vistas/pantalla-perfil-usuario.php";
+    window.location = document.referrer;
     </script>';
 }else {
   echo'<script type="text/javascript">
