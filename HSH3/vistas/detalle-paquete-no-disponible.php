@@ -70,6 +70,10 @@
       $result=mysqli_query($conexion,$consulta);
       $row = mysqli_fetch_array($result);
      ?>
+     <?php
+     echo $paquete['id_usuario'];
+     echo $row['id'];
+     ?>
 
      <div class="uk-child-width-1-3 uk-padding" align="" uk-grid>
        <div class="uk-card uk-card-default uk-width-2-3">
@@ -119,18 +123,11 @@
                  <h2 class="uk-modal-title">Esta seguro que desea cancelar este paquete?</h2>
                  <p>Recuerde que si cancela el paquete, puede ser que luego lo encuentre en un estado que no es el mismo en el cual lo adquirio, o incluso que el paquete no se encuentre disponible.</p>
                  <p>Si devuelve este paquete una semana antes de <?php echo $paquete['semana'];?>, su credito sera devuelto. Caso contrario, su credito se pierde.</p>
-                 <p class="uk-text-right">
-                   <button onclick="cancelarConfirmado()" class="uk-button uk-button-primary uk-border-rounded" type="button" style="background-color:red">Cancelar paquete</button>
-                   <script type="text/javascript">
-                      function cancelarConfirmado() {
-                        <?php
-                        cancelarPaquete($paquete['id']);
-                        sumarUnCredito($paquete['id_usuario']);
-                        ?>
-                        location.reload();
-                      }
-                   </script>
-                   <button class="uk-button uk-button-default uk-modal-close uk-border-rounded" type="button" onclick="">volver atras</button>
+                 <p class="uk-text-right" uk-grid>
+                   <form class="" action="../controladores/controlCancelarReserva.php?id-paquete=<?php echo $id_paquete?>" method="post">
+                     <button type="submit" class="uk-button uk-button-primary uk-border-rounded" style="background-color:red">Cancelar paquete</button>
+                     <button class="uk-button uk-button-default uk-modal-close uk-border-rounded" type="button" onclick="">volver atras</button>
+                   </form>
                  </p>
                </div>
              </div>

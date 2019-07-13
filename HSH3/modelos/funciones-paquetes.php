@@ -6,7 +6,7 @@ function cancelarPaquete($id_paquete)
 	$consulta = "UPDATE paquete SET id_usuario='' WHERE id='$id_paquete'";
 	$conexion = conectar();
 	$resultado = mysqli_query($conexion,$consulta);
-	$consulta2 = "UPDATE paquete SET estado='ESPERA' WHERE id='$id_paquete'";
+	$consulta2 = "UPDATE paquete SET estado='CADUCADO' WHERE id='$id_paquete'"; //lo pongo caducado para que los usuarios no puedan verlo hasta que se actualize su estado.
 	$resultado2 = mysqli_query($conexion,$consulta2);
 	return 1;
 }
