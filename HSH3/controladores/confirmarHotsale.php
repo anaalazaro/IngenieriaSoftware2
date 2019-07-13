@@ -10,7 +10,7 @@ if ((isset($_SESSION['id']))&&(isset($_GET['id_paquete']))) {
     asignarPaquete($id_paquete,$id_usuario,"HOTSALE");
     echo'<script type="text/javascript">
         alert("El paquete es tuyo!");
-        window.location = document.referrer;
+        window.location.href = "../vistas/listas-paquetes-user.php";
         </script>';
   }else {
     echo'<script type="text/javascript">
