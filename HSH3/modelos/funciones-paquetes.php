@@ -1,5 +1,16 @@
 <?php
 
+function cancelarPaquete($id_paquete)
+{
+	include_once('../modelos/conexion.php');
+	$consulta = "UPDATE paquete SET id_usuario='' WHERE id='$id_paquete'";
+	$conexion = conectar();
+	$resultado = mysqli_query($conexion,$consulta);
+	$consulta2 = "UPDATE paquete SET estado='ESPERA' WHERE id='$id_paquete'";
+	$resultado2 = mysqli_query($conexion,$consulta2);
+	return 1;
+}
+
 function asignarPaquete($id_paquete,$id_usuario,$estado_anterior)
 {
 	include_once('../modelos/conexion.php');

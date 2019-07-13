@@ -58,6 +58,8 @@
       include("../modelos/conexion.php");
       include("../modelos/funciones-paquetes.php");
       include("../modelos/funciones-residencias.php");
+      include("../modelos/funciones-usuarios.php");
+
       $id = $_GET['id'];
       $conexion=conectar();
       $paquete = mysqli_fetch_array(getPaquetePorId2($id,$conexion));
@@ -87,22 +89,65 @@
          </div>
        </div>
 
+       <?php if ($paquete['id_usuario']==$id) {
+         $es_dueño=true;
+         $color_badge="green";
+       }else {
+         $es_dueño=false;
+         $color_badge="red";
+       } ?>
+
        <div class="uk-card uk-card-body uk-card-default">
          <h2 class="uk-card-title">
            <?php echo "Semana: ".$paquete["semana"]; ?>
          </h2>
-         <div class="uk-badge uk-card-badge uk-border-rounded" style="background-color:red;">
-           <?php echo $paquete["estado"]; ?>
+         <div class="uk-badge uk-card-badge uk-border-rounded" style="background-color:<?php echo $color_badge ?>;">
+           <?php if ($es_dueño) {
+             echo "ADQUIRIDO";
+           } else {
+             echo $paquete["estado"];
+           }?>
          </div>
          <div class="uk-card-body">
            <h1 class="uk-align-right"><?php /*echo "$".$paquete["precio_base"]; */?></h1>
 
-
-           <a type="button" class="uk-button uk-button-default uk-background-muted uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
-             no disponible
-           </a>
-
-
+           <?php if ($es_dueño){ ?>
+             <button type="button" name="button" uk-toggle="target: #confirmar-cancelar" class="uk-button uk-button-default uk-button-primary uk-border-rounded" style="background-color:red;">
+               Cancelar paquete
+             </button>
+             <div id="confirmar-cancelar" uk-modal>
+               <div class="uk-modal-dialog uk-modal-body">
+                 <h2 class="uk-modal-title">Esta seguro que desea cancelar este paquete?</h2>
+                 <p>Recuerde que si cancela el paquete, puede ser que luego lo encuentre en un estado que no es el mismo en el cual lo adquirio, o incluso que el paquete no se encuentre disponible.</p>
+                 <p>Si devuelve este paquete una semana antes de <?php echo $paquete['semana'];?>, su credito sera devuelto. Caso contrario, su credito se pierde.</p>
+                 <p class="uk-text-right">
+                   <button onclick="cancelarConfirmado()" class="uk-button uk-button-primary uk-border-rounded" type="button" style="background-color:red">Cancelar paquete</button>
+                   <script type="text/javascript">
+                      function cancelarConfirmado() {
+                        <?php
+                        cancelarPaquete($paquete['id']);
+                        sumarUnCredito($paquete['id_usuario']);
+                        ?>
+                        location.reload();
+                      }
+                   </script>
+                   <button class="uk-button uk-button-default uk-modal-close uk-border-rounded" type="button" onclick="">volver atras</button>
+                 </p>
+               </div>
+             </div>
+           <?php }else{ ?>
+             <a type="button" class="uk-button uk-button-default uk-background-muted uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+               no disponible
+             </a>
+           <?php } ?>
+         </div>
+         <div class="uk-card-footer">
+           <?php if ($es_dueño) {
+             $mensaje_footer = "Usted es el dueño de este paquete. Recuerde que si decide cancelarlo, solo se devuelve el credito gastado si lo cancela antes del";
+           } else {
+             $mensaje_footer = "Este paquete no se encuentra disponible por el momento, lo sentimos.";
+           }?>
+           <p><?php echo $mensaje_footer; ?></p>
          </div>
 
          <div id="escondido">
