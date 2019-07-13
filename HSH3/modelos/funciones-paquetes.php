@@ -1,5 +1,14 @@
 <?php
 
+function setEstadoDePaquete($id_paquete,$estado)
+{
+	include_once('../modelos/conexion.php');
+	$conexion = conectar();
+	$consulta = "UPDATE paquete SET estado='$estado' WHERE id='$id_paquete'";
+	$resultado = mysqli_query($conexion,$consulta);
+	return $resultado;
+}
+
 function cancelarPaquete($id_paquete)
 {
 	include_once('../modelos/conexion.php');
