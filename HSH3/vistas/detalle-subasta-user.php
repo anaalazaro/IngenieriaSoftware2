@@ -106,10 +106,11 @@
              <?php
              if (existenPujasDe($paquete['id'])) {
                $mejor_puja = getMejorPuja($paquete['id']);
-               echo "$".$mejor_puja;
              }else {
-               echo "$".$paquete["precio_base"];
+               $mejor_puja = $paquete["precio_base"]+50;
              }
+             $puja_minima = $mejor_puja+50;
+             echo "$".$mejor_puja;
               ?>
               <span uk-icon="icon: history" uk-toggle="target: #historial" uk-tooltip="Historial de pujas"></span>
            </h1>
@@ -168,7 +169,7 @@
                </div>
 
                <form class="" action="../controladores/controlSubasta.php?id_paquete=<?php echo $paquete['id'] ?>" method="post">
-                 <input type="number" name="nuevo-precio" value="" min="<?php echo $puja_minima+50 ?>" placeholder="Minima puja de $<?php echo $puja_minima+50; ?>" class="uk-input uk-width-1-1" required>
+                 <input type="number" name="nuevo-precio" value="" min="<?php echo $puja_minima+50 ?>" placeholder="Minima puja de $<?php echo $puja_minima; ?>" class="uk-input uk-width-1-1" required>
                  <div class="uk-child-width-1-2 uk-padding uk-padding-remove-horizontal uk-margin-left" uk-grid>
                    <input type="button" name="cancelar" value="cancelar" class="uk-button uk-button-primary" uk-toggle="target: .toggle" style="background-color:red;">
                    <input type="submit" name="pujar" value="pujar" class="uk-button uk-button-primary">
