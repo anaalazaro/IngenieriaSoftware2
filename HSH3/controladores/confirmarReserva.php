@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
         restarUnCredito($id_usuario);
         echo'<script type="text/javascript">
           alert("Usted ha reservado el paquete");
-          window.history.back();
+          window.location.replace("../vistas/detalle-paquete-user.php?id='.$id_paquete.'");
           </script>';
       }else {
         echo'<script type="text/javascript">

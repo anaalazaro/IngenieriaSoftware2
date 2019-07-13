@@ -60,9 +60,9 @@
       include("../modelos/funciones-residencias.php");
       include("../modelos/funciones-usuarios.php");
 
-      $id = $_GET['id'];
+      $id_paquete = $_GET['id'];
       $conexion=conectar();
-      $paquete = mysqli_fetch_array(getPaquetePorId2($id,$conexion));
+      $paquete = mysqli_fetch_array(getPaquetePorId2($id_paquete,$conexion));
       $residencia = getResidenciaPorId($paquete['id_res']);
       session_start();
       $id=$_SESSION['id'];
@@ -88,7 +88,6 @@
            </div>
          </div>
        </div>
-
        <?php if ($paquete['id_usuario']==$id) {
          $es_dueño=true;
          $color_badge="green";
