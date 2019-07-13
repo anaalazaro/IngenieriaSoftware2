@@ -10,6 +10,28 @@ function getCreditos($id_usuario)
 	return $result['creditos'];
 }
 
+function sumarUnCredito($id_usuario)
+{
+	$creditos_anteriores = getCreditos($id_usuario);
+	$creditos_nuevos = $creditos_anteriores+1;
+	$conexion = conectar();
+	$consulta = "UPDATE usuario SET creditos='$creditos_nuevos' WHERE id='$id_usuario'";
+	mysqli_query($conexion,$consulta);
+	mysqli_close($conexion);
+	return 1;
+}
+
+function restarUnCredito($id_usuario)
+{
+	$creditos_anteriores = getCreditos($id_usuario);
+	$creditos_nuevos = $creditos_anteriores-1;
+	$conexion = conectar();
+	$consulta = "UPDATE usuario SET creditos='$creditos_nuevos' WHERE id='$id_usuario'";
+	mysqli_query($conexion,$consulta);
+	mysqli_close($conexion);
+	return 1;
+}
+
 function tieneTarjetaValida($id_usuario)
 {
 	$conexion = conectar();
