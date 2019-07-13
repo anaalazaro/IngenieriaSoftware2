@@ -40,6 +40,7 @@
       </div>
     </nav>
 
+
     <?php
 
     /*  ESTADOS DE UN PAQUETE
@@ -90,31 +91,18 @@
          <h2 class="uk-card-title">
            <?php echo "Semana: ".$paquete["semana"]; ?>
          </h2>
-         <div class="uk-badge uk-card-badge uk-border-rounded">
+         <div class="uk-badge uk-card-badge uk-border-rounded" style="background-color:red;">
            <?php echo $paquete["estado"]; ?>
          </div>
          <div class="uk-card-body">
            <h1 class="uk-align-right"><?php /*echo "$".$paquete["precio_base"]; */?></h1>
 
-           <?php $color_boton="light-blue";
-           if($paquete['estado']=='RESERVA' and $row['premium']==1) {?>
-           <a  href= "../controladores/confirmarReserva.php?id=<?php echo $paquete['id'];?>" type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick='return confirm("Desea confirmar la reserva del paquete?")'>
-             Reservar paquete
-           </a>
-           <?php }?>
 
-         </div>
-         <div class="uk-card-footer">
-           <h4>Tiempo restante para ser subastado: </h4>
-           <?php
-           include_once('../modelos/get_format.php');
-           $date1 = new DateTime("now");
-           $dt=$paquete['semana'];
-           $dt_subasta=date("Y-m-d", strtotime("$dt -6 month"));
-           $date2 = new DateTime($dt_subasta);
-           $diff = $date1->diff($date2);
-           $tiempo_restante=get_format($diff);
-           ?>
+           <a type="button" class="uk-button uk-button-default uk-background-muted uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>">
+             no disponible
+           </a>
+
+
          </div>
 
          <div id="escondido">

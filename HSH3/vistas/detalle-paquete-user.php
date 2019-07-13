@@ -14,8 +14,10 @@ if (isset($_GET['id'])) {
     case 'HOTSALE':
       header("location: ../vistas/detalle-hotsale-user.php?id=".$id_de_paquete);
       break;
+    default:
+      header("location: ../vistas/detalle-paquete-no-disponible.php?id=".$id_de_paquete);
+      break;
   }
-  echo $paquete['estado'];
 }
 
 
