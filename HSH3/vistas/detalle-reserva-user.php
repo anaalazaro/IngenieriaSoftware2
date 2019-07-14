@@ -101,7 +101,9 @@
            <a  href= "../controladores/confirmarReserva.php?id=<?php echo $paquete['id'];?>" type="button" name="subasta" class="uk-button uk-button-primary uk-border-rounded uk-width-expand" style="background-color:<?php echo $color_boton; ?>" onclick='return confirm("Desea confirmar la reserva del paquete?")'>
              Reservar paquete
            </a>
-           <?php }?>
+         <?php } elseif ($row['premium']==0) {?>
+           <button type="button" class="uk-button uk-border-rounded uk-button-default" uk-tooltip="Tenes que ser usuario premium para poder reservar paquetes!">Reservar</button>
+         <?php }?>
 
          </div>
          <div class="uk-card-footer">
