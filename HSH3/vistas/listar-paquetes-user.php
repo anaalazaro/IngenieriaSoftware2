@@ -34,6 +34,7 @@
         <div class="uk-padding-small uk-padding-remove-bottom" uk-grid>
             <select name="filtro" class="uk-select uk-width-1-3" onchange="submit" >
               <option value="todos" <?php if ($opcion=="todos") {echo "selected";} ?>>Todos los Paquetes</option>
+              <option value="disponibles" <?php if ($opcion=="disponibles") {echo "selected";} ?>>Paquetes Disponible o Activos</option>
               <option value="subasta" <?php if ($opcion=="subasta") {echo "selected";} ?>>Paquetes En Subasta</option>
               <option value="hotsale" <?php if($opcion=="hotsale"){echo "selected";} ?>>Paquetes en Hotsale</option>
               <option value="reserva" <?php if($opcion=="reserva"){echo "selected";} ?>>Paquetes en Reserva</option>
@@ -69,45 +70,57 @@
         case 'reserva':
           $consulta= "SELECT * FROM paquete WHERE estado='RESERVA'";
           break;
+        case 'disponibles':
+          $consulta= "SELECT * FROM paquete WHERE estado='RESERVA' OR estado='HOTSALE' OR estado='SUBASTA'";
+          break;
       }
     }
 
     $result=mysqli_query($conexion,$consulta);
     mysqli_close($conexion);?>
 
-    <div class="uk-padding uk-margin-left">
-      <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove" uk-grid>
-        <div class="uk-child-width-1-6" uk-grid>
-          <div class="">ID</div>
-          <div class="">Nombre</div>
-          <div class="">Semana</div>
-          <div class="">Usuario</div>
-          <div class="">Estado</div>
-        </div>
-        <div class="uk-child-width-1-4 uk-margin-remove-top" uk-grid>
-          <div class="uk-width-3-4">Entra en subasta</div>
-        </div>
+    <div class="uk-panel uk-padding uk-margin-left">
+      <div class="">
+        <table class="uk-table uk-table-divider uk-border-rounded" style="background-color:white">
+          <thead>
+              <tr>
+                  <th>RESIDENCIA</th>
+                  <th>SEMANA</th>
+                  <th>ESTADO</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+
+            <?php
+            while ($row = mysqli_fetch_array($result)) {
+              $id_paquete=$row['id'];
+              $id_residencia = $row['id_res'];
+              $conexion = conectar();
+              $consulta = "SELECT * FROM residencia WHERE id = '$id_residencia'";
+              $residencia = mysqli_fetch_array(mysqli_query($conexion,$consulta));
+              mysqli_close($conexion);
+            ?>
+              <tr>
+                <td><?php echo $residencia['nombre']; ?></td>
+                <td><?php echo $row['semana']; ?></td>
+                <td><?php echo $row['estado']; ?></td>
+                <td>
+                  <a href="detalle-paquete-user.php?id=<?php echo $row['id']; ?>">
+                    <button type="button" name="button" class="uk-button uk-button-small uk-border-rounded uk-button-primary">ver</button>
+                  </a>
+                </td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
       </div>
-      <?php
-      while ($row = mysqli_fetch_array($result)) {
-        $id_paquete=$row['id'];
-        $id_residencia = $row['id_res'];
-        $conexion = conectar();
-        $consulta = "SELECT * FROM residencia WHERE id = '$id_residencia'";
-        $residencia = mysqli_fetch_array(mysqli_query($conexion,$consulta));
-        mysqli_close($conexion);
-        ?>
-        <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove uk-margin-small-top uk-border-rounded" uk-grid>
-          <div class="uk-child-width-1-6" uk-grid>
-            <div class=""><?php echo $row['id']; ?></div>
-            <div class=""><?php echo $residencia['nombre']; ?></div>
-            <div class=""><?php echo $row['semana']; ?></div>
-            <div class=""><?php if (($row['id_usuario'])>0) {echo $row['id_usuario'];}else {echo "sin dueño";} ?></div>
-            <div class=""><?php echo $row['estado']; ?></div>
-          </div>
-          <div class="uk-child-width-1-4 uk-margin-remove-top" uk-grid>
-            <div class="uk-width-3-4">
+    </div>
+  </body>
+</html>
+
               <?php
+              /*
               if ($row['estado']=='RESERVA'){
                 $date1 = new DateTime("now");
                 $dt=$row['semana'];
@@ -118,23 +131,6 @@
               }else {
                 $tiempo_restante = "no aplica";
               }
-              ?>
-              <?php echo $tiempo_restante;?>
-            </div>
-            <div class="uk-width-1-4">
-                <a href="detalle-paquete-user.php?id=<?php echo $row['id']; ?>">
-                  <button type="button" name="button" class="uk-button uk-button-small uk-border-rounded uk-button-primary">ver</button>
-                </a>
-            </div>
-          </div>
-
-        </div>
-        <?php
-      }
-       ?>
-    </div>
-
-
-
-  </body>
-</html>
+               echo $tiempo_restante;
+               */
+               ?>
