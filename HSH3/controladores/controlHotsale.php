@@ -2,7 +2,7 @@
 
 if (isset($_GET['id'])) {
   $id_paquete = $_GET['id'];
-  if (isset($_POST['precio'])) {
+  if ((isset($_POST['precio']))AND($_POST['precio']>=0)) {
     $precio = $_POST['precio'];
     include('../modelos/funciones-paquetes.php');
     $paquete = mysqli_fetch_array(getPaquetePorId($id_paquete));

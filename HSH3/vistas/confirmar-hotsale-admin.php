@@ -42,7 +42,7 @@
           <div class="">
             <h3>Ingrese un precio de Hotsale</h3>
             <form id="form-precio" action="../controladores/controlHotsale.php?id=<?php echo $paquete['id']; ?>" method="post">
-              <input type="number" name="precio" value="precio" class="uk-input" required>
+              <input type="number" name="precio" value="precio" class="uk-input" min="0" required>
             </form>
           </div>
         </div>
