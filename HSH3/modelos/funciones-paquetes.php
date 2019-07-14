@@ -125,6 +125,28 @@ function modificarPaquete($id, $precio)
 	mysqli_close($conexion);
 }
 
+function cerrarSubasta($id_paquete)
+{
+	include_once('../modelos/conexion.php');
+	include_once('../modelos/funciones-usuarios.php');
+	include_once('../modelos/funciones-pujas.php');
+	$conexion = conectar();
+
+	$pujas = getPujasPorIdDePaquete($id_paquete);
+	$se_encontro_dueño = false;
+	while ((!$se_encontro_dueño) AND ($puja=mysqli_fetch_array($pujas))) {
+		$id_usuario_puja = $puja['id_usuario'];
+		$id_paquete_puja = $puja['id_paquete'];
+		if (getCreditos($id_usuario_puja)>0) {
+			$query_subasta = "UPDATE paquete SET estado='SUBASTADO',id_usuario=$id_usuario_puja WHERE id=$id_paquete_puja";
+			mysqli_query($conexion,$query_subasta);
+			restarUnCredito($id_usuario_puja);
+			$se_encontro_dueño = true;
+		}
+	}
+	return $se_encontro_dueño;
+}
+
 function getPaquetePorId2($id,$conexion)
 {
 	$consulta = "SELECT * FROM paquete WHERE id = '$id'";

@@ -1,5 +1,7 @@
 <?php
 
+
+
 function registrarPuja($id_paquete,$id_usuario,$monto)
 {
   $conexion = conectar();

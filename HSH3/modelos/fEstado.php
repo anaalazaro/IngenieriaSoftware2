@@ -1,6 +1,7 @@
 <?php
 
 include_once('../modelos/funciones-paquetes.php');
+include_once('../modelos/funciones-pujas.php');
 
 function modificarEstado($conexion){
 	$consulta="Select * from paquete ";
@@ -26,11 +27,19 @@ function modificarEstado($conexion){
 			setEstadoDePaquete($id,'SUBASTA');
 
 		}elseif(($estado=='RESERVA' OR $estado=='SUBASTA' OR $estado=='CADUCADO') AND ($fecha>=$dt_subasta_fin AND $fecha<=$dt)){
-			setEstadoDePaquete($id,'ESPERA');
+			if (existenPujasDe($id) AND $estado=='SUBASTA') {
+				$estado_de_cierre = cerrarSubasta($id);
+				if (!$estado_de_cierre) {
+					setEstadoDePaquete($id,'ESPERA');
+				}
+			}else {
+				setEstadoDePaquete($id,'ESPERA');
+			}
+
 
 		}elseif($dt<=$fecha ){
 			setEstadoDePaquete($id,'CADUCADO');
-			
+
 		}
 
 
