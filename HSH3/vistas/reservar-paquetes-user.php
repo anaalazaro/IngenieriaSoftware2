@@ -58,7 +58,7 @@
             <div class="uk-card-body">
               <?php echo $rows["semana"]; ?>
               <div class="uk-float-right">
-                <?php echo "$".$rows["precio_base"]; ?>
+                <?php// echo "$".$rows["precio_base"]; ?>
               </div>
               <div class="uk-card-footer">
                 <a href="../vistas/detalle-paquete-user.php?id=<?php echo $rows['id']; ?>">click aquí para mas info</a>
