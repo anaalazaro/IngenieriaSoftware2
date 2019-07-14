@@ -19,6 +19,8 @@ function modificarEstado($conexion){
 		$estado=$row['estado'];
 		$dt_subasta_fin=date("Y-m-d", strtotime("$dt_subasta_inicio +3 days"));
 
+		
+
 
 		if (($estado=='SUBASTA' OR $estado=='ESPERA' OR $estado=='CADUCADO') AND ($fecha<=$dt_subasta_inicio)){
 			setEstadoDePaquete($id,'RESERVA');
@@ -26,7 +28,7 @@ function modificarEstado($conexion){
 		}elseif(($estado=='RESERVA' OR $estado=='ESPERA' OR $estado=='CADUCADO') AND ($fecha>=$dt_subasta_inicio AND $fecha<=$dt_subasta_fin)){
 			setEstadoDePaquete($id,'SUBASTA');
 
-		}elseif(($estado=='RESERVA' OR $estado=='SUBASTA' OR $estado=='CADUCADO') AND ($fecha>=$dt_subasta_fin AND $fecha<=$dt)){
+		}elseif(($estado=='RESERVA' OR $estado=='SUBASTA' OR $estado=='CADUCADO') AND ($fecha>$dt_subasta_fin AND $fecha<=$dt)){
 			if (existenPujasDe($id) AND $estado=='SUBASTA') {
 				$estado_de_cierre = cerrarSubasta($id);
 				if (!$estado_de_cierre) {

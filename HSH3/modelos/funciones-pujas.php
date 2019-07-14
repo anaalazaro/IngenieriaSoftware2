@@ -1,6 +1,11 @@
 <?php
 
-
+function eliminarPujasDe($id_paquete,$id_usuario)
+{
+  $conexion = conectar();
+  $consulta = "DELETE FROM pujas WHERE id_paquete=$id_paquete AND id_usuario=$id_usuario";
+  $result = mysqli_query($conexion,$consulta);
+}
 
 function registrarPuja($id_paquete,$id_usuario,$monto)
 {
@@ -15,6 +20,15 @@ function existenPujasDe($id_paquete)
 {
   $conexion = conectar();
   $consulta = "SELECT COUNT(*) AS cantidad FROM pujas WHERE id_paquete='$id_paquete'";
+  $result = mysqli_query($conexion,$consulta);
+  $pujas = $result->fetch_assoc();
+  return $pujas['cantidad'];
+}
+
+function elUsuarioPujoElPaquete($id_usuario,$id_paquete)
+{
+  $conexion = conectar();
+  $consulta = "SELECT COUNT(*) AS cantidad FROM pujas WHERE id_paquete='$id_paquete' AND id_usuario='$id_usuario'";
   $result = mysqli_query($conexion,$consulta);
   $pujas = $result->fetch_assoc();
   return $pujas['cantidad'];
