@@ -86,8 +86,8 @@
               <tr>
                   <th>RESIDENCIA</th>
                   <th>SEMANA</th>
-                  <th>ESTADO</th>
                   <th></th>
+                  <th>ESTADO</th>
               </tr>
           </thead>
           <tbody>
@@ -102,14 +102,21 @@
               mysqli_close($conexion);
             ?>
               <tr>
-                <td><?php echo $residencia['nombre']; ?></td>
-                <td><?php echo $row['semana']; ?></td>
-                <td><?php echo $row['estado']; ?></td>
+                <td uk-grid>
+                  <div class="uk-width-auto">
+                      <img src='data:image/jpeg; base64, <?php echo base64_encode($residencia['imagen']); ?>' class="uk-comment-avatar uk-border-rounded" width="80" height="80" alt="">
+                  </div>
+                  <h4><?php echo $residencia['nombre']; ?></h4>
+                </td>
+                <td>
+                  <h4><?php echo $row['semana']; ?></h4>
+                </td>
                 <td>
                   <a href="detalle-paquete-user.php?id=<?php echo $row['id']; ?>">
                     <button type="button" name="button" class="uk-button uk-button-small uk-border-rounded uk-button-primary">ver</button>
                   </a>
                 </td>
+                <td><?php echo $row['estado']; ?></td>
               </tr>
             <?php } ?>
           </tbody>
