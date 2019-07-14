@@ -15,7 +15,7 @@
 
     <nav class="uk-navbar-container" style="background-color:white" uk-navbar>
       <div class="uk-navbar-left uk-padding-small">
-        <a href="../vistas/reservar-paquetes-user.php" class="uk-button uk-button-primary uk-border-rounded">Volver atras</a>
+        <a href="javascript: window.location.replace(document.referrer);" class="uk-button uk-button-primary uk-border-rounded">Volver atras</a>
       </div>
       <div class="uk-navbar-center">
         <ul class="uk-navbar-nav">
