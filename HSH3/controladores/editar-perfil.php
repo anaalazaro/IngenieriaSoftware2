@@ -23,13 +23,16 @@ $mostrar= getUsuario($conexion,$mail);
   </head>
   <body class="uk-height-viewport my-background-color">
     <div class="">
-      <div class="uk-position-center my-form-box uk-padding-small">
+      <div class="uk-panel uk-border-rounded" style="background-color:white;">
         <div class="uk-width-1-1">
-          <h1 align="center">Registro de usuarios</h1>
+          <h1 align="center">Editar informacion de perfil</h1>
         </div>
         <center>
           <img src="../files/hsh-logo.png"width="250" height="250" >
         </center>
+      </div>
+      <div class="uk-padding">
+        <div class="uk-panel uk-padding-small uk-border-rounded" style="background-color:white;">
           <form action="../controladores/validarEditarPerfil.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small uk-padding-remove-bottom"> <!--comienzo de formulario-->
             <!--Agregar una foto -->
              <div class="uk-width-1-1 uk-padding-small">
@@ -121,6 +124,7 @@ $mostrar= getUsuario($conexion,$mail);
                 <input type="submit" value="ya tengo cuenta" class="uk-width-1-1 uk-button uk-button-default"></input>
               </div>
           </form> -->
+        </div>
       </div>
     </div>
   </body>
