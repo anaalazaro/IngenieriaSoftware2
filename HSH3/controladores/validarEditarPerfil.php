@@ -17,23 +17,46 @@ $fechaN=$_POST['edad'];
 $tip_imagen=$_FILES['foto']['type'];
 $imagen=$_FILES['foto']['tmp_name'];
 
+$fecha_hoy = new DateTime('now');
+$fecha_vencimiento_tarjeta = new DateTime($tarjeta_ven);
+$fecha_nacimiento = new DateTime($fechaN);
 
-$tipo= addslashes($tip_imagen);
-if ($tipo=="image/png" || $tipo=="image/jpg" || $tipo=="image/jpeg"  || $tipo=="image/bmp" || $tipo=="image/tif"){
-$archivo= fopen($imagen, "r");
-$contenido=fread($archivo, $size_imagen);//archivo en bytes
-$contenido=addslashes($contenido);
-fclose($archivo);
-}		
-$consulta="UPDATE usuario SET nombre_usuario='$nombre',apellido_usuario='$apellido',fecha_nacimiento='$fechaN',mail='$mail',contrasenia='$contrasenia',localidad='$localidad',direccion='$direccion',telefono='$telefono',tarjeta_numero='$tarjeta_numero', tarjeta_codigo='$tarjeta_codigo', tarjeta_vencimiento='$tarjeta_ven',imagen='$contenido',tipoimagen='$tip_imagen' WHERE mail='$mail'";
+$edad = date_diff($fecha_hoy,$fecha_nacimiento);
+$edad = $edad->format('%Y');
+echo $edad;
 
-$resultado=mysqli_query($conexion,$consulta);
-if($resultado){
+if ($edad>=18) {
+	if ($fecha_hoy<$fecha_vencimiento_tarjeta) {
+		$tipo= addslashes($tip_imagen);
+		if ($tipo=="image/png" || $tipo=="image/jpg" || $tipo=="image/jpeg"  || $tipo=="image/bmp" || $tipo=="image/tif"){
+		$archivo= fopen($imagen, "r");
+		$contenido=fread($archivo, $size_imagen);//archivo en bytes
+		$contenido=addslashes($contenido);
+		fclose($archivo);
+		}
+		$consulta="UPDATE usuario SET nombre_usuario='$nombre',apellido_usuario='$apellido',fecha_nacimiento='$fechaN',mail='$mail',contrasenia='$contrasenia',localidad='$localidad',direccion='$direccion',telefono='$telefono',tarjeta_numero='$tarjeta_numero', tarjeta_codigo='$tarjeta_codigo', tarjeta_vencimiento='$tarjeta_ven',imagen='$imagen',tipoimagen='$tip_imagen' WHERE mail='$mail'";
+
+		$resultado=mysqli_query($conexion,$consulta);
+		mysqli_close($conexion);
+		if($resultado){
+			echo "<script language='javascript'>
+				alert('Se han guardado los cambios!..');
+				location.href= '../vistas/pantalla-perfil-usuario.php' ;
+				</script>";
+		}
+	}else {
+		echo "<script language='javascript'>
+			alert('La tarjeta que usted ingreso esta vencida, por favor verifique la informacion e ingrese una tarjeta valida.');
+			window.history.back();
+			</script>";
+	}
+}else {
 	echo "<script language='javascript'>
-		alert('Se han guardado los cambios!..');
-		location.href= '../vistas/pantalla-perfil-usuario.php' ;
+		alert('Usted debe tener al menos 18 años. Si usted es menor de edad y usa nuestro sistema HSH, esta violando nuestros Terminos y Condiciones. Si fue un error, por favor arreglelo.');
+		window.history.back();
 		</script>";
 }
 
-mysqli_close($conexion);
+
+
 ?>

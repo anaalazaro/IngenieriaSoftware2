@@ -36,6 +36,7 @@
               <option value="todos" <?php if ($opcion=="todos") {echo "selected";} ?>>Todos los Paquetes</option>
               <option value="subasta" <?php if ($opcion=="subasta") {echo "selected";} ?>>Paquetes En Subasta</option>
               <option value="hotsale" <?php if($opcion=="hotsale"){echo "selected";} ?>>Paquetes en Hotsale</option>
+              <option value="reserva" <?php if($opcion=="reserva"){echo "selected";} ?>>Paquetes en Reserva</option>
             </select>
             <button type="submit" name="aplicar-filtro" class="uk-button uk-button-primary">
               aplicar filtro
@@ -64,6 +65,9 @@
           break;
         case 'hotsale':
           $consulta= "SELECT * FROM paquete WHERE estado='HOTSALE'";
+          break;
+        case 'reserva':
+          $consulta= "SELECT * FROM paquete WHERE estado='RESERVA'";
           break;
       }
     }

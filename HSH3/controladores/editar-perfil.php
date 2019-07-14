@@ -45,13 +45,13 @@ $mostrar= getUsuario($conexion,$mail);
             <!-- Datos nombre-->
             <div class="uk-width-1-1 uk-padding-small">
               <label>Nombre:</label>
-              <input type="nombre" name="nombre" class="uk-input " placeholder="Nombre" value="<?php echo($mostrar['nombre_usuario']);?>" required>
+              <input type="text" name="nombre" class="uk-input " placeholder="Nombre" value="<?php echo($mostrar['nombre_usuario']);?>" required>
             </div>
 
             <!-- Datos apellido-->
             <div class="uk-width-1-1 uk-padding-small">
               <label>Apellido:</label>
-              <input type="apellido" name="apellido" class="uk-input" placeholder="Apellido"   value="<?php echo $mostrar['apellido_usuario'] ;?>" required>
+              <input type="text" name="apellido" class="uk-input" placeholder="Apellido"   value="<?php echo $mostrar['apellido_usuario'] ;?>" required>
             </div>
             <!-- Datos nacimiento-->
             <div class="uk-width-1-1 uk-padding-small">
@@ -63,7 +63,7 @@ $mostrar= getUsuario($conexion,$mail);
             <!-- Datos telefno-->
             <div class="uk-width-1-1 uk-padding-small">
                <label>Telefono:</label>
-              <input type="telefono" name="telefono" class="uk-input " placeholder="Telefono"  value="<?php echo $mostrar['telefono']; ?>" required>
+              <input type="number" name="telefono" class="uk-input " placeholder="Telefono"  value="<?php echo $mostrar['telefono']; ?>" required>
             </div>
 
             <!-- Datoslocalidad -->
