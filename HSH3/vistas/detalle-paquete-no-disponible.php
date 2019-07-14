@@ -69,10 +69,11 @@
       $consulta= "SELECT * FROM usuario WHERE id='$id'";
       $result=mysqli_query($conexion,$consulta);
       $row = mysqli_fetch_array($result);
-     ?>
-     <?php
-     echo $paquete['id_usuario'];
-     echo $row['id'];
+
+      //CALCULO DE FECHA 1 SEMANA ANTES
+      $fecha_obj = new Datetime($paquete['semana']);
+      $fecha_obj->modify('-7 day');
+      $fecha_limite = date_format($fecha_obj, 'Y-m-d');
      ?>
 
      <div class="uk-child-width-1-3 uk-padding" align="" uk-grid>
@@ -122,7 +123,7 @@
                <div class="uk-modal-dialog uk-modal-body">
                  <h2 class="uk-modal-title">Esta seguro que desea cancelar este paquete?</h2>
                  <p>Recuerde que si cancela el paquete, puede ser que luego lo encuentre en un estado que no es el mismo en el cual lo adquirio, o incluso que el paquete no se encuentre disponible.</p>
-                 <p>Si devuelve este paquete una semana antes de <?php echo $paquete['semana'];?>, su credito sera devuelto. Caso contrario, su credito se pierde.</p>
+                 <p>Si devuelve este paquete antes de: <?php echo $fecha_limite;?>, su credito sera devuelto. Caso contrario, su credito se pierde.</p>
                  <p class="uk-text-right" uk-grid>
                    <form class="" action="../controladores/controlCancelarReserva.php?id-paquete=<?php echo $id_paquete?>" method="post">
                      <button type="submit" class="uk-button uk-button-primary uk-border-rounded" style="background-color:red">Cancelar paquete</button>
@@ -139,7 +140,7 @@
          </div>
          <div class="uk-card-footer">
            <?php if ($es_dueño) {
-             $mensaje_footer = "Usted es el dueño de este paquete. Recuerde que si decide cancelarlo, solo se devuelve el credito gastado si lo cancela antes del";
+             $mensaje_footer = "Usted es el dueño de este paquete. Recuerde que si decide cancelarlo, solo se devuelve el credito gastado si lo cancela antes del ".$fecha_limite.".";
            } else {
              $mensaje_footer = "Este paquete no se encuentra disponible por el momento, lo sentimos.";
            }?>
