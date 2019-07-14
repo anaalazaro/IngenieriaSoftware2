@@ -46,28 +46,30 @@
  
         $consulta= "SELECT * FROM residencia r INNER JOIN  paquete p ON r.id=p.id_res WHERE p.id_usuario = '$id_user'";
         $enviar= mysqli_query($conexion,$consulta);
-       // $rows=mysqli_fetch_array($enviar);
-        while ($rows=mysqli_fetch_array($enviar) /*= mysqli_fetch_array($paquetes_del_usuario)*/) {
+         if(mysqli_num_rows($enviar)==0){ ?>
+           <div class="uk-tile uk-tile-default uk-tile-small uk-border-rounded uk-position-center">
+             <h1 >     No tienes paquetes adquiridos,obten tu paquete aquí...     </h1>
+             <a href="../vistas/listar-residencias-user.php" style="font-size:30px;text-align: center;  " >Ver residencias </a>
+         </div>
+          <?php }
+        while ($rows=mysqli_fetch_array($enviar)) {
           ?>
-
 
           <div class="uk-card uk-card-default uk-card-body uk-width-1-2 " uk-card>
             <div class="uk-card-title">
               <?php echo $rows["nombre"]; ?>
             </div>
             <div class="uk-card-body">
-              <?php echo $rows["semana"]; ?>
+              <?php echo  'Semana: '.$rows["semana"]; ?>
               <div class="uk-float-right">
                 <?php// echo "$".$rows["precio_base"]; ?>
               </div>
               <div class="uk-card-footer">
-                <a href="../vistas/detalle-paquete-user.php?id=<?php echo $rows['id']; ?>">click aquí para mas info</a>
+                <a href="../vistas/detalle-paquete-user.php?id=<?php echo $rows['id']; ?>">click aquí para mas información </a>
               </div>
             </div>
           </div>
-
-
-          <?php
+           <?php
         }
       ?>
     </div>
