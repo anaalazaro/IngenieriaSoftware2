@@ -90,13 +90,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <?php while ($row=mysqli_fetch_array($subastas)) {?>
-              <th><?php echo $row['usuario']; ?></th>
-              <th><?php echo $row['hora_puja']; ?></th>
-              <th><?php echo "$".$row['monto_oferta']; ?></th>
-            <?php } ?>
-          </tr>
+          <?php
+          include_once('../modelos/funciones-pujas.php');
+          include_once('../modelos/funciones-usuarios.php');
+          $pujas = getPujasPorIdDePaquete($paquete['id']);
+          while ($row=mysqli_fetch_array($pujas)) {
+            $usuario = getUsuarioPorId($row['id_usuario']);
+            ?>
+            <tr>
+              <th><?php echo $usuario['mail']; ?></th>
+              <th><?php echo $row['fecha']; ?></th>
+              <th><?php echo "$".$row['monto']; ?></th>
+            </tr>
+          <?php } ?>
         </tbody>
       </table>
     </div>
