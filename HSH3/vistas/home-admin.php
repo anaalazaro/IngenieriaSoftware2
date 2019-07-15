@@ -28,6 +28,13 @@
                 </ul>
               </div>
             </li>
+          <li><a href="pantalla-listar-administradores.php">Administradores</a>
+             <div class="uk-navbar-dropdown">
+                <ul class=" uk-nav uk-navbar-dropdown-nav">
+                  <li><a href="pantalla-listar-administradores.php">Lista de administradores</a></li>
+                </ul>
+              </div> 
+            </li> 
             <li><a href="pantalla-listar-usuarios.php"> Usuarios</a>
               <div class="uk-navbar-dropdown">
                 <ul class=" uk-nav uk-navbar-dropdown-nav">

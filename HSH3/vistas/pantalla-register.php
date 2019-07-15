@@ -11,8 +11,8 @@
     <title>Registro Usuario</title>
   </head>
   <body class="uk-height-viewport my-background-color">
-    <div class="">
-      <div class="uk-position-center my-form-box uk-padding-small">
+    <div class="uk-padding">
+      <div class="my-form-box uk-padding-small">
         <div class="uk-width-1-1">
           <h1 align="center">Registro de usuarios</h1>
         </div>
