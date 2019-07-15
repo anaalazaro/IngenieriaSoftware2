@@ -10,9 +10,9 @@
   <script src="../js/uikit-icons.min.js"></script>
   <script type="text/javascript" src="validar_agregar.js"></script>
 </head>
-  <body class="uk-height-viewport my-background-color">
+  <body class="uk-height-viewport my-background-color uk-padding">
 
-    <div class="uk-position-center my-form-box">
+    <div class=" my-form-box">
         <form action="../controladores/registrarRes.php" method="post" enctype="multipart/form-data" class="uk-form uk-padding-small" >
           <div class="">
             <p class="uk-text-lead">Agregando nueva residencia</p>
