@@ -31,7 +31,7 @@
             <button type="button" name="nuevo-admnistrador" onclick="window.location='../vistas/pantalla-crear-administrador.php'" class="uk-button uk-button-primary" style="background-color:green;">
               agregar administrador
             </button>
-        
+
       </form>
     </div>
 
@@ -47,46 +47,45 @@
     mysqli_close($conexion);?>
 
     <div class="uk-padding uk-margin-left">
-      <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove" uk-grid>
-        <div class="uk-child-width-1-6" uk-grid>
-     
-          <div class="">Mail</div>
-          
-        </div>
-        
-      </div>
+      <div class="uk-panel uk-border-rounded" style="background-color:white;">
+        <table class="uk-table uk-table-striped">
+          <div class="" align="center">
+            <p>Lista de Administradores</p>
+          </div>
+          <thead>
+              <tr>
+                  <th>MAIL</th>
+                  <th>opcion</th>
+              </tr>
+          </thead>
+          <tbody class="">
+
       <?php
 	  $numrows=mysqli_num_rows($result);
-	 if($numrows==0){
-		 echo "<label>no hay otros admin</label>";
-	 }else{
+	 if($numrows==0){?>
+     <tr>
+       <td><?php echo "No hay otros administradores"; ?></td>
+       <td></td>
+     </tr>
+
+  <?php	}else{
       while ($row = mysqli_fetch_array($result)) {
 		  $id_ad=$row['id'];
         ?>
-        <div class="uk-tile uk-tile-default uk-width-1-1 uk-child-width-1-2 uk-padding-remove uk-margin-small-top uk-border-rounded" uk-grid>
-          <div class="uk-child-width-1-6" uk-grid>
-            
-            <div class=""><td><?php echo $row['mail']; ?>
-			<a href="../controladores/eliminar-admi.php?id=<?php echo $id_ad ?>">Eliminar<span uk-icon="trash" onclick="return eliminarAdmi();"></span></a></div>
-           </td>
-          </div>
-          <div class="uk-child-width-1-4 uk-margin-remove-top" uk-grid>
-            <div class="uk-width-3-4">
-	  <?php }
-             
-              ?>
-             
-            </div>
-            
-          </div>
+        <tr>
+          <td><?php echo $row['mail']; ?></td>
+          <td>
+            <a href="../controladores/eliminar-admi.php?id=<?php echo $id_ad ?>">Eliminar<span uk-icon="trash" onclick="return eliminarAdmi();"></span></a>
+          </td>
+        </tr>
 
-        </div>
-        <?php
-      }
-       ?>
+	  <?php }?>
+
+  <?php } ?>
+
+          </tbody>
+        </table>
+      </div>
     </div>
-
-
-
   </body>
 </html>
